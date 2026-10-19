@@ -1,0 +1,1495 @@
+Fri Nov 29 18:14:37 JST 2024
+--------------- this script ----------------
+date
+echo "--------------- this script ----------------"
+cat $0
+echo "--------------- this script, done ----------"
+echo
+module list
+
+export OMP_NUM_THREADS=2
+echo OMP_NUM_THREAD: $OMP_NUM_THREADS
+export OMP_PROC_BIND=spread
+env
+
+echo "--------------- main.yaml ------------------"
+cat main.yaml
+echo "--------------- main.yaml, done-------------"
+echo
+INPUT=test_alt_Spectrum_Domainwall_5din_Hadron2ptFunction.yaml
+echo $INPUT
+echo "--------------- INPUT ----------------------"
+cat $INPUT
+echo "--------------- INPUT, done ----------------"
+echo
+BIN=../benchmark/domainwall/bridge.elf
+ls -l $BIN
+date
+mpirun -bind-to none $BIN alt_accel
+date
+echo done
+
+
+--------------- this script, done ----------
+
+Currently Loaded Modulefiles:
+ 1) system/qc-gh200   2) nvhpc-hpcx/24.9  
+OMP_NUM_THREAD: 2
+SHELL=/bin/bash
+SLURM_JOB_USER=kanamori-i
+SLURM_TASKS_PER_NODE=1
+SLURM_JOB_UID=1013
+HISTCONTROL=ignoredups
+SLURM_TASK_PID=1077141
+__MODULES_LMALTNAME=nvhpc-hpcx/24.9&as|nvhpc-hpcx/default&as|nvhpc-hpcx/latest
+SLURM_LOCALID=0
+SLURM_SUBMIT_DIR=/hs/work0/home/users/kanamori-i/work/bridge/fs_dw_solver/work_202411/submit_gh200_openacc_1pgu
+HISTSIZE=1000
+HOSTNAME=qc-gh200-02
+SLURMD_NODENAME=qc-gh200-02
+SLURM_JOB_START_TIME=1732871473
+HYDRA_LAUNCHER_EXTRA_ARGS=--external-launcher
+SSH_AUTH_SOCK=/tmp/ssh-XXXXe8gbKz/agent.230783
+CPP=cpp
+SLURM_CLUSTER_NAME=rccs-cloud
+SLURM_JOB_END_TIME=1732875073
+SLURM_CPUS_ON_NODE=72
+SLURM_JOB_CPUS_PER_NODE=72
+PWD=/home/users/kanamori-i/work/bridge/fs_dw_solver/work_202411/submit_gh200_openacc_1pgu
+PRTE_MCA_plm_slurm_args=--external-launcher
+SLURM_GTIDS=0
+LOGNAME=kanamori-i
+XDG_SESSION_TYPE=tty
+SLURM_JOB_PARTITION=qc-gh200
+MODULESHOME=/usr/share/Modules
+MANPATH=/usr/share/man:
+SLURM_JOB_NUM_NODES=1
+CXX=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/bin/nvc++
+SLURM_JOBID=33707
+I_MPI_HYDRA_BOOTSTRAP_EXEC_EXTRA_ARGS=--external-launcher
+SLURM_JOB_QOS=normal
+MOTD_SHOWN=pam
+__MODULES_SHARE_MANPATH=:1
+HOME=/home/users/kanamori-i
+LANG=ja_JP.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:
+SLURM_PROCID=0
+__MODULES_LMCONFLICT=system/qc-gh200&system:nvhpc-hpcx/24.9&nvhpc&nvhpc-nompi&nvhpc-byo-compiler&nvhpc-hpcx&nvhpc-openmpi3
+TMPDIR=/tmp
+NVHPC_ROOT=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9
+SLURM_NTASKS=1
+SLURM_TOPOLOGY_ADDR=qc-gh200-02
+SSH_CONNECTION=134.160.184.6 42324 10.129.0.30 22
+OMP_PROC_BIND=spread
+HYDRA_BOOTSTRAP=slurm
+SLURM_TOPOLOGY_ADDR_PATTERN=node
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+CPLUS_INCLUDE_PATH=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/extras/qd/include/qd:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nvshmem/include:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nccl/include:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/math_libs/include
+F77=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/bin/nvfortran
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+USER=kanamori-i
+SLURM_NODELIST=qc-gh200-02
+ENVIRONMENT=BATCH
+MODULES_RUN_QUARANTINE=LD_LIBRARY_PATH LD_PRELOAD
+LOADEDMODULES=system/qc-gh200:nvhpc-hpcx/24.9
+SLURM_JOB_ACCOUNT=nvidia-seminar
+F90=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/bin/nvfortran
+SLURM_PRIO_PROCESS=0
+SLURM_NPROCS=1
+SHLVL=3
+SLURM_NNODES=1
+XDG_SESSION_ID=264901
+SLURM_SUBMIT_HOST=login0.cloud.r-ccs.riken.jp
+LD_LIBRARY_PATH=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nvshmem/lib:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nccl/lib:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/math_libs/lib64:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/lib:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/extras/qd/lib:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/cuda/lib64
+XDG_RUNTIME_DIR=/run/user/1013
+SLURM_JOB_ID=33707
+SLURM_NODEID=0
+SSH_CLIENT=134.160.184.6 42324 22
+__MODULES_LMINIT=module use --append /usr/share/Modules/modulefiles:module use --append /etc/modulefiles:module use --append /usr/share/modulefiles:module use --append /cloud_opt/misc/modulefiles
+OMP_NUM_THREADS=2
+FC=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/bin/nvfortran
+which_declare=declare -f
+XDG_DATA_DIRS=/home/users/kanamori-i/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+SLURM_CONF=/etc/slurm/slurm.conf
+PATH=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/hpcx/bin:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/extras/qd/bin:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/bin:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/cuda/bin:/home/users/kanamori-i/.local/bin:/home/users/kanamori-i/bin:/usr/share/Modules/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+SLURM_JOB_NAME=domainwall
+NVHPC=/opt/nvidia/hpc_sdk
+MODULEPATH=/opt/nvidia/hpc_sdk/modulefiles:/cloud_opt/modulefiles/qc-gh200:/usr/share/Modules/modulefiles:/etc/modulefiles:/usr/share/modulefiles:/cloud_opt/misc/modulefiles
+CC=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/bin/nvc
+_LMFILES_=/cloud_opt/misc/modulefiles/system/qc-gh200:/opt/nvidia/hpc_sdk/modulefiles/nvhpc-hpcx/24.9
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1013/bus
+C_INCLUDE_PATH=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/extras/qd/include/qd:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nvshmem/include:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nccl/include:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/math_libs/include
+MAIL=/var/spool/mail/kanamori-i
+SSH_TTY=/dev/pts/4
+OMPI_MCA_plm_slurm_args=--external-launcher
+SLURM_JOB_GID=1013
+CPATH=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/extras/qd/include/qd:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nvshmem/include:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nccl/include:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/math_libs/include
+OLDPWD=/home/users/kanamori-i/work/bridge/fs_dw_solver/work_202411
+SLURM_JOB_NODELIST=qc-gh200-02
+MODULES_CMD=/usr/share/Modules/libexec/modulecmd.tcl
+I_MPI_HYDRA_BOOTSTRAP=slurm
+BASH_FUNC_ml%%=() {  module ml "$@"
+}
+BASH_FUNC_which%%=() {  ( alias;
+ eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
+}
+BASH_FUNC_module%%=() {  local _mlredir=1;
+ if [ -n "${MODULES_REDIRECT_OUTPUT+x}" ]; then
+ if [ "$MODULES_REDIRECT_OUTPUT" = '0' ]; then
+ _mlredir=0;
+ else
+ if [ "$MODULES_REDIRECT_OUTPUT" = '1' ]; then
+ _mlredir=1;
+ fi;
+ fi;
+ fi;
+ case " $@ " in 
+ *' --no-redirect '*)
+ _mlredir=0
+ ;;
+ *' --redirect '*)
+ _mlredir=1
+ ;;
+ esac;
+ if [ $_mlredir -eq 0 ]; then
+ _module_raw "$@";
+ else
+ _module_raw "$@" 2>&1;
+ fi
+}
+BASH_FUNC__module_raw%%=() {  eval "$(/usr/bin/tclsh '/usr/share/Modules/libexec/modulecmd.tcl' bash "$@")";
+ _mlstatus=$?;
+ return $_mlstatus
+}
+_=/usr/bin/env
+--------------- main.yaml ------------------
+# this is a sample parameter file
+
+Main:
+  ## lattice_size = [Lx, Ly, Lz, Lt]
+  lattice_size             : [32,32,32,64]
+  grid_size                : [1,1,1,1]
+  number_of_thread         : 2
+  device_number_offset     : 0
+  number_of_color          : 3
+  ## log_filename = {stdout, or "filename"}
+  log_filename             : stdout
+  ildg_log_filename        : stdout
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level            : General
+--------------- main.yaml, done-------------
+
+test_alt_Spectrum_Domainwall_5din_Hadron2ptFunction.yaml
+--------------- INPUT ----------------------
+# this is a sample parameter file
+
+Test_Spectrum:
+  ## gauge_config_status = {Continue,Cold_start,Hot_start}
+  gauge_config_status      : Continue
+  ## gauge_config_type = {Text,Binary,Binary_Parallel,Fortran_JLQCD,Fortran_ILDG,ILDG,ILDG_Parallel}
+  gauge_config_type_input  : Text_4x4x4x8
+  config_filename_input    : ../conf_04040408.txt
+  ## random_number_type = {Mseries,MT19937,SFMT} NB. SFMT is an extra library
+  random_number_type       : Mseries
+  seed_for_random_number   : 1234567UL
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level            : General
+#  expected_result          : 4.27368602405324e-01 # 16x4x4x8 ok
+#  expected_result          : 4.35052428395750e-01 # 4x4x4x8 ok
+#  expected_result          : 4.24209447645414e-01 # 16x8x8x16 ok
+#  expected_result          : 4.22357801893693e-01 # 32x8x8x8 ok
+  expected_result          : 4.58304049059966e-01 # 32x8x8x12 ok
+#  expected_result          : 4.57842392303043e-01 # 8x8x8x12 ok
+#  expected_result          : 4.24278539207859e-01 # 32x8x8x16 ok
+#  expected_result          : 4.23618364401005e-01  # 32x16x16x16 ok
+
+Corr2pt_4spinor:
+  ## filename_output = {stdout, or "filename"}
+  filename_output : stdout
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level   : General
+
+Fopr_ref:
+  fermion_type            : Domainwall
+  kernel_type             : Wilson
+  ## gamma_matrix_type = {Chiral,Dirac}
+  gamma_matrix_type       : Dirac
+  quark_mass              : 0.1
+  quark_mass_PauliVillars : 1.0
+  domain_wall_height      : 1.6
+  extent_of_5th_dimension : 8
+  boundary_condition      : [1,1,1,-1]
+  coefficient_b           : 1.5
+  coefficient_c           : 0.5
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level      : General
+
+Fopr:
+  fermion_type            : Domainwall_5din
+  kernel_type             : Wilson
+  code_implementation     : 5d
+  ## gamma_matrix_type = {Chiral,Dirac}
+  gamma_matrix_type       : Dirac
+  quark_mass              : 0.1
+  quark_mass_PauliVillars : 1.0
+  domain_wall_height      : 1.6
+  extent_of_5th_dimension : 8
+  boundary_condition      : [1,1,1,-1]
+  block_size              : [4,4,4,4]
+  coefficient_b           : 1.5
+  coefficient_c           : 0.5
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level      : General
+
+Source:
+  ## source_type = {Local,Exponential,MomentumWall,Wall}
+  source_type     : Local
+  ## source_position = [x,y,z,t], x = {0,...,Lx-1}
+  source_position : [0,0,0,0]
+  ## additional parameters for Exponential, exp(- slope * r^(power))
+  slope           : 0.25
+  power           : 2.0
+  ## additional parameters for MomentumWall, source_momentum = [nx,ny,nz,nt], p = (2 \pi / L) n
+  source_momentum : [1,1,1, 0]
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level   : General
+
+GaugeFixing:
+  ## gauge_fixing_type = {Coulomb,Landau,None}
+#  gauge_fixing_type             : Coulomb
+  gauge_fixing_type             : None
+  maximum_number_of_iteration   : 5000
+  number_of_naive_iteration     : 50
+  interval_of_measurement       : 10
+  iteration_to_reset            : 1000
+  convergence_criterion_squared : 1.0e-24
+  overrelaxation_parameter      : 1.6
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level                 : General
+
+Solver:
+  ## solver_type = {CGNE,CGNR,BiCGStab_Cmplx,BiCGStab_L_Cmplx,BiCGStab_DS_L_Cmplx,BiCGStab_IDS_L_Cmplx,GMRES_m_Cmplx}
+  solver_type                         : CGNR
+  maximum_number_of_iteration         : 100
+  maximum_number_of_restart           : 40
+#  convergence_criterion_squared       : 1.0e-32
+  convergence_criterion_squared       : 1.0e-28
+  # convergence_criterion_squared       : 1.0e-14
+  ## additional parameters for each solver
+  number_of_orthonormal_vectors       : 2
+  tolerance_for_DynamicSelection_of_L : 0.1
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level                       : General
+#  verbose_level                       : Detailed
+--------------- INPUT, done ----------------
+
+-rwxr-xr-x. 1 kanamori-i kanamori-i 13730320 Nov 27 18:24 ../benchmark/domainwall/bridge.elf
+Fri Nov 29 18:14:37 JST 2024
+Bridge++ 2.0.0
+
+target: alt_accel
+file = main.yaml
+
+Lattice parameters:
+  Lx = 32,  Ly = 32,  Lz = 32,  Lt = 64,
+  Nx = 32,  Ny = 32,  Nz = 32,  Nt = 64,
+  NPEx = 1,  NPEy  = 1,  NPEz  = 1,  NPEt  = 1,
+  Lvol = 2097152,  Nvol = 2097152,  NPE = 1,
+  Ndim = 4
+  Nc   = 3
+  Nd   = 4
+
+ThreadManager: initialization
+  Number of threads = 2
+Main: input parameters
+  lattice_size     = [32, 32, 32, 64]
+  grid_size        = [1, 1, 1, 1]
+  number of thread = 2
+  number of color  = 3
+  logfile          = stdout
+  ildg_logfile     = stdout
+  vlevel           = General
+
+Alt_Accel code is being setup.
+DeviceManager_OpenACC: being initialized.
+  process_id = 0
+  NVIDIA environment is used.
+  number of devices = 1
+  device_id = 0  is used on process = 0
+------------------------------------------------
+Alt_Accel: Factory entries
+------------------------------------------------
+AFopr<double, ACCEL> >(void):
+AFopr<double, ACCEL>(Parameters&):
+	Domainwall
+	Domainwall_5din
+	Domainwall_5din_eo
+	Domainwall_eo
+	Wilson
+	Wilson_eo
+AFopr<double, ACCEL>(Fopr*):
+	Domainwall
+AFopr<float, ACCEL> >(void):
+AFopr<float, ACCEL>(Parameters&):
+	Domainwall
+	Domainwall_5din
+	Domainwall_5din_eo
+	Domainwall_eo
+	Wilson
+	Wilson_eo
+AFopr<float, ACCEL>(Fopr*):
+	Domainwall
+------------------------------------------------
+Timer: timestamp: 2024/11/29 18:14:43 +0900
+target: alt_accel
+
+--------------------------------------------------------------------
+test name: Spectrum_Domainwall_alt.hadron_2ptFunction
+test file: test_alt_Spectrum_Domainwall_5din_Hadron2ptFunction.yaml
+test mode: richardson_eo
+file = test_alt_Spectrum_Domainwall_5din_Hadron2ptFunction.yaml
+  vlevel       = General
+  source_type  = Local
+ Random number init: ndelay =   1234567
+
+Configuration setup:
+  gconf_status = Continue
+  gconf_read   = Text_4x4x4x8
+  readfile     = ../conf_04040408.txt
+  gmset_type   = Dirac
+Gamma matrix: dirac representation.
+AFopr_Domainwall_5din<AField<double,ACCEL> >: construction
+  do_comm[0] = 1
+  do_comm[1] = 1
+  do_comm[2] = 1
+  do_comm[3] = 1
+  AFopr_Domainwall_5din<AField<double,ACCEL> >: input parameters
+    mq   =   0.1000
+    M0   =   1.6000
+    Ns   =    8
+    boundary[0] =  1
+    boundary[1] =  1
+    boundary[2] =  1
+    boundary[3] = -1
+    coefficients:
+      b[ 0] =     1.5000000000  c[ 0] =     0.5000000000
+      b[ 1] =     1.5000000000  c[ 1] =     0.5000000000
+      b[ 2] =     1.5000000000  c[ 2] =     0.5000000000
+      b[ 3] =     1.5000000000  c[ 3] =     0.5000000000
+      b[ 4] =     1.5000000000  c[ 4] =     0.5000000000
+      b[ 5] =     1.5000000000  c[ 5] =     0.5000000000
+      b[ 6] =     1.5000000000  c[ 6] =     0.5000000000
+      b[ 7] =     1.5000000000  c[ 7] =     0.5000000000
+AFopr_Domainwall_5din<AField<double,ACCEL> >: construction finished.
+Source for spinor field - local:
+  source_position[0] = 0
+  source_position[1] = 0
+  source_position[2] = 0
+  source_position[3] = 0
+  check finished
+
+
+Fprop_alt_Standard_eo_Richardson<AField<double,ACCEL>, AField<float,ACCEL> >: being setup.
+AFopr_Domainwall_5din_eo<AField<double,ACCEL> >: construction
+  do_comm[0] = 0
+  do_comm[1] = 0
+  do_comm[2] = 0
+  do_comm[3] = 0
+  AFopr_Domainwall_5din_eo<AField<double,ACCEL> >: input parameters
+    gamma matrix repr.:  Dirac
+    code implementation: 5d
+    mq   =   0.1000
+    M0   =   1.6000
+    Ns   =    8
+    boundary[0] =  1
+    boundary[1] =  1
+    boundary[2] =  1
+    boundary[3] = -1
+    coefficients:
+      b[ 0] =     1.5000000000  c[ 0] =     0.5000000000
+      b[ 1] =     1.5000000000  c[ 1] =     0.5000000000
+      b[ 2] =     1.5000000000  c[ 2] =     0.5000000000
+      b[ 3] =     1.5000000000  c[ 3] =     0.5000000000
+      b[ 4] =     1.5000000000  c[ 4] =     0.5000000000
+      b[ 5] =     1.5000000000  c[ 5] =     0.5000000000
+      b[ 6] =     1.5000000000  c[ 6] =     0.5000000000
+      b[ 7] =     1.5000000000  c[ 7] =     0.5000000000
+AFopr_Domainwall_5din_eo<AField<float,ACCEL> >: construction
+  do_comm[0] = 0
+  do_comm[1] = 0
+  do_comm[2] = 0
+  do_comm[3] = 0
+  AFopr_Domainwall_5din_eo<AField<float,ACCEL> >: input parameters
+    gamma matrix repr.:  Dirac
+    code implementation: 5d
+    mq   =   0.1000
+    M0   =   1.6000
+    Ns   =    8
+    boundary[0] =  1
+    boundary[1] =  1
+    boundary[2] =  1
+    boundary[3] = -1
+    coefficients:
+      b[ 0] =     1.5000000000  c[ 0] =     0.5000000000
+      b[ 1] =     1.5000000000  c[ 1] =     0.5000000000
+      b[ 2] =     1.5000000000  c[ 2] =     0.5000000000
+      b[ 3] =     1.5000000000  c[ 3] =     0.5000000000
+      b[ 4] =     1.5000000000  c[ 4] =     0.5000000000
+      b[ 5] =     1.5000000000  c[ 5] =     0.5000000000
+      b[ 6] =     1.5000000000  c[ 6] =     0.5000000000
+      b[ 7] =     1.5000000000  c[ 7] =     0.5000000000
+Parameters: fetch_int: key 'maximum_number_of_iteration_single' not found.
+maximum_number_of_iteration_single is not given, setting it 4000 from the parameters for the outer.
+Parameters: fetch_double: key 'convergence_criterion_squared_single' not found.
+convergence_criterion_squared_single is not given, setting it 1.000000e-08.
+ASolver_CGNR<Afield<float,ACCEL> >:
+ASolver_CG<Afield<float,ACCEL> >:
+  Precision: float
+  Niter     = 4000
+  Stop_cond =   9.99999994e-09
+  init_guess_mode: 2
+ASolver_Richardson:
+  Precision: double
+  Niter     = 4000
+  Stop_cond =   1.00000000e-28
+  InitialGuess = 2
+Fprop_alt_Standard_eo_Richardson<AField<double,ACCEL>, AField<float,ACCEL> >: setup finished.
+
+Fprop_alt_Standard_eo_Richardson<AField<double,ACCEL>, AField<float,ACCEL> >: mult performance:
+  mult mode = DdagD
+  Double precision:
+   Elapsed time =       4.710386 sec
+   Flop(Fopr)   =        58384711680
+   Flop(total)  =     11676942336000
+   Performance  =    2478.978 GFlops
+  Single precision:
+   Elapsed time =       2.491116 sec
+   Flop(Fopr)   =        58384711680
+   Flop(total)  =     11676942336000
+   Performance  =    4687.434 GFlops
+
+Fprop_alt_Standard_eo_Richardson<AField<double,ACCEL>, AField<float,ACCEL> >: mult performance:
+  mult mode = D
+  Double precision:
+   Elapsed time =       2.352223 sec
+   Flop(Fopr)   =        29192355840
+   Flop(total)  =      5838471168000
+   Performance  =    2482.108 GFlops
+  Single precision:
+   Elapsed time =       1.205383 sec
+   Flop(Fopr)   =        29192355840
+   Flop(total)  =      5838471168000
+   Performance  =    4843.665 GFlops
+AFopr_Wilson<AField<double,ACCEL> >: construction
+  do_comm[0] = 0
+  do_comm[1] = 0
+  do_comm[2] = 0
+  do_comm[3] = 0
+Parameters of AFopr_Wilson<AField<double,ACCEL> >:
+  gamma-matrix type = Dirac
+  kappa =   0.2083
+  boundary[0] =  1
+  boundary[1] =  1
+  boundary[2] =  1
+  boundary[3] = -1
+AFopr_Wilson<AField<double,ACCEL> >: construction finished.
+
+Solving quark propagator:
+  color spin   Nconv      diff           diff2
+APrecond_Mixedprec: nconv = 87  diff = 9.521277e-09
+APrecond_Mixedprec: nconv = 164  diff = 9.343789e-09
+APrecond_Mixedprec: nconv = 168  diff = 8.700312e-09
+APrecond_Mixedprec: nconv = 167  diff = 9.531043e-09
+Richardson  nconv = 4, diff2 =  1.126883426403778e-31
+    0    0        4     3.3569e-16     1.7575e-29
+APrecond_Mixedprec: nconv = 82  diff = 9.721041e-09
+APrecond_Mixedprec: nconv = 162  diff = 1.008227e-08
+APrecond_Mixedprec: nconv = 168  diff = 8.839726e-09
+APrecond_Mixedprec: nconv = 166  diff = 9.510871e-09
+Richardson  nconv = 4, diff2 =  1.088091614649293e-31
+    1    0        4     3.2986e-16     1.5393e-29
+APrecond_Mixedprec: nconv = 84  diff = 9.236028e-09
+APrecond_Mixedprec: nconv = 161  diff = 9.447798e-09
+APrecond_Mixedprec: nconv = 168  diff = 9.609344e-09
+APrecond_Mixedprec: nconv = 165  diff = 1.013805e-08
+Richardson  nconv = 4, diff2 =  1.029475761193645e-31
+    2    0        4     3.2085e-16     1.7143e-29
+APrecond_Mixedprec: nconv = 81  diff = 9.303529e-09
+APrecond_Mixedprec: nconv = 166  diff = 7.325314e-09
+APrecond_Mixedprec: nconv = 169  diff = 1.032618e-08
+APrecond_Mixedprec: nconv = 166  diff = 9.289839e-09
+Richardson  nconv = 4, diff2 =  1.108437674819244e-31
+    0    1        4     3.3293e-16     1.5431e-29
+APrecond_Mixedprec: nconv = 89  diff = 9.675848e-09
+APrecond_Mixedprec: nconv = 166  diff = 9.107604e-09
+APrecond_Mixedprec: nconv = 165  diff = 9.945194e-09
+APrecond_Mixedprec: nconv = 171  diff = 8.612336e-09
+Richardson  nconv = 4, diff2 =  1.147160753185408e-31
+    1    1        4     3.3870e-16     1.7359e-29
+APrecond_Mixedprec: nconv = 84  diff = 9.131102e-09
+APrecond_Mixedprec: nconv = 162  diff = 9.136269e-09
+APrecond_Mixedprec: nconv = 170  diff = 8.729115e-09
+APrecond_Mixedprec: nconv = 166  diff = 9.475491e-09
+Richardson  nconv = 4, diff2 =  1.042707642991625e-31
+    2    1        4     3.2291e-16     1.8256e-29
+APrecond_Mixedprec: nconv = 87  diff = 9.596537e-09
+APrecond_Mixedprec: nconv = 164  diff = 9.296152e-09
+APrecond_Mixedprec: nconv = 168  diff = 8.882194e-09
+APrecond_Mixedprec: nconv = 167  diff = 9.481866e-09
+Richardson  nconv = 4, diff2 =  1.100056669822903e-31
+    0    2        4     3.3167e-16     1.7668e-29
+APrecond_Mixedprec: nconv = 82  diff = 9.715444e-09
+APrecond_Mixedprec: nconv = 162  diff = 1.016836e-08
+APrecond_Mixedprec: nconv = 168  diff = 8.811949e-09
+APrecond_Mixedprec: nconv = 166  diff = 9.549390e-09
+Richardson  nconv = 4, diff2 =  9.730088700304084e-32
+    1    2        4     3.1193e-16     1.5327e-29
+APrecond_Mixedprec: nconv = 84  diff = 9.163715e-09
+APrecond_Mixedprec: nconv = 161  diff = 9.380439e-09
+APrecond_Mixedprec: nconv = 168  diff = 9.740874e-09
+APrecond_Mixedprec: nconv = 164  diff = 1.019131e-08
+Richardson  nconv = 4, diff2 =  9.858429126580292e-32
+    2    2        4     3.1398e-16     1.7010e-29
+APrecond_Mixedprec: nconv = 81  diff = 9.264119e-09
+APrecond_Mixedprec: nconv = 166  diff = 7.128300e-09
+APrecond_Mixedprec: nconv = 170  diff = 1.001844e-08
+APrecond_Mixedprec: nconv = 165  diff = 9.652889e-09
+Richardson  nconv = 4, diff2 =  9.445000256677822e-32
+    0    3        4     3.0733e-16     1.5364e-29
+APrecond_Mixedprec: nconv = 89  diff = 9.659310e-09
+APrecond_Mixedprec: nconv = 166  diff = 9.150664e-09
+APrecond_Mixedprec: nconv = 165  diff = 9.893900e-09
+APrecond_Mixedprec: nconv = 171  diff = 8.690075e-09
+Richardson  nconv = 4, diff2 =  1.122137449638102e-31
+    1    3        4     3.3498e-16     1.7202e-29
+APrecond_Mixedprec: nconv = 84  diff = 8.925379e-09
+APrecond_Mixedprec: nconv = 162  diff = 9.125490e-09
+APrecond_Mixedprec: nconv = 170  diff = 8.829175e-09
+APrecond_Mixedprec: nconv = 166  diff = 9.493196e-09
+Richardson  nconv = 4, diff2 =  9.902943081841859e-32
+    2    3        4     3.1469e-16     1.7950e-29
+
+Fprop_alt_Standard_eo_Richardson<AField<double,ACCEL>, AField<float,ACCEL> >: solver performance:
+  Elapsed time =     231.397534 sec
+  Flop(total)  =    432335367438336
+  Performance  =    1868.366 GFlops
+Elapsed time: calculating porpagator: total      274.797 sec, count    1, average   2.7480e+02 sec
+
+2-point correlator:
+PS <-- PS correlator:
+     0    4.236403885845e-01    1.198995850162e-19
+     1    1.432821874086e-01    3.068685696015e-20
+     2    3.057225645514e-02   -2.058518826127e-20
+     3    9.178760048447e-03   -3.536387426192e-21
+     4    3.388400718342e-03    3.964229364659e-22
+     5    1.291604043655e-03    1.026296375133e-22
+     6    5.675410802596e-04   -8.754066486933e-24
+     7    2.731784716437e-04    2.606197653030e-23
+     8    1.327019034674e-04   -1.015394314287e-23
+     9    7.852133885623e-05   -2.071423928993e-24
+    10    4.955068607592e-05   -4.131414269887e-24
+    11    2.989133477003e-05    6.801914876202e-25
+    12    1.706015797612e-05    4.161809111616e-25
+    13    9.037946715002e-06   -1.138672850277e-25
+    14    5.205148922032e-06    1.115367088990e-25
+    15    3.082255002670e-06    5.002012678292e-26
+    16    1.676405868769e-06    1.625697330701e-26
+    17    1.136880066680e-06   -7.239853634897e-26
+    18    7.936822231336e-07    6.983268130350e-27
+    19    5.024047609756e-07    9.490993913202e-27
+    20    3.033939210620e-07   -1.664426516850e-26
+    21    1.723320114672e-07    4.166681477017e-29
+    22    1.043155153574e-07    4.809775176423e-28
+    23    6.391846066673e-08   -3.278576928488e-27
+    24    3.517889175861e-08    1.238853495584e-27
+    25    2.488966808582e-08    5.986222678283e-28
+    26    1.797766268867e-08    3.704775701527e-28
+    27    1.166126921784e-08   -1.856889562723e-28
+    28    7.384206681220e-09    9.068626314216e-29
+    29    4.594236742321e-09    9.949301349206e-30
+    30    3.110848389077e-09   -7.626658047270e-29
+    31    2.276079381951e-09    2.152799563227e-29
+    32    1.741895166728e-09   -1.439104948884e-29
+    33    2.104311209695e-09    2.116548266913e-29
+    34    2.867100844920e-09    5.319496561729e-29
+    35    4.010165293594e-09    5.810983975694e-29
+    36    7.550270671121e-09    1.355093634515e-28
+    37    1.332352763208e-08    9.856513643900e-29
+    38    1.757899150222e-08    1.538893519326e-28
+    39    2.464257895895e-08    1.031765391307e-27
+    40    3.460558367458e-08   -7.426734185710e-28
+    41    6.166509286147e-08   -1.208057479661e-28
+    42    1.042168986999e-07    3.583336367107e-28
+    43    1.646233861082e-07   -2.086674435486e-27
+    44    3.336092922153e-07   -9.128568883858e-27
+    45    6.160782328760e-07   -1.649155169527e-26
+    46    8.187961511627e-07    4.468552973855e-27
+    47    1.163903507921e-06   -3.549240884206e-26
+    48    1.681250467303e-06    1.754301512782e-26
+    49    3.073244194307e-06   -1.297001802770e-26
+    50    5.455182436026e-06    9.843661317586e-26
+    51    9.127652566217e-06   -2.404257823797e-25
+    52    1.953542325991e-05   -2.883216678124e-27
+    53    3.762831130953e-05   -1.301871837514e-24
+    54    5.154371979512e-05   -2.447162755387e-24
+    55    8.049529841183e-05    1.680593217574e-24
+    56    1.304733624090e-04    3.692229813305e-24
+    57    2.668853739738e-04    1.503369438622e-23
+    58    5.765227200785e-04   -1.401218047275e-23
+    59    1.250993178171e-03    1.128813284971e-22
+    60    3.478364348023e-03   -5.021324752172e-22
+    61    9.701791098184e-03    4.884440871422e-22
+    62    2.935833014766e-02   -1.303895734484e-20
+    63    1.499538012325e-01    1.449261292158e-19
+V1 <-- V1 correlator:
+     0    1.350781390118e-01    0.000000000000e+00
+     1    9.246072708437e-02   -1.389134033497e-19
+     2    1.714500450164e-02    5.082197683526e-21
+     3    4.370831647581e-03    1.355252715607e-20
+     4    1.330708364873e-03   -6.140988867594e-21
+     5    4.504470903790e-04    2.117582368136e-22
+     6    1.790908785059e-04   -8.470329472543e-22
+     7    8.815716997467e-05    0.000000000000e+00
+     8    4.206966401047e-05    2.646977960170e-22
+     9    2.409787622039e-05   -1.323488980085e-23
+    10    1.382501735430e-05    1.091878408570e-22
+    11    7.043393805467e-06    0.000000000000e+00
+    12    3.274591607679e-06   -3.639594695233e-23
+    13    1.323671620295e-06    3.639594695233e-23
+    14    5.756289640453e-07   -1.364848010712e-23
+    15    3.529838243678e-07    1.313149222428e-23
+    16    1.998537564426e-07   -1.323488980085e-23
+    17    1.424236420876e-07   -1.054655281005e-23
+    18    9.125703560823e-08   -1.654361225106e-24
+    19    4.642675354182e-08    0.000000000000e+00
+    20    2.867273193886e-08   -8.271806125530e-25
+    21    1.581307989912e-08    4.006656092054e-25
+    22    6.466558695280e-09    2.326445472805e-25
+    23    2.482930800890e-09   -2.326445472805e-25
+    24    2.251903485847e-09    2.326445472805e-25
+    25    2.497117678579e-09   -1.098599251047e-25
+    26    2.142684230644e-09   -1.098599251047e-25
+    27    1.300183770672e-09   -6.462348535571e-27
+    28    8.130115166406e-10    3.231174267785e-27
+    29    5.753289326573e-10   -1.292469707114e-26
+    30    2.193231527287e-10   -1.454028420503e-26
+    31    4.285028221300e-11   -1.615587133893e-26
+    32    1.256613659909e-10    6.462348535571e-27
+    33    1.759573328179e-10    0.000000000000e+00
+    34    1.470891191443e-10   -1.292469707114e-26
+    35    1.489602512879e-10    2.584939414228e-26
+    36    2.271632506390e-10   -5.169878828456e-26
+    37    7.439630800926e-10    0.000000000000e+00
+    38    5.673940513303e-10    1.033975765691e-25
+    39    4.382023164976e-10   -2.067951531383e-25
+    40    9.287507772296e-10    2.067951531383e-25
+    41    2.116739748669e-10    0.000000000000e+00
+    42   -1.837807136146e-09    1.654361225106e-24
+    43   -3.518427281876e-10    8.271806125530e-25
+    44    6.479865961057e-09    1.654361225106e-24
+    45    2.836573976753e-08   -6.617444900424e-24
+    46    5.154894585859e-08    0.000000000000e+00
+    47    9.129230671737e-08   -6.617444900424e-24
+    48    1.468591400448e-07    0.000000000000e+00
+    49    2.386365486412e-07   -5.293955920339e-23
+    50    4.493548692182e-07    0.000000000000e+00
+    51    9.295653030186e-07   -5.293955920339e-23
+    52    2.508719777380e-06    5.293955920339e-23
+    53    5.454273663902e-06    1.058791184068e-22
+    54    1.013386074468e-05    0.000000000000e+00
+    55    2.072235265556e-05    0.000000000000e+00
+    56    3.841549537709e-05    4.235164736272e-22
+    57    8.060792009756e-05    1.694065894509e-21
+    58    1.950791814453e-04    1.270549420881e-21
+    59    4.417337661188e-04    0.000000000000e+00
+    60    1.306617612970e-03    1.694065894509e-21
+    61    4.202955625929e-03    2.710505431214e-20
+    62    1.593599529354e-02    5.421010862428e-20
+    63    9.521474664506e-02    1.084202172486e-19
+V2 <-- V2 correlator:
+     0    1.371938712023e-01   -6.234162491792e-19
+     1    9.213161713151e-02   -3.218725199566e-19
+     2    1.629118742113e-02   -1.355252715607e-20
+     3    4.074865604693e-03   -1.694065894509e-20
+     4    1.266786861177e-03    1.694065894509e-21
+     5    4.352566219006e-04   -6.352747104407e-22
+     6    1.737274895444e-04   -7.411538288475e-22
+     7    7.994707078139e-05   -5.293955920339e-23
+     8    3.880663438420e-05   -3.970466940255e-23
+     9    2.287436577022e-05   -2.646977960170e-23
+    10    1.412744328791e-05    3.044024654195e-22
+    11    7.601049074911e-06    5.955700410382e-23
+    12    3.749166671337e-06    3.308722450212e-24
+    13    1.586409143443e-06    2.316105715148e-23
+    14    7.661203402616e-07   -2.481541837659e-23
+    15    4.836197779909e-07    0.000000000000e+00
+    16    2.906170075582e-07   -1.323488980085e-23
+    17    1.988521536969e-07   -6.203854594148e-24
+    18    1.402372346753e-07    2.067951531383e-25
+    19    7.820828009442e-08    0.000000000000e+00
+    20    4.064466919616e-08    1.654361225106e-24
+    21    1.709270177946e-08    0.000000000000e+00
+    22    8.231443014305e-09    0.000000000000e+00
+    23    6.043667961387e-09   -2.584939414228e-26
+    24    3.839770253871e-09    2.584939414228e-26
+    25    2.941397038852e-09    0.000000000000e+00
+    26    2.342030847490e-09   -2.003328046027e-25
+    27    1.272048009509e-09    1.292469707114e-26
+    28    6.316588627659e-10   -5.492996255235e-26
+    29    1.978805546281e-10    5.129489150109e-26
+    30    6.448238068550e-11    0.000000000000e+00
+    31    1.005324322198e-10    0.000000000000e+00
+    32    1.047841579635e-10   -6.462348535571e-27
+    33    1.187465080748e-10   -6.462348535571e-27
+    34    1.913940935708e-10   -2.584939414228e-26
+    35    3.382985228155e-10    0.000000000000e+00
+    36    5.586414771654e-10    5.169878828456e-26
+    37    1.056281548115e-09   -1.033975765691e-25
+    38    1.463866685877e-09    2.067951531383e-25
+    39    2.700763014368e-09    2.067951531383e-25
+    40    4.202172782607e-09    2.067951531383e-25
+    41    6.595021480181e-09    0.000000000000e+00
+    42    1.148041760874e-08    1.654361225106e-24
+    43    2.221331131801e-08    8.271806125530e-25
+    44    4.590946540582e-08   -1.654361225106e-24
+    45    8.249251054737e-08   -3.308722450212e-24
+    46    1.166041944625e-07    0.000000000000e+00
+    47    2.050644413966e-07   -3.308722450212e-24
+    48    3.036045947980e-07    1.323488980085e-23
+    49    5.086545469463e-07   -6.617444900424e-24
+    50    9.180697951190e-07    1.323488980085e-23
+    51    1.770971502364e-06   -7.940933880509e-23
+    52    4.038070665732e-06    5.293955920339e-23
+    53    7.781131903390e-06   -1.323488980085e-22
+    54    1.203368881747e-05    0.000000000000e+00
+    55    2.300745972222e-05    1.058791184068e-22
+    56    3.863649909457e-05    6.352747104407e-22
+    57    7.743191432493e-05    1.905824131322e-21
+    58    1.705902611945e-04    2.117582368136e-22
+    59    3.849911369557e-04   -2.117582368136e-21
+    60    1.175197530540e-03    8.470329472543e-21
+    61    3.879472417703e-03   -1.694065894509e-20
+    62    1.499123303261e-02    0.000000000000e+00
+    63    9.343602005215e-02   -2.168404344971e-19
+V3 <-- V3 correlator:
+     0    1.436541951924e-01    3.825904325082e-19
+     1    9.182595744965e-02   -2.319722006574e-20
+     2    1.629662236870e-02   -2.061355206965e-20
+     3    4.109168158544e-03   -4.111314860277e-21
+     4    1.155041324400e-03    4.747509580657e-22
+     5    3.611719627685e-04    2.534687694533e-22
+     6    1.523598129908e-04   -3.190740129372e-23
+     7    7.518517962496e-05    1.360719046766e-23
+     8    3.549922105189e-05   -1.868663272763e-23
+     9    2.077303957219e-05    1.849737392587e-24
+    10    1.084093397685e-05   -1.582127854763e-24
+    11    5.447985254851e-06    5.243180762695e-25
+    12    2.554606387930e-06   -7.620580677824e-26
+    13    1.288075835850e-06   -2.512920591315e-25
+    14    8.107015606074e-07   -1.142653991173e-25
+    15    4.949471947177e-07    6.717793328586e-27
+    16    2.676320753607e-07    6.588109410000e-26
+    17    1.856318152623e-07   -1.710131047453e-26
+    18    1.154585375353e-07    5.625118527798e-26
+    19    7.093113575037e-08    6.521183566658e-27
+    20    4.001006062552e-08   -1.453089700417e-26
+    21    2.355047832592e-08    9.177006411168e-28
+    22    1.536832794953e-08   -1.734190291728e-27
+    23    9.859952821857e-09    8.523435854601e-28
+    24    5.928438132976e-09    1.276634264263e-27
+    25    4.405762602568e-09    5.447226050085e-28
+    26    3.111813392348e-09    5.353991577377e-28
+    27    2.063144042402e-09    3.590536571282e-28
+    28    1.270160941529e-09    6.293721704392e-29
+    29    8.175688674325e-10    2.656360572617e-29
+    30    6.009640988753e-10   -1.368666446179e-28
+    31    4.800860462101e-10    7.306053548451e-29
+    32    3.860179395624e-10   -8.584122237766e-30
+    33    4.585217583418e-10    2.333193627373e-29
+    34    6.234412087969e-10    3.598414265605e-29
+    35    8.680749379860e-10    1.021272872037e-28
+    36    1.678709693758e-09    8.231412588143e-29
+    37    2.934907325262e-09    2.873929763087e-29
+    38    4.216359128449e-09    3.814020165995e-28
+    39    5.465330935478e-09    6.671190123023e-29
+    40    6.086105038791e-09   -1.064427730843e-27
+    41    1.039337570193e-08   -1.687899140832e-27
+    42    1.736255255705e-08   -8.628074203091e-28
+    43    2.864671389106e-08    3.594961525429e-27
+    44    6.351334265043e-08   -3.039449330199e-27
+    45    1.201669517150e-07   -1.114297535144e-26
+    46    1.781019158907e-07   -4.992899983858e-27
+    47    2.377642337984e-07   -1.543933385981e-26
+    48    2.925527434110e-07    8.383599950375e-26
+    49    5.421418036587e-07    6.070712382407e-26
+    50    9.866644313952e-07   -2.535823016097e-25
+    51    1.730490035559e-06    1.007667308602e-25
+    52    4.024100310740e-06    2.969566186580e-25
+    53    8.459753485742e-06   -1.429646432766e-24
+    54    1.346407795600e-05   -1.732920747714e-24
+    55    2.154809840537e-05    3.317908428972e-24
+    56    3.538525962469e-05    7.748364981791e-24
+    57    7.727358531827e-05   -6.247264824759e-24
+    58    1.874288211786e-04    1.524516201504e-23
+    59    4.210576081929e-04    1.092578136118e-22
+    60    1.264371129335e-03   -8.374085628194e-22
+    61    4.276826774022e-03   -4.355689990890e-22
+    62    1.568472016039e-02   -2.175506257542e-20
+    63    9.450114848839e-02    1.430437787725e-19
+A4 <-- PS correlator:
+     0   -1.214684733526e-03    1.242740915446e-19
+     1   -2.207979179627e-02    1.647014471257e-19
+     2   -6.217279589822e-03   -1.001636462240e-20
+     3   -2.318572099493e-03    4.681180349779e-21
+     4   -9.718600719282e-04    3.356208274206e-22
+     5   -4.316567374709e-04   -8.350771151533e-23
+     6   -2.126709108250e-04    6.908416218442e-23
+     7   -1.152625493978e-04   -1.011124262172e-23
+     8   -6.415438379065e-05    1.990000246183e-23
+     9   -4.051841641319e-05    8.675398612730e-25
+    10   -2.414180470344e-05    1.941923270539e-24
+    11   -1.336689304250e-05   -2.561388078850e-25
+    12   -7.662234194725e-06   -9.357484420096e-25
+    13   -4.366692000624e-06    1.560224074907e-25
+    14   -2.607634255377e-06   -5.704490095169e-26
+    15   -1.632297938512e-06   -2.622246892308e-26
+    16   -9.902533638819e-07   -2.052019174689e-26
+    17   -6.775766827943e-07    8.243493618563e-26
+    18   -4.277404872420e-07   -1.088464483685e-26
+    19   -2.462219070385e-07   -6.812458461196e-27
+    20   -1.517315602939e-07    7.539250648418e-27
+    21   -9.041126085597e-08    2.655236614931e-27
+    22   -5.574756292050e-08    1.946391731275e-27
+    23   -3.592528659404e-08    1.414360587264e-27
+    24   -2.227344122229e-08   -6.267322674985e-28
+    25   -1.561661894583e-08   -5.158847686380e-28
+    26   -1.006676638872e-08   -5.136615982394e-28
+    27   -5.906402581517e-09   -6.809833080264e-29
+    28   -3.725306499120e-09   -2.131181334879e-28
+    29   -2.163527018967e-09   -3.554730612107e-29
+    30   -1.199197360792e-09    7.567770013623e-29
+    31   -5.282425958360e-10   -9.833925336403e-30
+    32   -2.273783488226e-11   -5.395129148821e-30
+    33    4.641511821649e-10    8.605584591337e-30
+    34    1.112877357920e-09    7.656706409805e-30
+    35    1.834562943656e-09    1.941039160111e-30
+    36    3.411754975443e-09    2.154461843545e-28
+    37    6.113344058981e-09   -8.569693136898e-29
+    38    9.749556380770e-09    1.634369588261e-28
+    39    1.594437587156e-08    1.062324645154e-27
+    40    2.216793618058e-08   -4.340557457239e-28
+    41    3.506555946214e-08    2.909269353949e-28
+    42    5.709732122258e-08    2.117188441184e-27
+    43    8.419859907359e-08    3.664291574639e-28
+    44    1.499431669170e-07   -1.662863090621e-26
+    45    2.756412706526e-07   -2.022316605824e-26
+    46    4.478059858065e-07    5.610653385773e-27
+    47    7.317099137694e-07   -7.597061673572e-27
+    48    1.031736724113e-06    5.791634476519e-26
+    49    1.663903369718e-06   -3.740217870255e-26
+    50    2.781946433850e-06    3.992786428623e-26
+    51    4.272179010623e-06   -2.356529433033e-25
+    52    7.939799875772e-06   -3.149120226704e-25
+    53    1.560397993328e-05   -1.049820946127e-24
+    54    2.639198394427e-05   -2.426262214472e-24
+    55    4.450359808740e-05    2.091922712424e-24
+    56    6.725409613626e-05    3.907253968438e-25
+    57    1.179372356590e-04    2.125048041998e-23
+    58    2.212833795272e-04    5.321818663536e-24
+    59    4.069185430698e-04    7.103564676368e-23
+    60    9.783109159562e-04   -1.325086077178e-22
+    61    2.466548064854e-03   -5.621936359746e-22
+    62    6.168662750166e-03   -1.579037348786e-21
+    63    2.315102280465e-02    1.368708876594e-19
+PS <-- A4 correlator:
+     0   -3.998523939076e-04   -1.250781849999e-19
+     1   -2.234896683568e-02    1.368449943567e-19
+     2   -6.563329574244e-03    1.116363826549e-20
+     3   -2.735218151652e-03    4.959441254017e-21
+     4   -1.214897439816e-03    5.292780590396e-22
+     5   -5.249922699904e-04   -1.470235603625e-22
+     6   -2.583724951633e-04    1.834526124170e-23
+     7   -1.390670594160e-04   -6.559150451933e-24
+     8   -7.266912568455e-05    9.096524851028e-24
+     9   -4.560915897899e-05    1.587766585770e-24
+    10   -2.982629665504e-05    4.788624917503e-24
+    11   -1.809527902834e-05   -4.357408344300e-25
+    12   -1.029847393601e-05   -7.186867727166e-25
+    13   -5.568473101975e-06    2.682322504871e-25
+    14   -3.291134073374e-06   -6.139477106413e-26
+    15   -1.999754718233e-06   -3.929392031856e-26
+    16   -1.101217524068e-06   -7.352410860067e-27
+    17   -7.570402103243e-07    5.281299402638e-26
+    18   -5.316577953588e-07   -1.465475148848e-26
+    19   -3.361346348448e-07   -1.172612134882e-26
+    20   -2.022880175300e-07    1.287756459597e-26
+    21   -1.158959423278e-07    2.466802714145e-27
+    22   -7.116022778018e-08    1.400571683517e-31
+    23   -4.422803438905e-08    3.163278729127e-27
+    24   -2.450605928055e-08   -1.690923064291e-27
+    25   -1.742792239061e-08   -4.391674544049e-28
+    26   -1.255729600289e-08   -1.849549005848e-28
+    27   -8.017005842786e-09    9.622805601543e-29
+    28   -4.856300059279e-09   -4.337145960887e-29
+    29   -2.707203998021e-09    2.556764020396e-29
+    30   -1.592026178093e-09    5.961010045796e-29
+    31   -7.941379551127e-10   -4.489461864317e-29
+    32   -1.079799265810e-10   -1.003285704875e-29
+    33    4.968230791372e-10    2.624830274861e-29
+    34    1.210752897902e-09    3.494209476701e-29
+    35    2.123703799970e-09    2.508955098568e-29
+    36    4.549472477465e-09    1.635252422287e-28
+    37    8.323283440863e-09   -3.464904607471e-29
+    38    1.100430724365e-08    2.330884366750e-28
+    39    1.583984763543e-08    1.039135661802e-27
+    40    2.227064210732e-08   -4.563960731947e-28
+    41    3.893058739854e-08   -6.086859425915e-28
+    42    6.483558380423e-08    1.450380014711e-27
+    43    1.014998984781e-07   -2.511063384556e-27
+    44    2.058981356779e-07   -1.364791268875e-26
+    45    3.779668519543e-07   -2.063564738138e-26
+    46    4.984361282802e-07    8.657259202137e-27
+    47    7.170065591893e-07   -4.316717915143e-26
+    48    1.028723670595e-06    5.205839089931e-26
+    49    1.839446161770e-06   -4.601271593595e-26
+    50    3.225347086315e-06    1.865642214999e-26
+    51    5.332425618311e-06   -2.168791223214e-25
+    52    1.129955475354e-05   -5.528507665566e-25
+    53    2.161922920131e-05   -5.265815571194e-25
+    54    2.905180737757e-05   -4.029698408909e-24
+    55    4.405594493458e-05    4.304896732481e-24
+    56    6.796086043028e-05    4.076282014661e-26
+    57    1.299512839921e-04    7.654381196228e-24
+    58    2.557610555053e-04   -2.419476214233e-23
+    59    4.969101054170e-04    8.906327792169e-24
+    60    1.272795583647e-03   -2.118648236399e-22
+    61    2.986241182148e-03   -1.305896785949e-21
+    62    6.269619259547e-03   -5.520727576404e-21
+    63    2.277338084598e-02    1.108660164817e-19
+S <-- S correlator:
+     0   -4.106779331593e-01   -4.065758146821e-20
+     1   -1.354655261188e-01   -1.626303258728e-19
+     2   -2.637832982586e-02    0.000000000000e+00
+     3   -6.612813931832e-03    0.000000000000e+00
+     4   -1.966139287752e-03    3.388131789017e-21
+     5   -6.584310620960e-04    5.082197683526e-21
+     6   -2.798716008461e-04    0.000000000000e+00
+     7   -1.264673653013e-04    2.646977960170e-22
+     8   -5.378271544671e-05    1.455837878093e-22
+     9   -2.568659100886e-05    5.293955920339e-23
+    10   -1.218478864306e-05    3.242548001208e-22
+    11   -6.204208618241e-06   -1.323488980085e-23
+    12   -3.045271537632e-06   -3.308722450212e-23
+    13   -1.085847911916e-06    9.926167350636e-24
+    14   -6.410916429040e-07    1.323488980085e-23
+    15   -4.261760345543e-07    4.963083675318e-24
+    16   -2.472801223549e-07   -2.067951531383e-25
+    17   -1.652700100461e-07   -2.067951531383e-24
+    18   -1.128530985152e-07   -2.895132143936e-24
+    19   -7.496822095490e-08   -2.067951531383e-25
+    20   -4.453812987857e-08    6.203854594148e-25
+    21   -1.983451658554e-08    1.033975765691e-25
+    22   -1.144006447643e-08   -5.169878828456e-26
+    23   -6.423227618429e-09    2.326445472805e-25
+    24   -2.672026284623e-09   -1.033975765691e-25
+    25   -1.241732165780e-09   -2.584939414228e-26
+    26   -8.025786091038e-10   -5.169878828456e-26
+    27   -7.022994723692e-10    0.000000000000e+00
+    28   -7.895306998054e-10    3.231174267785e-27
+    29   -8.582187384948e-10    1.938704560671e-26
+    30   -7.598153611278e-10   -1.292469707114e-26
+    31   -5.320067660421e-10    0.000000000000e+00
+    32   -2.612343975953e-10   -3.231174267785e-27
+    33   -2.154323393041e-10   -6.462348535571e-27
+    34   -3.005799636493e-10    3.231174267785e-27
+    35   -4.118134888139e-10    0.000000000000e+00
+    36   -9.775967610878e-10    1.938704560671e-26
+    37   -2.305099701246e-09    3.231174267785e-26
+    38   -3.313076996948e-09   -7.754818242685e-26
+    39   -3.082631678838e-09    2.584939414228e-26
+    40   -2.226249172260e-09    5.169878828456e-26
+    41   -3.230541081621e-09   -1.033975765691e-25
+    42   -6.427548708198e-09   -2.067951531383e-25
+    43   -1.100858895594e-08   -1.033975765691e-25
+    44   -3.091661056254e-08    0.000000000000e+00
+    45   -8.156812994622e-08    4.135903062765e-25
+    46   -1.279751397766e-07    3.308722450212e-24
+    47   -1.688311626968e-07    8.271806125530e-25
+    48   -2.194328662169e-07   -6.617444900424e-24
+    49   -3.879554703605e-07   -1.323488980085e-23
+    50   -6.084099475131e-07   -1.323488980085e-23
+    51   -8.135968167102e-07    1.323488980085e-23
+    52   -2.141478834132e-06   -1.323488980085e-23
+    53   -5.585759095942e-06    0.000000000000e+00
+    54   -1.056733037917e-05    2.646977960170e-23
+    55   -2.407718552178e-05    2.646977960170e-23
+    56   -4.996112844984e-05    4.235164736272e-22
+    57   -1.180101122832e-04    1.270549420881e-21
+    58   -2.819400065671e-04   -8.470329472543e-22
+    59   -6.554152520903e-04    1.694065894509e-21
+    60   -2.003804924334e-03    3.388131789017e-21
+    61   -6.689579792638e-03    6.776263578034e-21
+    62   -2.496016800499e-02    3.388131789017e-20
+    63   -1.411726975955e-01   -2.608861477543e-19
+GAMMA51 <-- GAMMA51 correlator:
+     0    1.251250702436e-01    1.084202172486e-19
+     1    8.706333106171e-02    7.453889935838e-20
+     2    1.467952423562e-02   -4.065758146821e-20
+     3    3.055452113471e-03    0.000000000000e+00
+     4    7.009506534424e-04    3.388131789017e-21
+     5    2.210223398266e-04   -1.482307657695e-21
+     6    9.684363620867e-05    1.058791184068e-21
+     7    4.411328687465e-05    6.352747104407e-22
+     8    1.720152260907e-05   -5.293955920339e-22
+     9    7.744673822992e-06    5.293955920339e-23
+    10    2.865434512955e-06    1.191140082076e-22
+    11    8.201563375802e-07   -1.323488980085e-23
+    12    4.127858331368e-07   -1.323488980085e-23
+    13    2.519921357648e-07   -6.617444900424e-24
+    14    1.822974427663e-07    0.000000000000e+00
+    15    1.022156511477e-07    0.000000000000e+00
+    16    4.068928568784e-08   -2.481541837659e-24
+    17    3.607152365981e-08    1.033975765691e-24
+    18    2.092443491923e-08   -1.344168495399e-24
+    19    7.072688587222e-09    4.135903062765e-25
+    20    5.720023459085e-09    5.686866711302e-25
+    21    2.963930893777e-09    1.033975765691e-25
+    22    1.516967255040e-09    1.033975765691e-25
+    23    5.041350964803e-10    1.033975765691e-25
+    24    4.793305147818e-11    0.000000000000e+00
+    25    2.511978241986e-10    4.523643974899e-26
+    26   -6.158150845471e-11   -2.584939414228e-26
+    27   -2.030676995687e-10   -6.462348535571e-27
+    28   -7.278704494441e-11   -1.292469707114e-26
+    29    1.133805682777e-11    9.693522803356e-27
+    30   -7.055981576594e-11    4.038967834732e-28
+    31   -2.405409291705e-10    6.462348535571e-27
+    32   -2.387734518088e-10   -1.292469707114e-26
+    33   -2.531306474689e-10    9.693522803356e-27
+    34   -2.150573635587e-10   -3.231174267785e-27
+    35   -1.647443184202e-10    3.231174267785e-27
+    36   -1.938150465546e-10   -1.292469707114e-26
+    37   -1.683132972379e-10    1.130910993725e-26
+    38   -2.297642232214e-10    2.261821987450e-26
+    39   -2.925839680944e-10    2.261821987450e-26
+    40    5.049156437256e-11    2.584939414228e-26
+    41    5.343462080000e-10    5.169878828456e-26
+    42    1.255290194409e-09   -1.033975765691e-25
+    43    1.165823239581e-09    2.067951531383e-25
+    44   -2.251211685299e-09    2.067951531383e-25
+    45   -6.521826729503e-09   -4.135903062765e-25
+    46   -5.435773797058e-09   -1.240770918830e-24
+    47    9.728383961531e-09   -2.481541837659e-24
+    48    4.386025256409e-08    1.654361225106e-24
+    49    1.030893234227e-07    6.617444900424e-24
+    50    1.857814685923e-07   -6.617444900424e-24
+    51    2.599488574008e-07    0.000000000000e+00
+    52    3.238960223328e-07    1.058791184068e-22
+    53    6.954315094863e-07    2.646977960170e-23
+    54    2.198001417554e-06   -6.617444900424e-23
+    55    6.757060740475e-06   -2.779326858178e-22
+    56    1.557768471734e-05    5.293955920339e-23
+    57    3.888039240139e-05    5.293955920339e-22
+    58    1.038172077095e-04    2.117582368136e-21
+    59    2.492510671911e-04   -2.117582368136e-21
+    60    8.202750435632e-04    6.776263578034e-21
+    61    3.150740188509e-03   -6.776263578034e-21
+    62    1.386041444238e-02    0.000000000000e+00
+    63    8.945147883703e-02   -2.168404344971e-19
+GAMMA52 <-- GAMMA52 correlator:
+     0    1.271614385470e-01   -2.439454888092e-19
+     1    8.662104416701e-02    1.219727444046e-19
+     2    1.374157065953e-02    4.743384504624e-20
+     3    2.748278525340e-03    1.016439536705e-20
+     4    6.413948313681e-04   -6.776263578034e-21
+     5    2.269907387046e-04   -3.388131789017e-21
+     6    8.970470779597e-05   -1.694065894509e-21
+     7    3.108961157340e-05    1.058791184068e-22
+     8    9.275165181502e-06    1.389663429089e-22
+     9    3.910097493648e-06    6.617444900424e-23
+    10    4.094809790873e-07    0.000000000000e+00
+    11   -6.712232141001e-07   -2.646977960170e-23
+    12   -3.655616512727e-07    0.000000000000e+00
+    13    1.691406249463e-08    3.308722450212e-24
+    14    3.473964264276e-08    2.481541837659e-24
+    15   -4.244712785308e-08    2.895132143936e-24
+    16   -2.854107041137e-08    1.654361225106e-24
+    17   -4.619097470427e-09    8.271806125530e-25
+    18    7.119547361426e-10    1.654361225106e-24
+    19    4.223418426163e-09    4.135903062765e-25
+    20   -7.142723827906e-10   -4.135903062765e-25
+    21   -3.263590091801e-09    0.000000000000e+00
+    22   -1.637978809932e-09    2.067951531383e-25
+    23   -1.826413760006e-09    1.809457589960e-25
+    24   -9.137577448907e-10    0.000000000000e+00
+    25   -3.067595766220e-10    0.000000000000e+00
+    26   -9.159643233684e-11   -5.169878828456e-26
+    27    7.153230826607e-11    2.584939414228e-26
+    28   -8.729762104087e-11   -2.584939414228e-26
+    29   -1.822880015378e-10    1.292469707114e-26
+    30   -1.329152691196e-10    6.462348535571e-27
+    31   -9.773153691434e-11    6.462348535571e-27
+    32   -5.823062268045e-11    3.231174267785e-27
+    33   -3.351368761748e-11    0.000000000000e+00
+    34   -3.425176814027e-11    3.231174267785e-27
+    35   -7.248430675749e-11   -1.615587133893e-27
+    36   -2.012759052841e-10   -1.777145847282e-26
+    37   -3.083881675375e-10    3.392732981175e-26
+    38   -4.371859817934e-10    6.220010465487e-26
+    39   -5.080028229593e-10   -2.908056841007e-26
+    40   -5.118310030156e-10    5.169878828456e-26
+    41   -3.927663890355e-10   -1.033975765691e-25
+    42   -1.225391300208e-09    2.067951531383e-25
+    43   -1.459564879344e-09    4.135903062765e-25
+    44   -4.580026455543e-09    1.033975765691e-25
+    45   -1.039249757999e-08   -2.584939414228e-25
+    46   -1.650463028757e-08   -4.135903062765e-25
+    47   -1.694733550499e-08   -4.135903062765e-25
+    48   -3.972749198203e-09    1.654361225106e-24
+    49    2.105385087710e-08    1.654361225106e-24
+    50    1.458140577173e-08    6.617444900424e-24
+    51   -6.305666407995e-09    1.323488980085e-23
+    52   -1.543732758501e-07    3.308722450212e-24
+    53   -1.817420301807e-07   -5.293955920339e-23
+    54    6.519327344802e-07   -6.617444900424e-24
+    55    3.188153730555e-06    1.323488980085e-23
+    56    9.735465451232e-06    2.646977960170e-23
+    57    2.709219420105e-05    0.000000000000e+00
+    58    7.219049513716e-05   -8.470329472543e-22
+    59    1.843587735530e-04    1.694065894509e-21
+    60    6.521460943256e-04    3.388131789017e-21
+    61    2.755329220525e-03   -2.710505431214e-20
+    62    1.296556151399e-02    5.082197683526e-20
+    63    8.772111831135e-02   -3.794707603699e-19
+GAMMA53 <-- GAMMA53 correlator:
+     0    1.343691097635e-01    8.131516293641e-20
+     1    8.683736284806e-02    8.131516293641e-20
+     2    1.438813462802e-02    4.065758146821e-20
+     3    3.293072083168e-03   -3.388131789017e-21
+     4    7.888101539189e-04    4.235164736272e-22
+     5    2.150207185134e-04   -2.541098841763e-21
+     6    7.953208454607e-05    2.541098841763e-21
+     7    3.479597488357e-05   -2.117582368136e-22
+     8    1.413895802158e-05   -4.764560328305e-22
+     9    6.729939748873e-06    1.058791184068e-22
+    10    3.021129094538e-06   -7.940933880509e-23
+    11    1.237307257378e-06   -5.293955920339e-23
+    12    4.132398432535e-07   -2.646977960170e-23
+    13    1.525132800784e-07   -3.308722450212e-23
+    14    8.450310937960e-08    1.323488980085e-23
+    15    4.674188447581e-08    3.308722450212e-24
+    16    1.741237373558e-08   -1.654361225106e-24
+    17    4.411806222967e-09    1.654361225106e-24
+    18   -2.993829951231e-09    1.654361225106e-24
+    19   -7.920949769343e-09   -8.271806125530e-25
+    20   -6.080983214345e-09   -8.271806125530e-25
+    21   -2.104382396994e-09    0.000000000000e+00
+    22   -3.641868984979e-10   -4.135903062765e-25
+    23   -2.559331776851e-10   -5.169878828456e-26
+    24   -7.606907908576e-10   -5.169878828456e-26
+    25   -9.339721058757e-10    0.000000000000e+00
+    26   -7.725267273044e-10   -5.169878828456e-26
+    27   -6.036951910285e-10    0.000000000000e+00
+    28   -2.734307959375e-10   -1.292469707114e-26
+    29    5.519582440803e-11   -3.231174267785e-27
+    30    1.857068790977e-10    1.130910993725e-26
+    31    1.444382062830e-10   -3.231174267785e-27
+    32    2.006816007914e-12   -2.827277484312e-27
+    33   -8.791680689755e-11    9.693522803356e-27
+    34   -1.244079327961e-10   -6.462348535571e-27
+    35   -1.168352039833e-10    3.231174267785e-27
+    36   -4.170681365121e-11    6.462348535571e-27
+    37    8.409828061835e-11    2.584939414228e-26
+    38    2.642424470394e-10    1.292469707114e-26
+    39   -1.743891738315e-10   -5.169878828456e-26
+    40   -1.081628783912e-09    0.000000000000e+00
+    41   -2.493944817912e-09   -2.584939414228e-25
+    42   -3.870683498907e-09   -5.169878828456e-26
+    43   -4.182635770407e-09    2.067951531383e-25
+    44   -7.341917752824e-09    0.000000000000e+00
+    45   -1.282586907603e-08   -1.240770918830e-24
+    46   -2.142248723988e-09    0.000000000000e+00
+    47    1.276375062752e-08    4.135903062765e-25
+    48    2.529067825745e-08    3.308722450212e-24
+    49    4.244540831417e-08    1.323488980085e-23
+    50    7.187591380304e-08    1.985233470127e-23
+    51    1.268378572793e-07    6.617444900424e-24
+    52   -7.286261253593e-08    1.323488980085e-23
+    53   -3.486629122642e-07   -1.323488980085e-23
+    54    9.269614364334e-07    6.617444900424e-23
+    55    5.037604071182e-06   -5.293955920339e-23
+    56    1.352228897614e-05   -2.646977960170e-22
+    57    3.720801043213e-05   -2.117582368136e-22
+    58    1.069939799123e-04    8.470329472543e-22
+    59    2.637716171426e-04   -8.470329472543e-22
+    60    8.201576766536e-04   -3.388131789017e-21
+    61    3.150408734723e-03   -5.082197683526e-21
+    62    1.345338437801e-02    5.082197683526e-21
+    63    8.895291990958e-02    1.118083490376e-19
+SIGMA12 <-- SIGMA12 correlator:
+     0    1.410814175898e-01    0.000000000000e+00
+     1   -5.008497496203e-02   -5.421010862428e-20
+     2   -6.710097925149e-03    1.355252715607e-20
+     3   -1.057346507862e-03    0.000000000000e+00
+     4   -2.084134798850e-04    0.000000000000e+00
+     5   -1.102964531144e-04    1.694065894509e-21
+     6   -6.027703964962e-05    2.329340604949e-21
+     7   -2.416054798499e-05   -3.441071348221e-22
+     8   -7.673798346477e-06   -3.970466940255e-23
+     9   -4.224627294546e-06   -1.389663429089e-22
+    10   -4.159173727456e-07   -4.632211430297e-23
+    11    7.556177947193e-07   -2.646977960170e-23
+    12   -2.394043009344e-07   -2.646977960170e-23
+    13   -6.959623856609e-07    4.632211430297e-23
+    14   -4.806157181029e-07   -2.481541837659e-24
+    15   -2.143285431533e-07   -4.135903062765e-24
+    16   -7.562495101151e-08    3.722312756489e-24
+    17   -5.430853740083e-08   -4.549493369042e-24
+    18   -1.737465412370e-08    2.067951531383e-25
+    19    1.239756225466e-09    6.203854594148e-25
+    20   -1.033031158632e-08   -1.757758801675e-24
+    21   -1.365286559511e-08    2.584939414228e-25
+    22   -8.791432048209e-09    1.033975765691e-25
+    23   -4.064609366502e-09    2.488004186195e-25
+    24   -1.792421490325e-09   -1.938704560671e-26
+    25   -1.646489775153e-09    5.816113682013e-26
+    26   -1.065572743536e-09   -6.462348535571e-27
+    27   -4.649585890719e-10   -3.231174267785e-26
+    28   -5.276961512397e-10    0.000000000000e+00
+    29   -4.696716332637e-10    9.693522803356e-27
+    30   -3.170990294228e-10    1.615587133893e-27
+    31   -2.010172480733e-10   -3.231174267785e-27
+    32   -1.677238627688e-10    8.077935669463e-27
+    33   -2.189981814448e-10    0.000000000000e+00
+    34   -2.691834475551e-10    4.846761401678e-27
+    35   -2.349527143850e-10    6.462348535571e-27
+    36   -1.788124919476e-10    0.000000000000e+00
+    37   -2.219805060297e-10    2.584939414228e-26
+    38   -3.075116643707e-10   -1.292469707114e-26
+    39   -5.050390013150e-10    9.047287949799e-26
+    40   -1.295180767585e-09    8.401053096242e-26
+    41   -3.001005456806e-09   -1.033975765691e-25
+    42   -4.776347130353e-09   -1.033975765691e-25
+    43   -2.779625268761e-09    1.033975765691e-25
+    44    3.460735454659e-09    4.135903062765e-25
+    45    3.871673611183e-09    1.654361225106e-24
+    46   -1.300051324011e-10    4.549493369042e-24
+    47   -1.049390898484e-08   -6.203854594148e-25
+    48   -4.762606078141e-08    2.481541837659e-24
+    49   -1.165060141115e-07    6.617444900424e-24
+    50   -1.906130121122e-07    0.000000000000e+00
+    51   -1.040354020022e-07   -6.617444900424e-24
+    52    3.082089015760e-07    0.000000000000e+00
+    53    4.236556568216e-07   -2.646977960170e-23
+    54   -1.050054110599e-07    1.191140082076e-22
+    55   -1.533349803931e-06   -6.617444900424e-23
+    56   -5.528766191932e-06   -4.235164736272e-22
+    57   -1.388314693617e-05    5.293955920339e-22
+    58   -3.316662546482e-05    3.176373552204e-22
+    59   -6.574472828920e-05   -4.235164736272e-22
+    60   -2.240695585349e-04   -1.694065894509e-21
+    61   -1.241754642773e-03    1.524659305058e-20
+    62   -6.689490966410e-03    2.032879073410e-20
+    63   -4.937687613268e-02   -2.032879073410e-19
+SIGMA23 <-- SIGMA23 correlator:
+     0    1.306869609393e-01    1.084202172486e-19
+     1   -5.037122113606e-02   -1.355252715607e-19
+     2   -7.076890708691e-03   -4.065758146821e-20
+     3   -1.583352156432e-03   -6.776263578034e-21
+     4   -3.865902823739e-04    1.016439536705e-20
+     5   -1.250682683720e-04   -4.235164736272e-22
+     6   -4.741692579805e-05    1.482307657695e-21
+     7   -1.893940024022e-05    5.293955920339e-22
+     8   -8.724291182218e-06   -2.646977960170e-22
+     9   -4.550518418205e-06   -1.323488980085e-23
+    10   -1.856363309291e-06    2.646977960170e-23
+    11   -9.976310690966e-07    1.985233470127e-23
+    12   -5.619123440538e-07   -1.323488980085e-23
+    13   -3.500612863803e-07   -1.654361225106e-23
+    14   -1.934176167834e-07   -3.308722450212e-24
+    15   -1.026755426510e-07    8.271806125530e-25
+    16   -5.541762911798e-08    2.481541837659e-24
+    17   -3.674518460716e-08    8.271806125530e-25
+    18   -1.776925031162e-08   -1.964553954813e-24
+    19   -1.277236620221e-08   -5.169878828456e-25
+    20   -9.628992680489e-09   -2.067951531383e-25
+    21   -6.166292910390e-09    1.033975765691e-25
+    22   -3.725784043639e-09    1.550963648537e-25
+    23   -1.934424305435e-09    1.292469707114e-26
+    24   -1.012498777178e-09   -2.584939414228e-26
+    25   -6.526660069973e-10   -1.292469707114e-26
+    26   -2.934037190409e-10    1.292469707114e-26
+    27   -2.215377704213e-10   -3.231174267785e-27
+    28   -1.377089623884e-10    1.615587133893e-26
+    29   -4.511973537958e-11    9.693522803356e-27
+    30    2.967012739030e-11    6.462348535571e-27
+    31    1.338774085072e-10    2.423380700839e-27
+    32    1.297098356259e-10    1.009741958683e-26
+    33    1.216952408586e-10    6.310887241768e-28
+    34    5.783828053853e-11    6.462348535571e-27
+    35    3.335343121442e-11   -9.693522803356e-27
+    36    8.870257388129e-11   -1.292469707114e-26
+    37    7.219290032242e-11    2.908056841007e-26
+    38   -9.059611760153e-12    1.211690350419e-26
+    39   -2.977830724867e-10    2.584939414228e-26
+    40   -1.041928602257e-09    0.000000000000e+00
+    41   -2.419213325117e-09   -7.754818242685e-26
+    42   -4.436418919871e-09   -2.584939414228e-26
+    43   -3.913723456938e-09    4.135903062765e-25
+    44   -2.533088364896e-09    1.163222736403e-25
+    45   -3.795039892239e-09    5.686866711302e-25
+    46   -8.790808246296e-09    0.000000000000e+00
+    47   -2.347070637907e-08    8.271806125530e-25
+    48   -5.586685536034e-08   -2.481541837659e-24
+    49   -1.293559557295e-07   -4.135903062765e-24
+    50   -2.692645772764e-07    1.985233470127e-23
+    51   -3.080333749655e-07   -3.308722450212e-23
+    52   -3.621891766548e-07   -4.632211430297e-23
+    53   -7.875584085687e-07    5.293955920339e-23
+    54   -1.508282376215e-06    7.940933880509e-23
+    55   -3.494634518644e-06   -3.970466940255e-23
+    56   -7.725385386645e-06   -5.293955920339e-23
+    57   -1.973728652951e-05   -1.588186776102e-22
+    58   -5.077768413036e-05    8.470329472543e-22
+    59   -1.128425909967e-04    0.000000000000e+00
+    60   -3.608120531340e-04    3.388131789017e-21
+    61   -1.509705519069e-03   -5.082197683526e-21
+    62   -6.989847967054e-03    5.421010862428e-20
+    63   -5.168128104041e-02    2.710505431214e-19
+SIGMA31 <-- SIGMA31 correlator:
+     0    1.325430782746e-01   -6.776263578034e-19
+     1   -5.060834564564e-02    2.710505431214e-20
+     2   -7.196723325883e-03    0.000000000000e+00
+     3   -1.545438530366e-03   -6.776263578034e-21
+     4   -3.319786789615e-04   -3.388131789017e-21
+     5   -9.673897334157e-05   -2.117582368136e-21
+     6   -4.678204070393e-05   -1.058791184068e-22
+     7   -2.360773994076e-05    5.293955920339e-22
+     8   -1.149573581975e-05    1.985233470127e-23
+     9   -6.006793660288e-06    1.323488980085e-22
+    10   -2.420002455064e-06    2.646977960170e-23
+    11   -1.151038632908e-06    0.000000000000e+00
+    12   -4.165763643751e-07    0.000000000000e+00
+    13   -2.625480796895e-07   -1.323488980085e-23
+    14   -2.354620580951e-07   -6.617444900424e-24
+    15   -1.568922974872e-07    8.271806125530e-24
+    16   -8.836465042097e-08    3.205324873643e-24
+    17   -5.080438990761e-08   -1.654361225106e-24
+    18   -2.166400876658e-08   -3.308722450212e-24
+    19   -1.172268951901e-08    0.000000000000e+00
+    20   -5.444515203649e-09   -8.271806125530e-25
+    21   -3.984287697346e-09    0.000000000000e+00
+    22   -4.215042781669e-09    2.584939414228e-25
+    23   -3.060319607013e-09    1.550963648537e-25
+    24   -1.508121335039e-09    2.584939414228e-26
+    25   -7.191463849596e-10    0.000000000000e+00
+    26   -1.740591666692e-10   -2.584939414228e-26
+    27   -1.589152698456e-11   -1.292469707114e-26
+    28    3.649596923565e-11   -6.462348535571e-27
+    29    2.426113557413e-11    1.050131637030e-26
+    30    1.384633814627e-11   -1.615587133893e-26
+    31    5.282890672570e-11   -6.462348535571e-27
+    32    3.890112259431e-11   -1.292469707114e-26
+    33    2.580269966915e-11    0.000000000000e+00
+    34   -3.137330098551e-11    0.000000000000e+00
+    35   -7.673753277025e-11   -1.292469707114e-26
+    36   -1.586629937105e-10   -6.462348535571e-27
+    37   -2.025470333639e-10    2.908056841007e-26
+    38   -1.898134754824e-10   -1.454028420503e-26
+    39   -5.548837392249e-10    1.292469707114e-26
+    40   -1.437712549177e-09   -1.033975765691e-25
+    41   -3.275320610070e-09   -2.067951531383e-25
+    42   -6.267286040903e-09    0.000000000000e+00
+    43   -9.082493902644e-09    4.135903062765e-25
+    44   -1.317082738908e-08   -2.067951531383e-25
+    45   -1.709510395156e-08    8.271806125530e-25
+    46   -1.920877131628e-08    1.033975765691e-25
+    47   -3.951077979830e-08    3.308722450212e-24
+    48   -7.929119852958e-08    0.000000000000e+00
+    49   -1.801066177673e-07   -1.654361225106e-23
+    50   -3.900667395426e-07   -1.323488980085e-23
+    51   -6.029902047653e-07    1.323488980085e-23
+    52   -1.025010820753e-06   -3.970466940255e-23
+    53   -1.840104273740e-06   -3.970466940255e-23
+    54   -2.721175561709e-06   -1.323488980085e-23
+    55   -5.413628756261e-06    1.058791184068e-22
+    56   -1.081901873618e-05    0.000000000000e+00
+    57   -2.752812674712e-05   -6.352747104407e-22
+    58   -7.493592149761e-05   -8.470329472543e-22
+    59   -1.612255768549e-04   -1.694065894509e-21
+    60   -4.830252188263e-04    0.000000000000e+00
+    61   -1.757399624969e-03   -1.355252715607e-20
+    62   -7.028014110655e-03   -2.710505431214e-20
+    63   -5.097913186786e-02    2.168404344971e-19
+Elapsed time: Spectrum_Domainwall_alt.hadron_2ptFunction: total      279.577 sec, count    1, average   2.7958e+02 sec
+ alt code.
+
+check test data
+check precision = 1.0e-11
+result: 4.23640388584508e-01  expected: 4.58304049059966e-01
+test result: incorrect! (T_T)
+diff: expected - result = -7.56346371945802e-02
+
+Elapsed time: afopr_Domainwall_5din_eo: Deo & dagger   : total       53.970 sec, count 29364, average   1.8380e-03 sec
+Elapsed time: afopr_Domainwall_5din_eo: Dee_inv & dag  : total       16.900 sec, count 29380, average   5.7522e-04 sec
+Elapsed time: afopr_Domainwall_5din_eo: clear          : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: pack           : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: bulk           : total       38.193 sec, count 29364, average   1.3007e-03 sec
+Elapsed time: afopr_Domainwall_5din_eo: boundary       : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm           : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_recv_wait : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_send_wait : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_recv_start: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_send_start: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_test_all  : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: Deo & dagger   : total        5.091 sec, count 1488, average   3.4214e-03 sec
+Elapsed time: afopr_Domainwall_5din_eo: Dee_inv & dag  : total        1.883 sec, count 1516, average   1.2418e-03 sec
+Elapsed time: afopr_Domainwall_5din_eo: clear          : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: pack           : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: bulk           : total        3.443 sec, count 1488, average   2.3140e-03 sec
+Elapsed time: afopr_Domainwall_5din_eo: boundary       : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm           : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_recv_wait : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_send_wait : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_recv_start: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_send_start: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_test_all  : total        0.000 sec, count    0, average   0.0000e+00 sec
+Test result for Accel = 1
+
+----------- timer -------------
+Elapsed time: comm: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: comm_send_wait: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: linear algebra: total        1.436 sec, count 1152, average   1.2468e-03 sec
+Elapsed time: mult1: total        1.046 sec, count  944, average   1.1083e-03 sec
+Elapsed time: multb: total        3.443 sec, count 1488, average   2.3139e-03 sec
+Elapsed time: mult2: total        0.599 sec, count  544, average   1.1006e-03 sec
+Elapsed time: mult_diag: total        1.881 sec, count 1516, average   1.2409e-03 sec
+Elapsed time: copy: total        0.745 sec, count  756, average   9.8517e-04 sec
+Elapsed time: global reduction: total        0.001 sec, count   96, average   1.3274e-05 sec
+   copy contains conversion from float to double
+
+----------- timer [float] -------------
+Elapsed time: comm [float]: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: comm send wait[float]: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: linear algebra [float]: total       31.013 sec, count 49839, average   6.2227e-04 sec
+Elapsed time: mult1 [float]: total        8.006 sec, count 14882, average   5.3799e-04 sec
+Elapsed time: multb [float]: total       38.191 sec, count 29364, average   1.3006e-03 sec
+Elapsed time: mult2 [float]: total        7.708 sec, count 14482, average   5.3228e-04 sec
+Elapsed time: mult_diag [float]: total       16.879 sec, count 29380, average   5.7449e-04 sec
+Elapsed time: copy [float]: total        7.435 sec, count 14874, average   4.9990e-04 sec
+Elapsed time: global reduction [float]: total        0.069 sec, count 14130, average   4.8815e-06 sec
+   copy [float] contains conversion from double to float
+
+------------------------
+[float] arithmetics in mult (mult1+mult2+mult_diag) : 32.593 sec
+[float] overlap: arithmetics in mult (multb) :        38.191 sec
+[float] overlap: communcation in mult (comm) :         0.000 sec
+------------------------
+Elapsed time: Main: total      291.711 sec, count    1, average   2.9171e+02 sec
+Timer: timestamp: 2024/11/29 18:19:35 +0900
+calling bridge_alt_fin()
+calling ThreadManager_OpenMP::finalize()
+calling ThreadManager_OpenMP::finalize(), done
+Fri Nov 29 18:19:37 JST 2024
+done

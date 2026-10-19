@@ -1,0 +1,906 @@
+Bridge++ 2.0.0
+
+target: alt_qxs
+file = main.yaml
+
+Lattice parameters:
+  Lx = 32,  Ly = 16,  Lz = 16,  Lt = 24,
+  Nx = 16,  Ny = 8,  Nz = 4,  Nt = 8,
+  NPEx = 2,  NPEy  = 2,  NPEz  = 4,  NPEt  = 3,
+  Lvol = 196608,  Nvol = 4096,  NPE = 48,
+  Ndim = 4
+  Nc   = 3
+  Nd   = 4
+
+ThreadManager: initialization
+  Number of threads = 12
+Main: input parameters
+  lattice_size     = [32, 16, 16, 24]
+  grid_size        = [2, 2, 4, 3]
+  number of thread = 12
+  number of color  = 3
+  logfile          = stdout
+  ildg_logfile     = stdout
+  vlevel           = General
+
+hoge:  in bridge_init_factory_alt_QXS()
+Timer: timestamp: 2024/01/24 14:16:36 +0900
+target: alt_qxs
+
+--------------------------------------------------------------------
+test name: Spectrum_Domainwall_alt.hadron_2ptFunction
+test file: test_alt_Spectrum_Domainwall_5din_Hadron2ptFunction.yaml
+test mode: richardson_eo
+file = test_alt_Spectrum_Domainwall_5din_Hadron2ptFunction.yaml
+  vlevel       = General
+  source_type  = Local
+ Random number init: ndelay =   1234567
+
+Configuration setup:
+  gconf_status = Continue
+  gconf_read   = Text_4x4x4x8
+  readfile     = ../conf_04040408.txt
+  gmset_type   = Dirac
+Gamma matrix: dirac representation.
+AFopr_Domainwall_5din<AField<double,QXS> >: construction
+  VLENX =  4  Nxv  = 4
+  VLENY =  2  Nyv  = 4
+  VLEN  =  8  Nstv = 512
+  do_comm[0] = 1
+  do_comm[1] = 1
+  do_comm[2] = 1
+  do_comm[3] = 1
+  Parameters of AFopr_Domainwall_5din<AField<double,QXS> >:
+    mq   =   0.0100
+    M0   =   1.0000
+    Ns   =    8
+    boundary[0] =  1
+    boundary[1] =  1
+    boundary[2] =  1
+    boundary[3] =  1
+    coefficients b =     1.5000000000  c =     0.5000000000
+AFopr_Domainwall_5din<AField<double,QXS> >: construction finished.
+Source for spinor field - local:
+  source_position[0] = 0
+  source_position[1] = 0
+  source_position[2] = 0
+  source_position[3] = 0
+  check finished
+
+
+Fprop_alt_Standard_eo_Richardson<AField<double,QXS>, AField<float,QXS> >: being setup.
+AFopr_Domainwall_5din_eo<AField<double,QXS> >: construction
+  VLENX =  4  Nx2v  = 2
+  VLENY =  2  Nyv   = 4
+  VLEN  =  8  Nst2v = 256
+  do_comm[0] = 1
+  do_comm[1] = 1
+  do_comm[2] = 1
+  do_comm[3] = 1
+  Parameters of AFopr_Domainwall_5din_eo<AField<double,QXS> >:
+    mq   =   0.0100
+    M0   =   1.0000
+    Ns   =    8
+    boundary[0] =  1
+    boundary[1] =  1
+    boundary[2] =  1
+    boundary[3] =  1
+    coefficients b =     1.5000000000  c =     0.5000000000
+AFopr_Domainwall_5din_eo<AField<float,QXS> >: construction
+  VLENX =  4  Nx2v  = 2
+  VLENY =  4  Nyv   = 2
+  VLEN  = 16  Nst2v = 128
+  do_comm[0] = 1
+  do_comm[1] = 1
+  do_comm[2] = 1
+  do_comm[3] = 1
+  Parameters of AFopr_Domainwall_5din_eo<AField<float,QXS> >:
+    mq   =   0.0100
+    M0   =   1.0000
+    Ns   =    8
+    boundary[0] =  1
+    boundary[1] =  1
+    boundary[2] =  1
+    boundary[3] =  1
+    coefficients b =     1.5000000000  c =     0.5000000000
+ASolver_CGNR<Afield<float,QXS> >:
+ASolver_CG<Afield<float,QXS> >:
+  Precision: float
+  Niter     = 100
+  Stop_cond =   0.00000000e+00
+  init_guess_mode: 2
+ASolver_Richardson:
+  Precision: double
+  Niter     = 10
+  Stop_cond =   0.00000000e+00
+  InitialGuess = 2
+Fprop_alt_Standard_eo_Richardson<AField<double,QXS>, AField<float,QXS> >: setup finished.
+
+Fprop_alt_Standard_eo_Richardson<AField<double,QXS>, AField<float,QXS> >: mult performance:
+  mult mode = DdagD
+  Double precision:
+   Elapsed time =       0.695762 sec
+   Flop(Fopr)   =         5586812928
+   Flop(total)  =      1117362585600
+   Performance  =    1605.955 GFlops
+  Single precision:
+   Elapsed time =       0.323192 sec
+   Flop(Fopr)   =         5586812928
+   Flop(total)  =      1117362585600
+   Performance  =    3457.272 GFlops
+
+Fprop_alt_Standard_eo_Richardson<AField<double,QXS>, AField<float,QXS> >: mult performance:
+  mult mode = D
+  Double precision:
+   Elapsed time =       0.348748 sec
+   Flop(Fopr)   =         2793406464
+   Flop(total)  =       558681292800
+   Performance  =    1601.963 GFlops
+  Single precision:
+   Elapsed time =       0.159957 sec
+   Flop(Fopr)   =         2793406464
+   Flop(total)  =       558681292800
+   Performance  =    3492.698 GFlops
+AFopr_Wilson<AField<double,QXS> >: construction
+  VLENX =  4  Nxv  = 4
+  VLENY =  2  Nyv  = 4
+  VLEN  =  8  Nstv = 512
+  do_comm[0] = 1
+  do_comm[1] = 1
+  do_comm[2] = 1
+  do_comm[3] = 1
+  AFopr_Wilson<AField<double,QXS> >: set parameters
+    gamma-matrix type = Dirac
+    kappa =   0.1667
+    boundary[0] =  1
+    boundary[1] =  1
+    boundary[2] =  1
+    boundary[3] =  1
+AFopr_Wilson<AField<double,QXS> >: construction finished.
+
+Solving quark propagator:
+  color spin   Nconv      diff           diff2
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.930624193846597e-08
+APrecond_Mixedprec: nconv = -1  diff = 1.930641e-08
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.977502092719078e-03
+APrecond_Mixedprec: nconv = -1  diff = 5.977503e-03
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   7.565669715404510e-02
+APrecond_Mixedprec: nconv = -1  diff = 7.565670e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.493990793824196e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.493991e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   8.305287361145020e-02
+APrecond_Mixedprec: nconv = -1  diff = 8.305286e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.579455286264420e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.579456e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   8.415161073207855e-02
+APrecond_Mixedprec: nconv = -1  diff = 8.415163e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.597806438803673e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.597806e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   8.437572419643402e-02
+APrecond_Mixedprec: nconv = -1  diff = 8.437576e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.607833057641983e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.607833e-02
+Richardson NOT converged: iter=10
+Richardson  nconv = -1, diff2 =  3.121214582041642e-22
+    0    0       -1     1.7667e-11     1.6388e-20
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.140471894700568e-08
+APrecond_Mixedprec: nconv = -1  diff = 1.140479e-08
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   4.924239125102758e-03
+APrecond_Mixedprec: nconv = -1  diff = 4.924243e-03
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.221067160367966e-02
+APrecond_Mixedprec: nconv = -1  diff = 6.221068e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.631409674882889e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.631410e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.908966600894928e-02
+APrecond_Mixedprec: nconv = -1  diff = 6.908968e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.747164316475391e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.747166e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   7.043898850679398e-02
+APrecond_Mixedprec: nconv = -1  diff = 7.043900e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.783576421439648e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.783577e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   7.084619253873825e-02
+APrecond_Mixedprec: nconv = -1  diff = 7.084619e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.801430620253086e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.801431e-02
+Richardson NOT converged: iter=10
+Richardson  nconv = -1, diff2 =  1.103165328211583e-22
+    1    0       -1     1.0503e-11     5.6957e-21
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.386778958334389e-08
+APrecond_Mixedprec: nconv = -1  diff = 1.386780e-08
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.085634998977184e-03
+APrecond_Mixedprec: nconv = -1  diff = 5.085641e-03
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.389399453997612e-02
+APrecond_Mixedprec: nconv = -1  diff = 5.389401e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.726512238383293e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.726512e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.512656062841415e-02
+APrecond_Mixedprec: nconv = -1  diff = 6.512656e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.911169476807117e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.911171e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.723029166460037e-02
+APrecond_Mixedprec: nconv = -1  diff = 6.723029e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.952067576348782e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.952068e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.755482405424118e-02
+APrecond_Mixedprec: nconv = -1  diff = 6.755483e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.968422345817089e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.968422e-02
+Richardson NOT converged: iter=10
+Richardson  nconv = -1, diff2 =  1.425461477358140e-22
+    2    0       -1     1.1939e-11     6.8447e-21
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   9.675177992107820e-09
+APrecond_Mixedprec: nconv = -1  diff = 9.675261e-09
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.996482446789742e-03
+APrecond_Mixedprec: nconv = -1  diff = 5.996484e-03
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.635051965713501e-02
+APrecond_Mixedprec: nconv = -1  diff = 6.635053e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.565965265035629e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.565966e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   7.473309338092804e-02
+APrecond_Mixedprec: nconv = -1  diff = 7.473309e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.682017557322979e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.682018e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   7.642867416143417e-02
+APrecond_Mixedprec: nconv = -1  diff = 7.642868e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.709235273301601e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.709235e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   7.660586386919022e-02
+APrecond_Mixedprec: nconv = -1  diff = 7.660587e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.715359278023243e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.715359e-02
+Richardson NOT converged: iter=10
+Richardson  nconv = -1, diff2 =  1.300781841967146e-22
+    0    1       -1     1.1405e-11     6.8488e-21
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   2.070799887121666e-08
+APrecond_Mixedprec: nconv = -1  diff = 2.070812e-08
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.565862171351910e-03
+APrecond_Mixedprec: nconv = -1  diff = 5.565867e-03
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   4.274903982877731e-02
+APrecond_Mixedprec: nconv = -1  diff = 4.274905e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.866052113473415e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.866053e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.678098648786545e-02
+APrecond_Mixedprec: nconv = -1  diff = 5.678100e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   2.091457322239876e-02
+APrecond_Mixedprec: nconv = -1  diff = 2.091458e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.945828929543495e-02
+APrecond_Mixedprec: nconv = -1  diff = 5.945831e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   2.137163653969765e-02
+APrecond_Mixedprec: nconv = -1  diff = 2.137164e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.982776358723640e-02
+APrecond_Mixedprec: nconv = -1  diff = 5.982777e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   2.150714397430420e-02
+APrecond_Mixedprec: nconv = -1  diff = 2.150716e-02
+Richardson NOT converged: iter=10
+Richardson  nconv = -1, diff2 =  1.785304534564968e-22
+    1    1       -1     1.3362e-11     8.4550e-21
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.192564003105190e-08
+APrecond_Mixedprec: nconv = -1  diff = 1.192572e-08
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   4.856526851654053e-03
+APrecond_Mixedprec: nconv = -1  diff = 4.856531e-03
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.364272370934486e-02
+APrecond_Mixedprec: nconv = -1  diff = 5.364272e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.643878407776356e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.643878e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.599494814872742e-02
+APrecond_Mixedprec: nconv = -1  diff = 6.599496e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.801725849509239e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.801727e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.838469952344894e-02
+APrecond_Mixedprec: nconv = -1  diff = 6.838470e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.850003004074097e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.850004e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.913796067237854e-02
+APrecond_Mixedprec: nconv = -1  diff = 6.913797e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.871483772993088e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.871484e-02
+Richardson NOT converged: iter=10
+Richardson  nconv = -1, diff2 =  9.940874826170857e-23
+    2    1       -1     9.9704e-12     5.1572e-21
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   2.132048493308503e-08
+APrecond_Mixedprec: nconv = -1  diff = 2.132059e-08
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   7.208546623587608e-03
+APrecond_Mixedprec: nconv = -1  diff = 7.208550e-03
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.963699147105217e-02
+APrecond_Mixedprec: nconv = -1  diff = 5.963702e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.738308183848858e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.738310e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.884813308715820e-02
+APrecond_Mixedprec: nconv = -1  diff = 6.884813e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.877496764063835e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.877497e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   7.086331397294998e-02
+APrecond_Mixedprec: nconv = -1  diff = 7.086332e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.921955496072769e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.921956e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   7.124029844999313e-02
+APrecond_Mixedprec: nconv = -1  diff = 7.124029e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.934675872325897e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.934676e-02
+Richardson NOT converged: iter=10
+Richardson  nconv = -1, diff2 =  3.865995615014338e-22
+    0    2       -1     1.9662e-11     1.9073e-20
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.292726459212190e-08
+APrecond_Mixedprec: nconv = -1  diff = 1.292738e-08
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.607580929994583e-03
+APrecond_Mixedprec: nconv = -1  diff = 6.607583e-03
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   3.746739402413368e-02
+APrecond_Mixedprec: nconv = -1  diff = 3.746738e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.932819746434689e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.932821e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   4.864017292857170e-02
+APrecond_Mixedprec: nconv = -1  diff = 4.864019e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   2.175998315215111e-02
+APrecond_Mixedprec: nconv = -1  diff = 2.175998e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   4.995646327733994e-02
+APrecond_Mixedprec: nconv = -1  diff = 4.995646e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   2.232796885073185e-02
+APrecond_Mixedprec: nconv = -1  diff = 2.232797e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.002015829086304e-02
+APrecond_Mixedprec: nconv = -1  diff = 5.002016e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   2.263573370873928e-02
+APrecond_Mixedprec: nconv = -1  diff = 2.263574e-02
+Richardson NOT converged: iter=10
+Richardson  nconv = -1, diff2 =  8.268633496079310e-23
+    1    2       -1     9.0932e-12     3.5633e-21
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.419055628559818e-08
+APrecond_Mixedprec: nconv = -1  diff = 1.419066e-08
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.725120823830366e-03
+APrecond_Mixedprec: nconv = -1  diff = 6.725128e-03
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   3.981914743781090e-02
+APrecond_Mixedprec: nconv = -1  diff = 3.981915e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.852233149111271e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.852234e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.191737413406372e-02
+APrecond_Mixedprec: nconv = -1  diff = 5.191737e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   2.085288614034653e-02
+APrecond_Mixedprec: nconv = -1  diff = 2.085288e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.381223559379578e-02
+APrecond_Mixedprec: nconv = -1  diff = 5.381224e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   2.143225446343422e-02
+APrecond_Mixedprec: nconv = -1  diff = 2.143226e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.396632477641106e-02
+APrecond_Mixedprec: nconv = -1  diff = 5.396633e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   2.169225737452507e-02
+APrecond_Mixedprec: nconv = -1  diff = 2.169225e-02
+Richardson NOT converged: iter=10
+Richardson  nconv = -1, diff2 =  1.028833040961989e-22
+    2    2       -1     1.0143e-11     4.6009e-21
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   9.309746751284820e-09
+APrecond_Mixedprec: nconv = -1  diff = 9.309825e-09
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.458347663283348e-03
+APrecond_Mixedprec: nconv = -1  diff = 6.458355e-03
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   7.377322763204575e-02
+APrecond_Mixedprec: nconv = -1  diff = 7.377325e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.508626993745565e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.508628e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   7.841172069311142e-02
+APrecond_Mixedprec: nconv = -1  diff = 7.841174e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.592371240258217e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.592372e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   7.949223369359970e-02
+APrecond_Mixedprec: nconv = -1  diff = 7.949225e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.617440022528172e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.617440e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   7.983624935150146e-02
+APrecond_Mixedprec: nconv = -1  diff = 7.983626e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.629058085381985e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.629059e-02
+Richardson NOT converged: iter=10
+Richardson  nconv = -1, diff2 =  1.397200236178354e-22
+    0    3       -1     1.1820e-11     7.6212e-21
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   2.302062362957713e-08
+APrecond_Mixedprec: nconv = -1  diff = 2.302068e-08
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.037626415491104e-03
+APrecond_Mixedprec: nconv = -1  diff = 6.037632e-03
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   3.389617800712585e-02
+APrecond_Mixedprec: nconv = -1  diff = 3.389618e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.758331060409546e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.758331e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   4.630062356591225e-02
+APrecond_Mixedprec: nconv = -1  diff = 4.630063e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   2.168474160134792e-02
+APrecond_Mixedprec: nconv = -1  diff = 2.168475e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.318650230765343e-02
+APrecond_Mixedprec: nconv = -1  diff = 5.318651e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   2.328677289187908e-02
+APrecond_Mixedprec: nconv = -1  diff = 2.328677e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   5.506889522075653e-02
+APrecond_Mixedprec: nconv = -1  diff = 5.506889e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   2.378175407648087e-02
+APrecond_Mixedprec: nconv = -1  diff = 2.378175e-02
+Richardson NOT converged: iter=10
+Richardson  nconv = -1, diff2 =  1.349084086950851e-22
+    1    3       -1     1.1615e-11     5.8874e-21
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.130098947754732e-08
+APrecond_Mixedprec: nconv = -1  diff = 1.130109e-08
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.770894862711430e-03
+APrecond_Mixedprec: nconv = -1  diff = 6.770898e-03
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.261948496103287e-02
+APrecond_Mixedprec: nconv = -1  diff = 6.261949e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.671501994132996e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.671502e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   6.975323706865311e-02
+APrecond_Mixedprec: nconv = -1  diff = 6.975322e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.790966652333736e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.790965e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   7.102931290864944e-02
+APrecond_Mixedprec: nconv = -1  diff = 7.102934e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.824509724974632e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.824510e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   7.135030627250671e-02
+APrecond_Mixedprec: nconv = -1  diff = 7.135029e-02
+Error at ASolver_CG<Afield<float,QXS> >: not converged
+  iter(final):      100   1.840144209563732e-02
+APrecond_Mixedprec: nconv = -1  diff = 1.840143e-02
+Richardson NOT converged: iter=10
+Richardson  nconv = -1, diff2 =  1.702415127691401e-22
+    2    3       -1     1.3048e-11     8.3982e-21
+
+Fprop_alt_Standard_eo_Richardson<AField<double,QXS>, AField<float,QXS> >: solver performance:
+  Elapsed time =      24.290287 sec
+  Flop(total)  =       599978409984
+  Performance  =      24.700 GFlops
+Elapsed time: calculating porpagator: total        24.33 sec, count    1, average        24.33 sec
+
+2-point correlator:
+PS <-- PS correlator:
+     0    1.742859283359e-01   -1.895131871540e-19
+     1    5.297490886036e-02    1.033569050821e-19
+     2    1.030294378395e-02   -3.490176673847e-21
+     3    3.089598217848e-03   -1.923638864481e-21
+     4    1.357892775142e-03    1.484537938661e-22
+     5    7.813908835222e-04   -7.782835767385e-24
+     6    4.869214248474e-04    4.559630898947e-24
+     7    3.254007721833e-04   -9.656214553366e-25
+     8    2.272841338962e-04    8.576324174332e-24
+     9    1.903615895810e-04   -3.656620160842e-24
+    10    1.687335804785e-04    8.042504103671e-24
+    11    1.309596907544e-04    1.116306654146e-25
+    12    1.276415642773e-04   -2.359014661670e-24
+    13    1.570121672419e-04    4.996085772286e-24
+    14    1.589772416318e-04    5.259669028068e-24
+    15    1.810922191454e-04   -9.009821463388e-24
+    16    2.274806455299e-04   -4.433090537114e-24
+    17    3.255740775059e-04   -2.028419595589e-23
+    18    4.708947967560e-04   -4.166262471416e-25
+    19    6.536266297213e-04    4.445518908577e-23
+    20    1.339751568932e-03   -2.923330522519e-23
+    21    3.392032238042e-03   -6.726236199947e-22
+    22    1.027993574177e-02    2.584698939962e-21
+    23    5.511336079775e-02   -1.266912895424e-19
+V1 <-- V1 correlator:
+     0    5.565069996986e-02   -1.899471384218e-19
+     1    3.661866743288e-02   -3.001673006832e-20
+     2    6.208286253533e-03   -7.213014941462e-21
+     3    1.476899306749e-03    4.486627642488e-21
+     4    4.799765142218e-04    8.106370003020e-23
+     5    1.953045170203e-04    1.867773823145e-21
+     6    9.561093404397e-05    3.507245797225e-22
+     7    5.115760182211e-05   -8.817745329815e-22
+     8    2.446867729474e-05   -4.433688083284e-22
+     9    1.491990882466e-05    1.455837878093e-22
+    10    9.658410175891e-06    5.095432573327e-22
+    11    1.274338226231e-05    1.323488980085e-22
+    12    2.059652584036e-05    1.414478847466e-22
+    13    2.609760599218e-05    5.624828165361e-23
+    14    2.532277230921e-05    6.617444900424e-23
+    15    2.564033774997e-05   -1.786710123115e-22
+    16    2.526965565376e-05   -1.058791184068e-22
+    17    4.106170510674e-05    3.705769144238e-22
+    18    8.628631490212e-05    3.242548001208e-22
+    19    1.732041092945e-04    7.378451063973e-22
+    20    4.631837910143e-04   -9.793818452628e-22
+    21    1.523054740954e-03    6.511565782017e-21
+    22    6.067550711768e-03    1.058791184068e-21
+    23    3.768690731167e-02   -1.002476727965e-19
+V2 <-- V2 correlator:
+     0    5.667416818038e-02   -7.835054762102e-21
+     1    3.650525576179e-02   -1.381060750719e-20
+     2    6.117882650374e-03    7.014491594450e-21
+     3    1.502706489209e-03   -1.064085139988e-20
+     4    5.040336959733e-04   -5.293955920339e-23
+     5    1.973902916225e-04   -5.227781471335e-22
+     6    8.959711499670e-05    4.334426409778e-22
+     7    5.155227500605e-05    7.279189390467e-23
+     8    3.806331186234e-05    2.713152409174e-22
+     9    3.358736294927e-05   -1.058791184068e-22
+    10    3.261953867284e-05   -1.323488980085e-22
+    11    2.181212352793e-05    1.985233470127e-23
+    12    1.090147342723e-05    8.271806125530e-23
+    13    4.338445835540e-06   -5.955700410382e-23
+    14    8.560278714918e-06    5.955700410382e-23
+    15    2.097831924800e-05   -3.226004388957e-22
+    16    3.677914734157e-05    4.433688083284e-22
+    17    6.240291088809e-05    9.264422860594e-23
+    18    1.107192045872e-04   -1.654361225106e-22
+    19    1.945491308564e-04    1.852884572119e-22
+    20    4.990370828643e-04    5.426304818348e-22
+    21    1.526493415530e-03   -1.416133208691e-21
+    22    5.986792917995e-03    5.029258124322e-21
+    23    3.767114622742e-02   -1.408192274810e-20
+V3 <-- V3 correlator:
+     0    5.882286840443e-02    1.308999722991e-19
+     1    3.679509114152e-02    9.519700000857e-20
+     2    6.017376809239e-03   -1.092202144678e-21
+     3    1.418288748883e-03   -2.175938050502e-21
+     4    4.138284761651e-04    1.489256855535e-22
+     5    1.530477914428e-04   -3.721637736545e-23
+     6    7.902064972972e-05   -4.680931011332e-24
+     7    5.672039599972e-05   -2.983136770335e-24
+     8    4.071816387681e-05    1.154909141182e-23
+     9    3.075845264462e-05   -3.784645162480e-24
+    10    1.879458038805e-05   -2.673513498152e-24
+    11    1.293719328648e-05    3.739292995101e-24
+    12    1.538157888179e-05   -2.396613822265e-25
+    13    2.673862971048e-05    4.784301535493e-25
+    14    3.431461670325e-05    4.474193560539e-24
+    15    4.436515264302e-05    2.285012652400e-24
+    16    4.623609115808e-05   -7.673125620154e-25
+    17    5.712317587536e-05   -1.371119770731e-23
+    18    9.160782700358e-05   -2.411398383585e-23
+    19    1.712206903463e-04    5.756829172457e-23
+    20    4.458268584819e-04   -9.004580710305e-23
+    21    1.508192758405e-03   -6.908039688032e-22
+    22    5.992693330160e-03    3.847033526774e-21
+    23    3.781676096021e-02   -1.335384493878e-19
+A4 <-- PS correlator:
+     0   -1.034224246370e-05   -2.669823168310e-19
+     1   -9.442429180301e-04    1.638716184461e-20
+     2   -5.183125766090e-04   -4.148911547851e-22
+     3   -3.177299441118e-04   -4.178386490192e-22
+     4   -1.896062025222e-04    7.738058680192e-23
+     5   -1.149567435454e-04    4.059933912041e-23
+     6   -7.625455292136e-05    3.611604558730e-24
+     7   -5.826488375816e-05    1.471286700661e-24
+     8   -4.547018547286e-05   -6.656448502992e-24
+     9   -3.758713465451e-05    7.317292716631e-25
+    10   -2.838566648476e-05   -4.570799981446e-24
+    11   -1.586700114401e-05   -3.820655577609e-24
+    12   -4.541764352651e-06   -4.693397264055e-24
+    13    1.037880760500e-05    4.062108687544e-25
+    14    2.067087191070e-05    2.369645231011e-25
+    15    3.317653272834e-05    7.519722942923e-24
+    16    4.240677220724e-05   -6.434554349267e-24
+    17    5.314440338206e-05   -1.526978509400e-23
+    18    7.363213600933e-05   -2.625469380806e-24
+    19    9.322778173353e-05    2.023227546802e-23
+    20    1.553552482952e-04    1.643011469092e-22
+    21    2.940411889788e-04    7.646609864405e-22
+    22    4.834314963705e-04   -2.921449253872e-21
+    23    9.671365202069e-04    2.564885886646e-21
+PS <-- A4 correlator:
+     0   -2.477119631627e-05    2.667198323181e-19
+     1   -8.780489795558e-04   -6.553088886399e-21
+     2   -4.483637184366e-04   -3.168080230879e-21
+     3   -2.605335742865e-04   -2.850833921358e-23
+     4   -1.670973747922e-04    2.707154528532e-22
+     5   -1.182932184087e-04    2.826034090482e-23
+     6   -8.568124067451e-05    3.296321510769e-23
+     7   -6.321589327143e-05   -7.171965707342e-24
+     8   -4.444459884506e-05   -2.997887461275e-24
+     9   -3.465806398592e-05    3.455601947098e-24
+    10   -2.431751333686e-05    2.519226869135e-25
+    11   -1.065452456381e-05   -6.378248705068e-25
+    12    3.572214796821e-06    2.246864980898e-24
+    13    1.738562315585e-05   -5.908262575487e-25
+    14    2.454343835414e-05    5.990172882118e-24
+    15    3.328197569596e-05   -7.137973172280e-24
+    16    4.670615628079e-05   -1.093421777410e-23
+    17    6.730397883561e-05   -9.255790079459e-24
+    18    9.167362537816e-05    2.202047534509e-24
+    19    1.090697338859e-04    8.485434510535e-23
+    20    1.687084767304e-04    1.055669366345e-22
+    21    2.831648366196e-04    6.985044959621e-22
+    22    4.127297795372e-04   -1.839714655535e-21
+    23    8.652358664059e-04    4.279799862943e-20
+S <-- S correlator:
+     0   -1.739437470347e-01   -1.777842746948e-19
+     1   -5.260194117508e-02   -4.063772913351e-20
+     2   -9.913901244130e-03    9.330597309598e-22
+     3   -2.761948240307e-03    1.283784310682e-21
+     4   -1.112209794536e-03   -1.272203782107e-21
+     5   -6.274411016517e-04    9.661469554619e-22
+     6   -3.930572219478e-04   -2.812414082680e-22
+     7   -2.570476004068e-04    4.963083675318e-23
+     8   -1.659489185211e-04   -1.273858143332e-22
+     9   -1.251369669039e-04    2.316105715148e-22
+    10   -9.974671214638e-05   -1.786710123115e-22
+    11   -7.166146565050e-05   -3.441071348221e-22
+    12   -7.217515610402e-05    2.481541837659e-22
+    13   -9.827564673804e-05   -1.191140082076e-22
+    14   -1.037740502738e-04    2.316105715148e-22
+    15   -1.266768710375e-04   -1.786710123115e-22
+    16   -1.693744650865e-04    1.588186776102e-22
+    17   -2.527102569003e-04   -2.249931266144e-22
+    18   -3.774015711308e-04    4.499862532288e-22
+    19   -5.420331685632e-04   -5.492479267352e-22
+    20   -1.173986476778e-03    3.672681919735e-22
+    21   -3.146317356784e-03   -4.288104295475e-21
+    22   -1.000255894482e-02   -2.830612056156e-21
+    23   -5.480041676131e-02    6.156539863110e-20
+GAMMA51 <-- GAMMA51 correlator:
+     0    5.554094585197e-02   -2.317429204129e-19
+     1    3.649837868612e-02   -1.992115612824e-19
+     2    6.072132652649e-03    2.567568621365e-21
+     3    1.359080848572e-03   -3.977084385155e-21
+     4    4.009124652774e-04   -4.433688083284e-22
+     5    1.585420970835e-04   -1.766857788413e-21
+     6    7.995067791391e-05   -6.253485430901e-22
+     7    4.257932875835e-05   -1.323488980085e-22
+     8    1.929516939187e-05    2.051407919132e-22
+     9    9.898671832105e-06    1.058791184068e-22
+    10    3.722820932121e-06   -5.029258124322e-22
+    11    6.741886563954e-06    2.646977960170e-23
+    12    1.827033913966e-05   -9.264422860594e-23
+    13    2.914246825050e-05   -1.191140082076e-22
+    14    2.729350070228e-05   -2.977850205191e-23
+    15    2.533779937267e-05    0.000000000000e+00
+    16    1.762596396207e-05    5.293955920339e-23
+    17    2.494813199937e-05    5.293955920339e-22
+    18    5.712727173186e-05   -3.308722450212e-23
+    19    1.369622999940e-04    3.552740730915e-22
+    20    4.107614346771e-04   -1.310254090284e-21
+    21    1.452857100207e-03   -1.078643518769e-21
+    22    5.987563649372e-03   -1.195110549017e-20
+    23    3.759457073629e-02   -6.564505341221e-21
+GAMMA52 <-- GAMMA52 correlator:
+     0    5.649937840636e-02    9.150602808307e-20
+     1    3.632279610730e-02   -2.924910645988e-20
+     2    5.938507311619e-03    8.510034141946e-21
+     3    1.377269562898e-03   -1.588186776102e-22
+     4    4.372625751505e-04    1.230844751479e-21
+     5    1.674972256062e-04   -2.051407919132e-22
+     6    6.868450855459e-05   -3.044024654195e-22
+     7    3.021610790471e-05   -1.588186776102e-22
+     8    1.357181384411e-05    1.852884572119e-22
+     9    6.713742416430e-06    2.382280164153e-22
+    10    4.363330780310e-06   -2.382280164153e-22
+    11   -9.779458453627e-07   -2.117582368136e-22
+    12   -7.886710609559e-06    0.000000000000e+00
+    13   -1.572867780618e-05   -3.407984123718e-22
+    14   -1.027616995197e-05   -1.058791184068e-22
+    15   -9.705369141572e-08   -1.588186776102e-22
+    16    1.247234661147e-05   -4.632211430297e-23
+    17    3.402449093294e-05   -1.323488980085e-22
+    18    7.919333931983e-05   -5.293955920339e-23
+    19    1.621549108017e-04    3.573420246229e-22
+    20    4.460623636170e-04    9.462946207607e-22
+    21    1.442811635694e-03    5.241016361136e-21
+    22    5.887207050820e-03    1.924352977043e-20
+    23    3.753130899243e-02   -2.485512304599e-20
+GAMMA53 <-- GAMMA53 correlator:
+     0    5.870749201777e-02    6.099960709211e-20
+     1    3.669437165156e-02    2.105588249254e-20
+     2    5.945808745786e-03   -5.274103585638e-21
+     3    1.367158327121e-03   -2.713152409174e-22
+     4    3.756562173548e-04    2.034864306880e-22
+     5    1.288858454145e-04    7.213014941462e-22
+     6    6.434708693986e-05    7.411538288475e-22
+     7    4.534126430259e-05    6.576085869797e-22
+     8    3.277269232132e-05    1.588186776102e-22
+     9    2.619198840502e-05    1.025703959566e-22
+    10    2.053398423057e-05    2.034864306880e-22
+    11    1.552856471037e-05    1.422750653591e-22
+    12    1.650544658549e-05   -2.148601641106e-22
+    13    2.467598801685e-05    5.624828165361e-23
+    14    3.085893787492e-05    1.108422020821e-22
+    15    3.811382934171e-05   -3.407984123718e-22
+    16    3.755282851913e-05    1.464109684219e-22
+    17    4.499392496370e-05   -2.977850205191e-23
+    18    7.497218430835e-05    3.771943593242e-22
+    19    1.496644461884e-04   -4.483318920037e-22
+    20    4.081712154969e-04    1.555099551600e-21
+    21    1.441586985275e-03   -6.154223757395e-22
+    22    5.905861836794e-03    8.867376166568e-22
+    23    3.770414014023e-02   -3.992966252916e-20
+SIGMA12 <-- SIGMA12 correlator:
+     0    5.849397651060e-02    7.071401620593e-20
+     1   -2.269879950515e-02   -3.758708703441e-20
+     2   -3.371004917663e-03    3.705769144238e-22
+     3   -6.923770288237e-04    1.422750653591e-21
+     4   -2.504631226192e-04    1.067062990193e-21
+     5   -1.577916270436e-04   -4.367513634280e-22
+     6   -8.690373781317e-05   -3.854661654497e-22
+     7   -3.531884467714e-05   -7.113753267956e-23
+     8   -7.823867626646e-07    7.940933880509e-23
+     9    1.414729391349e-05    9.264422860594e-23
+    10    2.307712526082e-05    6.617444900424e-23
+    11    1.313832189446e-05    3.970466940255e-22
+    12    2.608584801593e-06   -3.705769144238e-22
+    13   -9.449534386110e-07    1.058791184068e-22
+    14    8.521629908141e-07    1.323488980085e-23
+    15    2.157895087118e-06   -2.249931266144e-22
+    16   -3.890580485301e-06    1.124965633072e-22
+    17   -1.770089244258e-05   -5.293955920339e-23
+    18   -4.272207315341e-05   -3.904292491250e-22
+    19   -8.252693291229e-05   -3.474158572723e-22
+    20   -2.055035495856e-04   -3.209460776706e-22
+    21   -7.583296051864e-04    3.242548001208e-22
+    22   -3.422129332237e-03   -4.552802091492e-21
+    23   -2.314647142128e-02    5.417040395487e-20
+SIGMA23 <-- SIGMA23 correlator:
+     0    5.505091115877e-02   -5.012714512071e-19
+     1   -2.309220197137e-02    8.887228501270e-20
+     2   -3.460160206498e-03   -6.538035561619e-21
+     3   -8.362242166186e-04   -1.005851624864e-21
+     4   -2.721009350298e-04    1.455837878093e-22
+     5   -1.122202292275e-04    5.624828165361e-22
+     6   -5.188486987390e-05   -1.323488980085e-23
+     7   -2.291852316000e-05   -5.955700410382e-22
+     8   -2.299258081628e-06    4.963083675318e-23
+     9    2.821418138359e-06   -3.308722450212e-23
+    10    1.400989277700e-06   -3.970466940255e-23
+    11   -8.866248447582e-07   -3.838118042246e-22
+    12   -1.523688384644e-06    2.448454613157e-22
+    13   -5.483448366556e-07    3.606507470731e-22
+    14   -2.374430345978e-06    6.286572655403e-23
+    15   -3.587708226082e-06    3.308722450212e-23
+    16   -7.807479867806e-06   -3.308722450212e-23
+    17   -2.301413048525e-05    1.952146245625e-22
+    18   -6.201648770155e-05   -1.257314531081e-22
+    19   -1.098790806657e-04    0.000000000000e+00
+    20   -2.539177760213e-04   -1.048865016717e-21
+    21   -8.412576797766e-04   -3.970466940255e-22
+    22   -3.522921427728e-03   -8.960020395174e-21
+    23   -2.385200965854e-02    1.561187600908e-19
+SIGMA31 <-- SIGMA31 correlator:
+     0    5.594611612742e-02    9.105604182984e-20
+     1   -2.330662435480e-02    3.515186731105e-20
+     2   -3.513138868477e-03    9.277657750395e-21
+     3   -7.789164534900e-04   -1.336723869886e-21
+     4   -2.107862450865e-04   -1.131583077973e-21
+     5   -9.403441487855e-05    7.345363839471e-22
+     6   -6.402861316614e-05    2.580803511165e-22
+     7   -5.051074905049e-05    3.639594695233e-23
+     8   -3.436421112139e-05    9.264422860594e-23
+     9   -2.474770559139e-05   -1.985233470127e-22
+    10   -1.797785336492e-05   -5.955700410382e-23
+    11   -1.220383013325e-05   -1.588186776102e-22
+    12   -1.062029268992e-05   -1.621274000604e-22
+    13   -1.300211401815e-05   -2.977850205191e-23
+    14   -1.675336061123e-05   -1.455837878093e-22
+    15   -2.580531825910e-05   -2.316105715148e-23
+    16   -3.452162456091e-05   -1.455837878093e-22
+    17   -5.123148399761e-05   -3.110199103199e-22
+    18   -8.314057446346e-05    4.301339185276e-22
+    19   -1.197426896704e-04   -8.917007003322e-22
+    20   -2.720039388959e-04    1.733770563911e-21
+    21   -8.934939386683e-04   -5.823351512373e-22
+    22   -3.493477283365e-03    1.212315905758e-20
+    23   -2.347139008448e-02   -4.390012946941e-20
+Elapsed time: Spectrum_Domainwall_alt.hadron_2ptFunction: total        24.37 sec, count    1, average        24.37 sec
+ alt code.
+
+check test data
+check precision = 1.0e-11
+result: 1.74285928335876e-01  expected: 1.62210895038600e-01
+test result: incorrect! (T_T)
+diff: expected - result = 7.44403345681739e-02
+
+Test result for QXS = 1
+Elapsed time: Main: total        26.06 sec, count    1, average        26.06 sec
+Timer: timestamp: 2024/01/24 14:17:02 +0900
+calling bridge_alt_fin()
+calling ThreadManager_OpenMP::finalize()
+calling ThreadManager_OpenMP::finalize(), done

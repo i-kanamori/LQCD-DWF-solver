@@ -1,0 +1,504 @@
+Bridge++ 2.0.0
+
+target: alt_accel
+file = main.yaml
+
+Lattice parameters:
+  Lx = 32,  Ly = 8,  Lz = 8,  Lt = 12,
+  Nx = 32,  Ny = 8,  Nz = 8,  Nt = 12,
+  NPEx = 1,  NPEy  = 1,  NPEz  = 1,  NPEt  = 1,
+  Lvol = 24576,  Nvol = 24576,  NPE = 1,
+  Ndim = 4
+  Nc   = 3
+  Nd   = 4
+
+ThreadManager: initialization
+Warning at ThreadManager: Nthread(env) != Nthread(input)
+  Number of threads(env)   = 72
+  Number of threads(input) = 2
+  reset Nthread = Nthread(input).
+  Number of threads = 2
+Main: input parameters
+  lattice_size     = [32, 8, 8, 12]
+  grid_size        = [1, 1, 1, 1]
+  number of thread = 2
+  number of color  = 3
+  logfile          = stdout
+  ildg_logfile     = stdout
+  vlevel           = General
+
+Alt_Accel code is being setup.
+DeviceManager_CUDA: being initialized.
+  process_id = 0
+  number of devices = 1
+  device_id = 0  is used on process = 0
+------------------------------------------------
+Alt_Accel: Factory entries
+------------------------------------------------
+AFopr<double, ACCEL> >(void):
+AFopr<double, ACCEL>(Parameters&):
+	Domainwall
+	Domainwall_5din
+	Domainwall_5din_eo
+	Domainwall_eo
+	Wilson
+	Wilson_eo
+AFopr<double, ACCEL>(Fopr*):
+	Domainwall
+AFopr<float, ACCEL> >(void):
+AFopr<float, ACCEL>(Parameters&):
+	Domainwall
+	Domainwall_5din
+	Domainwall_5din_eo
+	Domainwall_eo
+	Wilson
+	Wilson_eo
+AFopr<float, ACCEL>(Fopr*):
+	Domainwall
+------------------------------------------------
+Timer: timestamp: 2024/08/23 20:00:18 +0900
+target: alt_accel
+
+--------------------------------------------------------------------
+test name: Spectrum_Domainwall_alt.hadron_2ptFunction
+test file: test_alt_Spectrum_Domainwall_5din_Hadron2ptFunction.yaml
+test mode: richardson_eo
+file = test_alt_Spectrum_Domainwall_5din_Hadron2ptFunction.yaml
+  vlevel       = General
+  source_type  = Local
+ Random number init: ndelay =   1234567
+
+Configuration setup:
+  gconf_status = Continue
+  gconf_read   = Text_4x4x4x8
+  readfile     = ../conf_04040408.txt
+  gmset_type   = Dirac
+Gamma matrix: dirac representation.
+AFopr_Domainwall_5din<AField<double,ACCEL> >: construction
+  do_comm[0] = 0
+  do_comm[1] = 0
+  do_comm[2] = 0
+  do_comm[3] = 0
+  AFopr_Domainwall_5din<AField<double,ACCEL> >: input parameters
+    mq   =   0.0100
+    M0   =   1.0000
+    Ns   =    8
+    boundary[0] =  1
+    boundary[1] =  1
+    boundary[2] =  1
+    boundary[3] =  1
+    coefficients:
+      b[ 0] =     1.5000000000  c[ 0] =     0.5000000000
+      b[ 1] =     1.5000000000  c[ 1] =     0.5000000000
+      b[ 2] =     1.5000000000  c[ 2] =     0.5000000000
+      b[ 3] =     1.5000000000  c[ 3] =     0.5000000000
+      b[ 4] =     1.5000000000  c[ 4] =     0.5000000000
+      b[ 5] =     1.5000000000  c[ 5] =     0.5000000000
+      b[ 6] =     1.5000000000  c[ 6] =     0.5000000000
+      b[ 7] =     1.5000000000  c[ 7] =     0.5000000000
+AFopr_Domainwall_5din<AField<double,ACCEL> >: construction finished.
+Source for spinor field - local:
+  source_position[0] = 0
+  source_position[1] = 0
+  source_position[2] = 0
+  source_position[3] = 0
+  check finished
+
+
+Fprop_alt_Standard_eo_Richardson<AField<double,ACCEL>, AField<float,ACCEL> >: being setup.
+AFopr_Domainwall_5din_eo<AField<double,ACCEL> >: construction
+  do_comm[0] = 0
+  do_comm[1] = 0
+  do_comm[2] = 0
+  do_comm[3] = 0
+  AFopr_Domainwall_5din_eo<AField<double,ACCEL> >: input parameters
+    mq   =   0.0100
+    M0   =   1.0000
+    Ns   =    8
+    boundary[0] =  1
+    boundary[1] =  1
+    boundary[2] =  1
+    boundary[3] =  1
+    coefficients:
+      b[ 0] =     1.5000000000  c[ 0] =     0.5000000000
+      b[ 1] =     1.5000000000  c[ 1] =     0.5000000000
+      b[ 2] =     1.5000000000  c[ 2] =     0.5000000000
+      b[ 3] =     1.5000000000  c[ 3] =     0.5000000000
+      b[ 4] =     1.5000000000  c[ 4] =     0.5000000000
+      b[ 5] =     1.5000000000  c[ 5] =     0.5000000000
+      b[ 6] =     1.5000000000  c[ 6] =     0.5000000000
+      b[ 7] =     1.5000000000  c[ 7] =     0.5000000000
+AFopr_Domainwall_5din_eo<AField<float,ACCEL> >: construction
+  do_comm[0] = 0
+  do_comm[1] = 0
+  do_comm[2] = 0
+  do_comm[3] = 0
+  AFopr_Domainwall_5din_eo<AField<float,ACCEL> >: input parameters
+    mq   =   0.0100
+    M0   =   1.0000
+    Ns   =    8
+    boundary[0] =  1
+    boundary[1] =  1
+    boundary[2] =  1
+    boundary[3] =  1
+    coefficients:
+      b[ 0] =     1.5000000000  c[ 0] =     0.5000000000
+      b[ 1] =     1.5000000000  c[ 1] =     0.5000000000
+      b[ 2] =     1.5000000000  c[ 2] =     0.5000000000
+      b[ 3] =     1.5000000000  c[ 3] =     0.5000000000
+      b[ 4] =     1.5000000000  c[ 4] =     0.5000000000
+      b[ 5] =     1.5000000000  c[ 5] =     0.5000000000
+      b[ 6] =     1.5000000000  c[ 6] =     0.5000000000
+      b[ 7] =     1.5000000000  c[ 7] =     0.5000000000
+Parameters: fetch_int: key 'maximum_number_of_iteration_single' not found.
+maximum_number_of_iteration_single is not given, setting it 4000 from the parameters for the outer.
+Parameters: fetch_double: key 'convergence_criterion_squared_single' not found.
+convergence_criterion_squared_single is not given, setting it 1.000000e-08.
+ASolver_CGNR<Afield<float,ACCEL> >:
+ASolver_CG<Afield<float,ACCEL> >:
+  Precision: float
+  Niter     = 4000
+  Stop_cond =   9.99999994e-09
+  init_guess_mode: 2
+ASolver_Richardson:
+  Precision: double
+  Niter     = 4000
+  Stop_cond =   1.00000000e-28
+  InitialGuess = 2
+Fprop_alt_Standard_eo_Richardson<AField<double,ACCEL>, AField<float,ACCEL> >: setup finished.
+
+Fprop_alt_Standard_eo_Richardson<AField<double,ACCEL>, AField<float,ACCEL> >: mult performance:
+  mult mode = DdagD
+  Double precision:
+   Elapsed time =       0.197528 sec
+   Flop(Fopr)   =          698351616
+   Flop(total)  =       139670323200
+   Performance  =     707.091 GFlops
+  Single precision:
+   Elapsed time =       0.155293 sec
+   Flop(Fopr)   =          698351616
+   Flop(total)  =       139670323200
+   Performance  =     899.397 GFlops
+
+Fprop_alt_Standard_eo_Richardson<AField<double,ACCEL>, AField<float,ACCEL> >: mult performance:
+  mult mode = D
+  Double precision:
+   Elapsed time =       0.096105 sec
+   Flop(Fopr)   =          349175808
+   Flop(total)  =        69835161600
+   Performance  =     726.654 GFlops
+  Single precision:
+   Elapsed time =       0.076309 sec
+   Flop(Fopr)   =          349175808
+   Flop(total)  =        69835161600
+   Performance  =     915.160 GFlops
+AFopr_Wilson<AField<double,ACCEL> >: construction
+  do_comm[0] = 0
+  do_comm[1] = 0
+  do_comm[2] = 0
+  do_comm[3] = 0
+Parameters of AFopr_Wilson<AField<double,ACCEL> >:
+  gamma-matrix type = Dirac
+  kappa =   0.1667
+  boundary[0] =  1
+  boundary[1] =  1
+  boundary[2] =  1
+  boundary[3] =  1
+AFopr_Wilson<AField<double,ACCEL> >: construction finished.
+
+Solving quark propagator:
+  color spin   Nconv      diff           diff2
+APrecond_Mixedprec: nconv = 85  diff = 9.212175e-09
+APrecond_Mixedprec: nconv = 200  diff = 1.024695e-08
+APrecond_Mixedprec: nconv = 205  diff = 1.011960e-08
+APrecond_Mixedprec: nconv = 200  diff = 1.061067e-08
+Richardson  nconv = 4, diff2 =  4.684438868289545e-32
+    0    0        4     2.1644e-16     2.4347e-31
+APrecond_Mixedprec: nconv = 75  diff = 8.829134e-09
+APrecond_Mixedprec: nconv = 204  diff = 1.059565e-08
+APrecond_Mixedprec: nconv = 203  diff = 1.132531e-08
+APrecond_Mixedprec: nconv = 217  diff = 1.304407e-08
+Richardson  nconv = 4, diff2 =  5.790686944003233e-32
+    1    0        4     2.4064e-16     1.6244e-31
+APrecond_Mixedprec: nconv = 73  diff = 9.680237e-09
+APrecond_Mixedprec: nconv = 203  diff = 1.064312e-08
+APrecond_Mixedprec: nconv = 208  diff = 1.027916e-08
+APrecond_Mixedprec: nconv = 217  diff = 1.096994e-08
+Richardson  nconv = 4, diff2 =  3.948017557731034e-32
+    2    0        4     1.9870e-16     1.4584e-31
+APrecond_Mixedprec: nconv = 75  diff = 9.766535e-09
+APrecond_Mixedprec: nconv = 214  diff = 1.113017e-08
+APrecond_Mixedprec: nconv = 206  diff = 1.006383e-08
+APrecond_Mixedprec: nconv = 217  diff = 1.190539e-08
+Richardson  nconv = 4, diff2 =  4.138133144056653e-32
+    0    1        4     2.0342e-16     1.4200e-31
+APrecond_Mixedprec: nconv = 87  diff = 9.611970e-09
+APrecond_Mixedprec: nconv = 199  diff = 1.017967e-08
+APrecond_Mixedprec: nconv = 206  diff = 1.017392e-08
+APrecond_Mixedprec: nconv = 197  diff = 1.025524e-08
+Richardson  nconv = 4, diff2 =  3.831412152189123e-32
+    1    1        4     1.9574e-16     2.5283e-31
+APrecond_Mixedprec: nconv = 81  diff = 9.581645e-09
+APrecond_Mixedprec: nconv = 202  diff = 9.974040e-09
+APrecond_Mixedprec: nconv = 212  diff = 1.022281e-08
+APrecond_Mixedprec: nconv = 211  diff = 1.123680e-08
+Richardson  nconv = 4, diff2 =  4.752369616680340e-32
+    2    1        4     2.1800e-16     2.7936e-31
+APrecond_Mixedprec: nconv = 78  diff = 9.663926e-09
+APrecond_Mixedprec: nconv = 211  diff = 1.100430e-08
+APrecond_Mixedprec: nconv = 204  diff = 1.034272e-08
+APrecond_Mixedprec: nconv = 213  diff = 1.188230e-08
+Richardson  nconv = 4, diff2 =  5.193041283914979e-32
+    0    2        4     2.2788e-16     2.0474e-31
+APrecond_Mixedprec: nconv = 71  diff = 9.590481e-09
+APrecond_Mixedprec: nconv = 206  diff = 1.089409e-08
+APrecond_Mixedprec: nconv = 199  diff = 1.012683e-08
+APrecond_Mixedprec: nconv = 209  diff = 1.239518e-08
+Richardson  nconv = 4, diff2 =  5.762970329233882e-32
+    1    2        4     2.4006e-16     1.8927e-31
+APrecond_Mixedprec: nconv = 66  diff = 9.891746e-09
+APrecond_Mixedprec: nconv = 213  diff = 1.038902e-08
+APrecond_Mixedprec: nconv = 200  diff = 9.487127e-09
+APrecond_Mixedprec: nconv = 209  diff = 1.135250e-08
+Richardson  nconv = 4, diff2 =  3.920560082669599e-32
+    2    2        4     1.9800e-16     2.2983e-31
+APrecond_Mixedprec: nconv = 77  diff = 9.961073e-09
+APrecond_Mixedprec: nconv = 200  diff = 1.045542e-08
+APrecond_Mixedprec: nconv = 205  diff = 1.037468e-08
+APrecond_Mixedprec: nconv = 201  diff = 1.061394e-08
+Richardson  nconv = 4, diff2 =  4.555349849673442e-32
+    0    3        4     2.1343e-16     2.8585e-31
+APrecond_Mixedprec: nconv = 83  diff = 9.823948e-09
+APrecond_Mixedprec: nconv = 202  diff = 1.037436e-08
+APrecond_Mixedprec: nconv = 215  diff = 1.186120e-08
+APrecond_Mixedprec: nconv = 202  diff = 1.020651e-08
+Richardson  nconv = 4, diff2 =  5.006454728357150e-32
+    1    3        4     2.2375e-16     2.4781e-31
+APrecond_Mixedprec: nconv = 78  diff = 9.500083e-09
+APrecond_Mixedprec: nconv = 201  diff = 1.065296e-08
+APrecond_Mixedprec: nconv = 218  diff = 1.163938e-08
+APrecond_Mixedprec: nconv = 205  diff = 1.025227e-08
+Richardson  nconv = 4, diff2 =  4.797355276063125e-32
+    2    3        4     2.1903e-16     2.4305e-31
+
+Fprop_alt_Standard_eo_Richardson<AField<double,ACCEL>, AField<float,ACCEL> >: solver performance:
+  Elapsed time =      10.101882 sec
+  Flop(total)  =      6159756165120
+  Performance  =     609.763 GFlops
+Elapsed time: calculating porpagator: total       10.404 sec, count    1, average   1.0404e+01 sec
+
+2-point correlator:
+PS <-- PS correlator:
+     0    1.622108950386e-01    1.750121275225e-19
+     1    4.982525189422e-02    7.840168356879e-20
+     2    9.005390865261e-03    2.994491520557e-21
+     3    2.437899190239e-03   -1.350759241566e-23
+     4    9.763658138979e-04    3.115118160086e-23
+     5    4.864963789950e-04    4.074565289513e-24
+     6    2.887919804455e-04   -3.904760568818e-23
+     7    2.106862603311e-04    1.784836125882e-23
+     8    2.351593380934e-04    2.168220748283e-23
+     9    5.941362822726e-04    6.120489253244e-23
+    10    2.859263743029e-03   -9.479398726471e-22
+    11    2.185953050764e-02   -7.179299920700e-20
+V1 <-- V1 correlator:
+     0    5.248332635163e-02   -2.168404344971e-19
+     1    3.588993019647e-02    6.098637220231e-20
+     2    5.985253396334e-03    1.694065894509e-21
+     3    1.370459605475e-03    2.964615315390e-21
+     4    4.466406350097e-04   -2.117582368136e-22
+     5    1.815748073773e-04   -8.470329472543e-22
+     6    8.114512429392e-05    0.000000000000e+00
+     7    5.615959975321e-05   -3.441071348221e-22
+     8    8.279920622378e-05   -3.176373552204e-22
+     9    3.086390587101e-04    6.352747104407e-22
+    10    1.852141860547e-03   -2.964615315390e-21
+    11    1.599616007086e-02   -2.286988957587e-20
+V2 <-- V2 correlator:
+     0    5.300424626237e-02   -5.971582278143e-20
+     1    3.558250975892e-02    8.809142651445e-20
+     2    5.868705377910e-03   -8.470329472543e-21
+     3    1.469454063984e-03    2.964615315390e-21
+     4    5.417803230835e-04   -1.482307657695e-21
+     5    2.202167921996e-04   -1.058791184068e-21
+     6    8.981943190269e-05    1.058791184068e-21
+     7    4.253092525887e-05    8.470329472543e-22
+     8    6.166997719451e-05   -8.470329472543e-22
+     9    2.789454186309e-04    1.058791184068e-22
+    10    1.813731843486e-03    0.000000000000e+00
+    11    1.602232086568e-02   -3.218725199566e-20
+V3 <-- V3 correlator:
+     0    5.482542952706e-02    8.934153094721e-20
+     1    3.556406588137e-02    7.977040062109e-20
+     2    5.365867516450e-03    5.496105760052e-21
+     3    1.062304705100e-03   -2.156424629228e-22
+     4    2.379859826124e-04    2.539028313232e-22
+     5    6.137478750441e-05   -6.876786548916e-23
+     6    2.224304691680e-05    2.957292945191e-23
+     7    1.654164969861e-05   -9.246885919587e-24
+     8    4.550508604835e-05   -2.935369353647e-23
+     9    2.593288239194e-04    1.435507130891e-22
+    10    1.813872512942e-03   -1.664444971192e-21
+    11    1.603360385452e-02   -5.973979451380e-20
+A4 <-- PS correlator:
+     0   -6.089394118112e-05    2.648867912684e-19
+     1   -6.983643517532e-04   -5.184272979382e-20
+     2   -3.309765884900e-04   -6.082609925406e-21
+     3   -1.919134834355e-04    3.063072088063e-22
+     4   -1.049297963644e-04   -1.858248806723e-23
+     5   -5.704097850097e-05   -5.513477840329e-23
+     6   -3.414375954280e-05   -1.579985793272e-23
+     7   -2.198621319343e-05   -1.620918429474e-23
+     8   -1.175982085005e-05   -5.101596421974e-25
+     9    2.408780179549e-06   -3.715116977656e-22
+    10    3.665582442527e-05   -2.192317920853e-22
+    11    1.701113727058e-04    2.709710065563e-20
+PS <-- A4 correlator:
+     0    4.635957331162e-05   -2.645357709800e-19
+     1   -7.188081988724e-04   -5.706471018470e-20
+     2   -3.522352055215e-04   -7.312928325999e-21
+     3   -2.139228443491e-04   -9.290349799332e-23
+     4   -1.502533434097e-04    1.264059847885e-23
+     5   -9.996261335884e-05   -7.449466358695e-23
+     6   -6.332627385614e-05    2.166908021283e-23
+     7   -3.592225498291e-05   -5.498571994423e-24
+     8   -1.274554787854e-05    4.687313507682e-24
+     9    6.911996878346e-06   -3.174257935932e-22
+    10    4.221394931400e-05    1.534296046394e-21
+    11    1.623691882609e-04    2.237053523732e-20
+S <-- S correlator:
+     0   -1.621459768503e-01   -6.691560283309e-20
+     1   -4.974181286442e-02    6.776263578034e-21
+     2   -8.907647845855e-03   -4.235164736272e-21
+     3   -2.328855428403e-03    2.541098841763e-21
+     4   -8.560499920045e-04   -2.541098841763e-21
+     5   -3.686229757512e-04    1.482307657695e-21
+     6   -2.041752979521e-04    8.470329472543e-22
+     7   -1.511004020346e-04   -2.964615315390e-21
+     8   -1.880965406676e-04   -2.117582368136e-22
+     9   -5.443734528260e-04   -1.694065894509e-21
+    10   -2.809053515760e-03    8.470329472543e-22
+    11   -2.181928635489e-02    1.482307657695e-20
+GAMMA51 <-- GAMMA51 correlator:
+     0    5.244998801584e-02    1.389134033497e-19
+     1    3.585386725834e-02   -6.776263578034e-20
+     2    5.949076773305e-03    0.000000000000e+00
+     3    1.339068067579e-03   -2.964615315390e-21
+     4    4.262939782876e-04    1.270549420881e-21
+     5    1.757079395544e-04    1.270549420881e-21
+     6    8.250456811705e-05   -1.799945012915e-21
+     7    5.592870848610e-05    5.823351512373e-22
+     8    7.901631908147e-05   -8.470329472543e-22
+     9    3.007135004797e-04    9.264422860594e-22
+    10    1.839607474306e-03   -7.623296525289e-21
+    11    1.598234435217e-02   -6.522153693858e-20
+GAMMA52 <-- GAMMA52 correlator:
+     0    5.296998242702e-02   -2.795208725939e-19
+     1    3.554043519420e-02   -2.710505431214e-20
+     2    5.822645219186e-03    0.000000000000e+00
+     3    1.423145220654e-03    0.000000000000e+00
+     4    5.049988960996e-04   -1.694065894509e-21
+     5    2.039310329355e-04   -4.235164736272e-22
+     6    8.648120937081e-05   -2.117582368136e-22
+     7    4.644790908187e-05   -9.529120656611e-22
+     8    6.743229403707e-05    0.000000000000e+00
+     9    2.846214466151e-04   -1.905824131322e-21
+    10    1.815932061626e-03   -7.199780051662e-21
+    11    1.601776647988e-02   -7.559769054245e-20
+GAMMA53 <-- GAMMA53 correlator:
+     0    5.479885817506e-02    2.541098841763e-21
+     1    3.554047313851e-02    8.470329472543e-21
+     2    5.347393909187e-03   -8.470329472543e-22
+     3    1.048227994546e-03    8.470329472543e-22
+     4    2.256345577260e-04   -8.470329472543e-22
+     5    5.301969408726e-05   -6.882142696441e-22
+     6    1.400615482078e-05   -4.235164736272e-22
+     7    9.731233470620e-06    2.011703249729e-21
+     8    4.069468193470e-05    2.117582368136e-22
+     9    2.528524263108e-04   -1.270549420881e-21
+    10    1.805517660213e-03   -2.117582368136e-22
+    11    1.602439372970e-02   -2.202285662861e-20
+SIGMA12 <-- SIGMA12 correlator:
+     0    5.438596027152e-02    5.082197683526e-21
+     1   -2.341640682916e-02    2.202285662861e-20
+     2   -3.659975295884e-03    0.000000000000e+00
+     3   -8.192835050780e-04    6.352747104407e-22
+     4   -2.747144165645e-04   -8.470329472543e-22
+     5   -1.213956580814e-04    0.000000000000e+00
+     6   -5.492892151627e-05   -6.352747104407e-22
+     7   -3.092235078298e-05   -4.235164736272e-22
+     8   -3.927073846335e-05   -5.293955920339e-22
+     9   -1.708366469574e-04    4.235164736272e-22
+    10   -1.183344386699e-03    2.858736196983e-21
+    11   -1.149494586485e-02    1.831708748437e-20
+SIGMA23 <-- SIGMA23 correlator:
+     0    5.207074475745e-02    1.423015351387e-19
+     1   -2.326964355130e-02    6.098637220231e-20
+     2   -3.312678963229e-03    0.000000000000e+00
+     3   -7.117117177027e-04   -5.929230630780e-21
+     4   -1.881541352182e-04   -4.235164736272e-22
+     5   -5.850903674570e-05    2.117582368136e-22
+     6   -2.306476381810e-05    3.176373552204e-22
+     7   -1.374945536580e-05   -3.705769144238e-22
+     8   -2.775431176938e-05   -2.117582368136e-22
+     9   -1.632782875914e-04    5.558653716356e-22
+    10   -1.232709247706e-03    6.564505341221e-21
+    11   -1.177673920720e-02    5.082197683526e-20
+SIGMA31 <-- SIGMA31 correlator:
+     0    5.256956718616e-02   -2.829090043829e-19
+     1   -2.350361076792e-02    1.151964808266e-19
+     2   -3.291549003281e-03    8.470329472543e-22
+     3   -5.763564966215e-04   -4.235164736272e-22
+     4   -9.621306978556e-05   -1.482307657695e-21
+     5   -1.719597125713e-05   -2.117582368136e-22
+     6   -8.640578686478e-06   -4.764560328305e-22
+     7   -6.825414321468e-06    1.588186776102e-22
+     8   -1.997656544936e-05    6.352747104407e-22
+     9   -1.468233734341e-04   -1.905824131322e-21
+    10   -1.177892186862e-03    6.988021814848e-21
+    11   -1.154045612139e-02    5.759824041329e-20
+Elapsed time: Spectrum_Domainwall_alt.hadron_2ptFunction: total       10.442 sec, count    1, average   1.0442e+01 sec
+ alt code.
+
+check test data
+check precision = 1.0e-11
+result: 1.62210895038600e-01  expected: 1.62210895038600e-01
+test result: correct! (^_^)
+diff: expected - result = -2.22440350210332e-15
+
+Test result for Accel = 0
+
+----------- timer -------------
+Elapsed time: comm: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: comm_send_wait: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: linear algebra: total        0.084 sec, count 1116, average   7.5285e-05 sec
+Elapsed time: mult1: total        0.040 sec, count 1488, average   2.6959e-05 sec
+Elapsed time: multb: total        0.046 sec, count 1488, average   3.0590e-05 sec
+Elapsed time: mult2: total        0.018 sec, count  544, average   3.2812e-05 sec
+Elapsed time: mult_diag: total        0.135 sec, count 3000, average   4.4939e-05 sec
+Elapsed time: copy: total        0.046 sec, count  756, average   6.0432e-05 sec
+Elapsed time: global reduction: total        0.000 sec, count   96, average   2.6450e-06 sec
+   copy contains conversion from float to double
+
+----------- timer [float] -------------
+Elapsed time: comm [float]: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: comm send wait[float]: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: linear algebra [float]: total        2.966 sec, count 51066, average   5.8072e-05 sec
+Elapsed time: mult1 [float]: total        0.726 sec, count 34844, average   2.0844e-05 sec
+Elapsed time: multb [float]: total        0.689 sec, count 34844, average   1.9783e-05 sec
+Elapsed time: mult2 [float]: total        0.478 sec, count 17222, average   2.7746e-05 sec
+Elapsed time: mult_diag [float]: total        2.725 sec, count 69688, average   3.9098e-05 sec
+Elapsed time: copy [float]: total        0.067 sec, count 17614, average   3.7889e-06 sec
+Elapsed time: global reduction [float]: total        0.037 sec, count 16870, average   2.2110e-06 sec
+   copy [float] contains conversion from double to float
+
+------------------------
+[float] arithmetics in mult (mult1+mult2+mult_diag) :  3.929 sec
+[float] overlap: arithmetics in mult (multb) :         0.689 sec
+[float] overlap: communcation in mult (comm) :         0.000 sec
+------------------------
+Elapsed time: Main: total       13.436 sec, count    1, average   1.3436e+01 sec
+Timer: timestamp: 2024/08/23 20:00:32 +0900
+calling bridge_alt_fin()
+calling ThreadManager_OpenMP::finalize()
+calling ThreadManager_OpenMP::finalize(), done

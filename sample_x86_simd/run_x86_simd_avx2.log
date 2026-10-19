@@ -1,0 +1,456 @@
+Bridge++ 2.0.0
+
+target: alt_simd
+file = main.yaml
+
+Lattice parameters:
+  Lx = 32,  Ly = 8,  Lz = 8,  Lt = 12,
+  Nx = 32,  Ny = 8,  Nz = 4,  Nt = 6,
+  NPEx = 1,  NPEy  = 1,  NPEz  = 2,  NPEt  = 2,
+  Lvol = 24576,  Nvol = 6144,  NPE = 4,
+  Ndim = 4
+  Nc   = 3
+  Nd   = 4
+
+ThreadManager: initialization
+Warning at ThreadManager: Nthread(env) != Nthread(input)
+  Number of threads(env)   = 36
+  Number of threads(input) = 8
+  reset Nthread = Nthread(input).
+  Number of threads = 8
+Main: input parameters
+  lattice_size     = [32, 8, 8, 12]
+  grid_size        = [1, 1, 2, 2]
+  number of thread = 8
+  number of color  = 3
+  logfile          = stdout
+  ildg_logfile     = stdout
+  vlevel           = General
+
+alt_SIMD code is being setup.
+    target instruction set: AVX2
+Timer: timestamp: 2023/12/05 21:37:04 +0900
+target: alt_simd
+
+--------------------------------------------------------------------
+test name: Spectrum_Domainwall_alt.hadron_2ptFunction
+test file: test_alt_Spectrum_Domainwall_5din_Hadron2ptFunction.yaml
+test mode: richardson_eo
+file = test_alt_Spectrum_Domainwall_5din_Hadron2ptFunction.yaml
+  vlevel       = General
+  source_type  = Local
+ Random number init: ndelay =   1234567
+
+Configuration setup:
+  gconf_status = Continue
+  gconf_read   = Text_4x4x4x8
+  readfile     = ../conf_04040408.txt
+  gmset_type   = Chiral
+Gamma matrix: chiral representation.
+CommBuffer<vcomplexD_t>: initialization, done for num_hup=1
+has_mpi_x: no
+has_mpi_y: no
+has_mpi_z: yes
+has_mpi_t: yes
+has_simd_x: yes
+has_simd_y: no
+has_simd_z: no
+has_simd_t: no
+afopr_Domainwall_5din: prefetch is OFF (AFOPR_DOMAINWALL_SIMD_PREFETCH is not defined)
+afopr_Domainwall_5din: the master thread computes during communication (AFOPR_DOMAINWALL_SIMD_EXCLUSIVE_THREAD_FOR_COMM is not defined)
+afopr_Domainwall_5din: 1st touch for the communication buffer is off: (AFOPR_FIRST_TOUCH_BUF is not defined)
+Parameters of AFopr_Domainwall_5din<AField<double,SIMD> >:
+  mq   =   0.0100
+  M0   =   1.0000
+  Ns   =    8
+  boundary[0] =  1
+  boundary[1] =  1
+  boundary[2] =  1
+  boundary[3] =  1
+  coefficients b =     1.5000000000  c =     0.5000000000
+afopr_Domainwall_5din: MPI is on
+buf_tp=0x7f89c0c36040, rbuf_tp=0x7f89c0cf7040
+Source for spinor field - local:
+  source_position[0] = 0
+  source_position[1] = 0
+  source_position[2] = 0
+  source_position[3] = 0
+  check finished
+
+
+Fprop_alt_Standard_eo_Richardson<AField<double,SIMD>, AField<float,SIMD> >: being setup.
+CommBuffer<vcomplexD_t>: initialization, done for num_hup=1
+has_mpi_x: no
+has_mpi_y: no
+has_mpi_z: yes
+has_mpi_t: yes
+has_simd_x: yes
+has_simd_y: no
+has_simd_z: no
+has_simd_t: no
+afopr_Domainwall_5din_eo: prefetch is OFF (AFOPR_DOMAINWALL_5DIN_EO_SIMD_PREFETCH is not defined)
+afopr_Domainwall_5din_eo: the master thread does not compute during communication (AFOPR_DOMAINWALL_5DIN_EO_SIMD_EXCLUSIVE_THREAD_FOR_COMM is defined)
+afopr_Domainwall_5din_eo: 1st touch for the communication buffer is off: (AFOPR_FIRST_TOUCH_BUF is not defined)
+Parameters of AFopr_Domainwall_5din_eo<AField<double,SIMD> >:
+  mq   =   0.0100
+  M0   =   1.0000
+  Ns   =    8
+  boundary[0] =  1
+  boundary[1] =  1
+  boundary[2] =  1
+  boundary[3] =  1
+  coefficients b =     1.5000000000  c =     0.5000000000
+afopr_Domainwall_5din_eo: MPI is on
+buf_tp=0x7f89b56d3040, rbuf_tp=0x7f89b5794040
+CommBuffer<vcomplexF_t>: initialization, done for num_hup=1
+has_mpi_x: no
+has_mpi_y: no
+has_mpi_z: yes
+has_mpi_t: yes
+has_simd_x: yes
+has_simd_y: no
+has_simd_z: no
+has_simd_t: no
+afopr_Domainwall_5din_eo: prefetch is OFF (AFOPR_DOMAINWALL_5DIN_EO_SIMD_PREFETCH is not defined)
+afopr_Domainwall_5din_eo: the master thread does not compute during communication (AFOPR_DOMAINWALL_5DIN_EO_SIMD_EXCLUSIVE_THREAD_FOR_COMM is defined)
+afopr_Domainwall_5din_eo: 1st touch for the communication buffer is off: (AFOPR_FIRST_TOUCH_BUF is not defined)
+Parameters of AFopr_Domainwall_5din_eo<AField<float,SIMD> >:
+  mq   =   0.0100
+  M0   =   1.0000
+  Ns   =    8
+  boundary[0] =  1
+  boundary[1] =  1
+  boundary[2] =  1
+  boundary[3] =  1
+  coefficients b =     1.5000000000  c =     0.5000000000
+afopr_Domainwall_5din_eo: MPI is on
+buf_tp=0x7f89c0811040, rbuf_tp=0x7f89c801e040
+ASolver_CGNR<Afield<float,SIMD> >:
+ASolver_CG<Afield<float,SIMD> >:
+  Precision: float
+  Niter     = 4000
+  Stop_cond =   9.99999994e-09
+  init_guess_mode: 2
+ASolver_Richardson:
+  Precision: double
+  Niter     = 4000
+  Stop_cond =   1.00000000e-28
+  InitialGuess = 2
+Fprop_alt_Standard_eo_Richardson<AField<double,SIMD>, AField<float,SIMD> >: setup finished.
+
+Fprop_alt_Standard_eo_Richardson<AField<double,SIMD>, AField<float,SIMD> >: mult performance:
+  mult mode = DdagD
+  Double precision:
+   Elapsed time =       3.249182 sec
+   Flop(Fopr)   =                  0
+   Flop(total)  =                  0
+   Performance  =       0.000 GFlops
+  Single precision:
+   Elapsed time =       0.968979 sec
+   Flop(Fopr)   =                  0
+   Flop(total)  =                  0
+   Performance  =       0.000 GFlops
+
+Fprop_alt_Standard_eo_Richardson<AField<double,SIMD>, AField<float,SIMD> >: mult performance:
+  mult mode = D
+  Double precision:
+   Elapsed time =       1.729348 sec
+   Flop(Fopr)   =                  0
+   Flop(total)  =                  0
+   Performance  =       0.000 GFlops
+  Single precision:
+   Elapsed time =       0.531042 sec
+   Flop(Fopr)   =                  0
+   Flop(total)  =                  0
+   Performance  =       0.000 GFlops
+Imp::Fopr_Wilson: construction
+  Gauge group implementation: SU(3)
+  Imp::Fopr_Wilson: input parameters
+    gamma-matrix type = Chiral
+    kappa  =   0.16666667
+    boundary[0] =  1
+    boundary[1] =  1
+    boundary[2] =  1
+    boundary[3] =  1
+Imp::Fopr_Wilson: construction finished.
+
+Solving quark propagator:
+  color spin   Nconv      diff           diff2
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Richardson  nconv = 4, diff2 =  4.151095638849312e-32
+    0    0        4     2.0374e-16     2.3941e-31
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Richardson  nconv = 4, diff2 =  4.020924097781041e-32
+    1    0        4     2.0052e-16     2.3446e-31
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Richardson  nconv = 4, diff2 =  4.062550675390730e-32
+    2    0        4     2.0156e-16     1.7223e-31
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Richardson  nconv = 4, diff2 =  4.209494645489914e-32
+    0    1        4     2.0517e-16     2.7953e-31
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Richardson  nconv = 4, diff2 =  6.881276721080780e-32
+    1    1        4     2.6232e-16     2.1726e-31
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Richardson  nconv = 4, diff2 =  6.990796138024230e-32
+    2    1        4     2.6440e-16     1.1523e-31
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Richardson  nconv = 4, diff2 =  3.760841501602455e-32
+    0    2        4     1.9393e-16     2.7250e-31
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Richardson  nconv = 4, diff2 =  7.066298525438748e-32
+    1    2        4     2.6583e-16     2.0168e-31
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Richardson  nconv = 4, diff2 =  4.016938161173897e-32
+    2    2        4     2.0042e-16     1.9216e-31
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Richardson  nconv = 4, diff2 =  4.563013135514913e-32
+    0    3        4     2.1361e-16     1.4650e-31
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Richardson  nconv = 4, diff2 =  6.993722006212098e-32
+    1    3        4     2.6446e-16     2.5350e-31
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Warning at ASolver_CGNR<Afield<float,SIMD> >: no fopr->flop_count() is available, setting flop = 0
+Richardson  nconv = 4, diff2 =  4.405681463139202e-32
+    2    3        4     2.0990e-16     1.4701e-31
+
+Fprop_alt_Standard_eo_Richardson<AField<double,SIMD>, AField<float,SIMD> >: solver performance:
+  Elapsed time =      55.426258 sec
+  Flop(total)  =          707788800
+  Performance  =       0.013 GFlops
+Elapsed time: calculating porpagator: total        55.77 sec, count    1, average        55.77 sec
+
+2-point correlator:
+PS <-- PS correlator:
+     0    1.622108950386e-01   -5.709717637061e-20
+     1    4.982525189422e-02    2.619303653195e-20
+     2    9.005390865261e-03   -1.221054586053e-21
+     3    2.437899190239e-03    7.429490521290e-23
+     4    9.763658138979e-04    3.137839459903e-22
+     5    4.864963789950e-04    4.378722431619e-23
+     6    2.887919804455e-04    1.990713095877e-24
+     7    2.106862603311e-04    1.779672947547e-23
+     8    2.351593380934e-04    2.929862956520e-23
+     9    5.941362822726e-04   -1.390036657535e-22
+    10    2.859263743029e-03    1.840501853190e-21
+    11    2.185953050764e-02   -5.364618535682e-20
+V1 <-- V1 correlator:
+     0    5.248332635163e-02   -5.082197683526e-21
+     1    3.588993019647e-02    1.829591166069e-19
+     2    5.985253396334e-03   -7.199780051662e-21
+     3    1.370459605475e-03   -2.435219723356e-21
+     4    4.466406350097e-04    2.117582368136e-22
+     5    1.815748073773e-04    8.470329472543e-22
+     6    8.114512429392e-05    7.411538288475e-22
+     7    5.615959975321e-05    3.176373552204e-22
+     8    8.279920622378e-05    7.940933880509e-22
+     9    3.086390587101e-04    1.614656555704e-21
+    10    1.852141860547e-03   -1.058791184068e-22
+    11    1.599616007086e-02   -3.472835083743e-20
+V2 <-- V2 correlator:
+     0    5.300424626237e-02   -3.015437292225e-19
+     1    3.558250975892e-02    1.630538423465e-19
+     2    5.868705377910e-03   -3.388131789017e-21
+     3    1.469454063984e-03   -5.505714157153e-21
+     4    5.417803230835e-04    2.117582368136e-21
+     5    2.202167921996e-04   -9.264422860594e-22
+     6    8.981943190269e-05    1.694065894509e-21
+     7    4.253092525887e-05    2.911675756187e-22
+     8    6.166997719451e-05   -2.117582368136e-22
+     9    2.789454186308e-04    2.117582368136e-22
+    10    1.813731843486e-03    5.293955920339e-21
+    11    1.602232086568e-02   -4.552802091492e-20
+V3 <-- V3 correlator:
+     0    5.482542952706e-02    5.378659215065e-20
+     1    3.556406588137e-02    0.000000000000e+00
+     2    5.365867516450e-03   -2.710505431214e-20
+     3    1.062304705100e-03    1.355252715607e-20
+     4    2.379859826124e-04   -2.541098841763e-21
+     5    6.137478750441e-05    1.694065894509e-21
+     6    2.224304691680e-05    2.594038400966e-21
+     7    1.654164969861e-05    0.000000000000e+00
+     8    4.550508604834e-05    4.235164736272e-22
+     9    2.593288239194e-04    5.929230630780e-21
+    10    1.813872512942e-03    1.185846126156e-20
+    11    1.603360385452e-02    6.776263578034e-20
+A4 <-- PS correlator:
+     0   -6.089394118117e-05    1.438632521352e-20
+     1   -6.983643517532e-04    3.705769144238e-22
+     2   -3.309765884900e-04   -9.661469554619e-22
+     3   -1.919134834355e-04   -1.297019200483e-21
+     4   -1.049297963644e-04    1.230844751479e-21
+     5   -5.704097850097e-05   -1.687448449608e-22
+     6   -3.414375954280e-05    1.509604617909e-22
+     7   -2.198621319343e-05    3.226004388957e-22
+     8   -1.175982085006e-05   -2.233387653893e-22
+     9    2.408780179547e-06    3.486566281911e-22
+    10    3.665582442527e-05    1.902515408872e-22
+    11    1.701113727058e-04   -5.823351512373e-22
+PS <-- A4 correlator:
+     0    4.635957331167e-05   -6.776263578034e-21
+     1   -7.188081988724e-04    3.388131789017e-21
+     2   -3.522352055215e-04    1.694065894509e-21
+     3   -2.139228443491e-04    8.470329472543e-22
+     4   -1.502533434097e-04    7.411538288475e-22
+     5   -9.996261335883e-05    1.058791184068e-22
+     6   -6.332627385614e-05    0.000000000000e+00
+     7   -3.592225498291e-05    1.297019200483e-21
+     8   -1.274554787855e-05   -6.352747104407e-22
+     9    6.911996878345e-06    2.117582368136e-22
+    10    4.221394931400e-05   -5.293955920339e-22
+    11    1.623691882609e-04   -3.388131789017e-21
+S <-- S correlator:
+     0   -1.621459768503e-01    5.711245159660e-20
+     1   -4.974181286442e-02   -2.619196249634e-20
+     2   -8.907647845855e-03    1.227713179362e-21
+     3   -2.328855428403e-03   -7.436761976604e-23
+     4   -8.560499920045e-04   -3.162797905731e-22
+     5   -3.686229757512e-04   -5.189324960670e-23
+     6   -2.041752979522e-04   -4.485029228636e-24
+     7   -1.511004020346e-04   -1.627645394374e-23
+     8   -1.880965406676e-04   -2.995677358144e-23
+     9   -5.443734528260e-04    1.347954653602e-22
+    10   -2.809053515760e-03   -1.838806676589e-21
+    11   -2.181928635489e-02    5.364439109448e-20
+GAMMA51 <-- GAMMA51 correlator:
+     0    5.244998801584e-02    3.896351557370e-20
+     1    3.585386725834e-02    1.694065894509e-19
+     2    5.949076773305e-03   -7.199780051662e-21
+     3    1.339068067579e-03   -4.976318565119e-21
+     4    4.262939782876e-04    6.352747104407e-22
+     5    1.757079395544e-04    3.705769144238e-22
+     6    8.250456811706e-05    8.470329472543e-22
+     7    5.592870848610e-05   -4.235164736272e-22
+     8    7.901631908147e-05    1.005851624864e-21
+     9    3.007135004797e-04    5.293955920339e-23
+    10    1.839607474306e-03   -7.411538288475e-22
+    11    1.598234435216e-02   -3.388131789017e-20
+GAMMA52 <-- GAMMA52 correlator:
+     0    5.296998242702e-02   -3.083199928006e-19
+     1    3.554043519420e-02    1.664419741355e-19
+     2    5.822645219186e-03    8.470329472543e-21
+     3    1.423145220654e-03   -1.694065894509e-21
+     4    5.049988960996e-04    6.352747104407e-22
+     5    2.039310329355e-04    0.000000000000e+00
+     6    8.648120937081e-05    2.117582368136e-22
+     7    4.644790908187e-05    1.058791184068e-22
+     8    6.743229403707e-05    2.646977960170e-22
+     9    2.846214466151e-04    1.376428539288e-21
+    10    1.815932061626e-03    4.446922973085e-21
+    11    1.601776647988e-02   -3.832824086326e-20
+GAMMA53 <-- GAMMA53 correlator:
+     0    5.479885817506e-02    5.421010862428e-20
+     1    3.554047313851e-02   -1.626303258728e-19
+     2    5.347393909187e-03    0.000000000000e+00
+     3    1.048227994546e-03    1.694065894509e-20
+     4    2.256345577260e-04    3.388131789017e-21
+     5    5.301969408726e-05    8.470329472543e-22
+     6    1.400615482078e-05    2.011703249729e-21
+     7    9.731233470618e-06    1.058791184068e-22
+     8    4.069468193470e-05   -1.058791184068e-21
+     9    2.528524263108e-04   -2.541098841763e-21
+    10    1.805517660212e-03   -1.694065894509e-21
+    11    1.602439372970e-02    0.000000000000e+00
+SIGMA12 <-- SIGMA12 correlator:
+     0    5.438596027152e-02    1.643726586270e-19
+     1   -2.341640682916e-02   -2.418780903298e-20
+     2   -3.659975295884e-03   -7.355281038773e-22
+     3   -8.192835050780e-04   -1.781446406050e-22
+     4   -2.747144165645e-04   -3.965578202821e-22
+     5   -1.213956580814e-04   -3.301008041386e-23
+     6   -5.492892151628e-05   -1.683671146346e-23
+     7   -3.092235078298e-05   -2.865200584789e-23
+     8   -3.927073846335e-05   -5.206023393071e-23
+     9   -1.708366469574e-04    1.860959116522e-22
+    10   -1.183344386699e-03   -1.748731580276e-21
+    11   -1.149494586485e-02    5.515223855363e-20
+SIGMA23 <-- SIGMA23 correlator:
+     0    5.207074475745e-02    2.693564772269e-19
+     1   -2.326964355130e-02   -2.710505431214e-19
+     2   -3.312678963229e-03    0.000000000000e+00
+     3   -7.117117177027e-04    1.355252715607e-20
+     4   -1.881541352182e-04   -2.541098841763e-21
+     5   -5.850903674570e-05    4.235164736272e-22
+     6   -2.306476381810e-05    1.058791184068e-21
+     7   -1.374945536580e-05   -2.646977960170e-23
+     8   -2.775431176937e-05    5.293955920339e-23
+     9   -1.632782875914e-04    1.270549420881e-21
+    10   -1.232709247706e-03   -6.776263578034e-21
+    11   -1.177673920720e-02   -5.421010862428e-20
+SIGMA31 <-- SIGMA31 correlator:
+     0    5.256956718616e-02   -3.388131789017e-19
+     1   -2.350361076792e-02   -1.626303258728e-19
+     2   -3.291549003281e-03    1.355252715607e-20
+     3   -5.763564966215e-04    6.776263578034e-21
+     4   -9.621306978556e-05    2.541098841763e-21
+     5   -1.719597125713e-05   -2.117582368136e-22
+     6   -8.640578686479e-06    1.376428539288e-21
+     7   -6.825414321468e-06   -7.411538288475e-22
+     8   -1.997656544936e-05   -6.617444900424e-22
+     9   -1.468233734341e-04    5.082197683526e-21
+    10   -1.177892186862e-03   -1.016439536705e-20
+    11   -1.154045612139e-02   -1.355252715607e-20
+Elapsed time: Spectrum_Domainwall_alt.hadron_2ptFunction: total        55.82 sec, count    1, average        55.82 sec
+ alt code.
+
+check test data
+check precision = 1.0e-11
+result: 1.62210895038600e-01  expected: 1.62210895038600e-01
+test result: correct! (^_^)
+diff: expected - result = -1.36886369360204e-15
+
+AFopr_Domainwall_5din_eo<AField<float,SIMD> >
+Elapsed time:   communicatoin (btw send-wait)           : total      30.4381 sec
+AFopr_Domainwall_5din_eo<AField<float,SIMD> >
+Elapsed time: interval 0 (packing)                      : total       4.1136 sec
+Elapsed time: interval 1 (bulk, [1st thread, 1st node]) : total       0.0028 sec
+Elapsed time: interval 2 (boundary [1st node])          : total       3.3507 sec
+time resolution: 1e-06 msec.  (MPI version)
+AFopr_Domainwall_5din_eo<AField<double,SIMD> >
+Elapsed time:   communicatoin (btw send-wait)           : total       2.9861 sec
+AFopr_Domainwall_5din_eo<AField<double,SIMD> >
+Elapsed time: interval 0 (packing)                      : total       0.3699 sec
+Elapsed time: interval 1 (bulk, [1st thread, 1st node]) : total       0.0003 sec
+Elapsed time: interval 2 (boundary [1st node])          : total       0.5985 sec
+time resolution: 1e-06 msec.  (MPI version)
+Test result for SIMD = 0
+Elapsed time: Main: total        62.36 sec, count    1, average        62.36 sec
+Timer: timestamp: 2023/12/05 21:38:07 +0900
+calling bridge_alt_fin()
+calling ThreadManager_OpenMP::finalize()
+calling ThreadManager_OpenMP::finalize(), done

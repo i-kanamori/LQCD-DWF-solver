@@ -1,0 +1,17 @@
+# this is a sample parameter file
+
+Main:
+  ## lattice_size = [Lx, Ly, Lz, Lt]
+  lattice_size             : [xxx_lattice_size_xxx]
+  #lattice_size             : [64,32,16,12]
+  #lattice_size             : [32,32,32,64]
+  #  lattice_size             : [16,4,4,8]
+  grid_size                : [xxx_grid_size_xxx]
+  number_of_thread         : 2
+  device_number_offset     : 0
+  number_of_color          : 3
+  ## log_filename = {stdout, or "filename"}
+  log_filename             : stdout
+  ildg_log_filename        : stdout
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level            : General

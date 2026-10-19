@@ -1,0 +1,531 @@
+# For GNU MAKE
+
+### User modification part ########################### START ###
+
+#####  OPTIONS  ################################################
+
+##--------------------------------------------------------------
+## 1. Machine environment and build conditions
+
+## 1-a. Target platform
+#target = PC_GNU       # PC using GNU C++
+#target = PC_CLANG     # PC using Clang C++
+#target = PC_INTEL     # PC using intel compiler
+target = PC_NVIDIA    # PC using NVIDIA HPC SDK compiler
+#target = Fugaku_CLANG # Fugaku using clang compiler
+
+## 1-b. Communication
+## use_mpi = {yes, no, fjmpi, gpu_aware}
+use_mpi = gpu_aware
+
+## 1-c. Multi-threading
+## use_thread = {yes, omp, no}, NB. yes == omp
+use_thread = omp
+
+## 1-d. Optimized code
+## use_opt_code = {yes, no}
+use_opt_code = yes
+
+## 1-e. Compiler optimization level
+## use_opt_level = {low, std, high, trace}
+##                      ('trace' is available for SX-Aurora)
+use_opt_level = high
+
+## 1-f. Static linkage
+## use_static = {yes, no}
+##   "use_static=yes" needs static system libraries.
+use_static = no
+
+## 1-g. Debug option
+## use_debug = {yes, no}
+use_debug = no
+
+## 1-h. Complex type
+## use_complex = {std, c99}
+##   c99 option is compatible with gcc version 4.4.x
+##   CAUTION: ver.2.0 requires std::complex and some codes fails for c99
+use_complex = std
+
+## use_cpp11 = {yes, no}
+##   set "use_cpp11=yes", unless your compiler does not support cpp11.
+##   CAUTION: ver.2.0 assumes cpp11 is available.
+use_cpp11 = yes
+
+## 1-i. python interface
+## use_python = {yes, no}
+##   set "yes" if you use python interface in sub-package.
+##   CAUTION: in ver.2.0 python interface is not available.
+use_python = no
+
+## 1-j. Alternative code
+## use_alternative = {yes, no}
+##   alternative implementation that enables multi-precision and accelerator.
+use_alternative = yes
+
+## --- QXS branch ---
+## use_alt_qxs = {yes, no}
+use_alt_qxs = no
+
+## use_qxs_arch = {general, acle}
+use_qxs_arch = acle
+
+## --- Accel branch ---
+# use_alt_accel = {yes, no}
+use_alt_accel = yes
+
+# use_accel_impl = {openacc,cuda}
+use_accel_impl = openacc
+
+# use_device_arch = {kepler, pascal, volta, ampere, hopper, blackwell, gb10,
+#                    auto, all-major, jit}
+# device architecture. It selects the target of both nvc++ (-gpu=ccXY) and
+# the CUDA kernels in src/lib_alt_Accel/BridgeCUDA (nvcc -arch).
+# blackwell: data centre Blackwell, B100 and B200 (sm_100).
+# gb10:      GB10 as in NVIDIA DGX Spark (sm_121). Blackwell is split over
+#            two compute capability families and sm_100 ("blackwell") code
+#            does not run on it.
+# auto:      using nvidia-smi, which might not be available in some
+#            environments (such as on systems at Univ. Tsukuba).
+#            It stops with an error if no GPU can be detected.
+# all-major: binary code for every major architecture known to the CUDA
+#            toolkit, no JIT fallback. Use it when the build node has no
+#            GPU or a different one than the run node.
+# jit:       PTX only, compiled by the driver at start-up. Runs on any GPU
+#            the driver supports, also on ones unknown to this toolkit.
+use_device_arch = auto
+
+## --- SIMD branch ---
+#use_alt_simd = {yes, no}
+use_alt_simd = no
+
+# simd_arch = {AVX1, AVX2, AVX512}
+simd_arch = AVX512
+
+## 1-k. profiler
+## use_profiler = {fapp, no}
+##   set "fapp" to use Fujitsu fapp
+use_profiler = no
+
+benchmark_with_timer_global = yes
+
+## 1-k. Build directory
+build_base_dir = ./build
+
+#ifeq ($(use_mpi),yes)
+#  build_base_dir:=$(build_base_dir)_mpi
+#endif
+
+build_postfix =
+ifeq ($(use_opt_level),low)
+  build_postfix:=$(build_postfix)_low
+endif
+ifeq ($(use_opt_level),high)
+  build_postfix:=$(build_postfix)_high
+endif
+ifeq ($(use_opt_level),trace)
+  build_postfix:=$(build_postfix)_trace
+endif
+ifeq ($(use_debug),yes)
+  build_postfix:=$(build_postfix)_debug
+endif
+
+#build_dir = $(build_base_dir)$(build_postfix)
+build_dir = $(build_base_dir)
+
+test_dir = $(build_dir)/tests
+
+
+##--------------------------------------------------------------
+## 2. Simulation settings
+
+## 2-a. Gauge Group
+## use_gauge_group = {su3, su2, general}
+use_gauge_group = su3
+
+################################################################
+
+## check compiler option conflicts
+#ifeq ($(use_thread),omp)
+#  ifeq ($(use_opt_code),no)
+#    $(error Incompatible options [use_thread=omp,use_opt_code=no])
+#  endif
+#endif
+
+#####  start compiler  ##########################################
+
+include Makefile_target.inc
+
+ifeq ($(use_complex),c99)
+  $(error Unavailable use_complex=c99: in ver.2.0, some classes do not work correctly.)
+endif
+
+#####  end compiler  ############################################
+
+
+### User modification part ############################# END ###
+
+
+### System part ###################################### START ###
+
+## flag setup (default).
+SRCCOMMUN = Single
+SRCOPT  = Imp
+SRCOPT2 = Imp
+EXTRA_INCLUDES=
+EXTRA_LIBS=
+CHECK_EXTRA_LIBS=
+
+extra_root_dir = extra
+
+CPP_DEFS += -D$(strip $(target))
+
+ifeq ($(use_alt_accel),yes)
+ ifeq ($(use_accel_impl),cuda)
+  EXTRA_LIBS += -lbridgecuda
+ endif
+endif
+
+ifeq ($(use_mpi),yes)
+  SRCCOMMUN = MPI
+  CPP_DEFS += -DUSE_MPI
+else ifeq ($(use_mpi),gpu_aware)
+  SRCCOMMUN = MPI_gpu_aware
+  CPP_DEFS += -DUSE_MPI -DUSE_MPI_GPUAWARE
+else ifeq ($(use_mpi),fjmpi)
+  SRCCOMMUN = FJMPI
+  CPP_DEFS += -DUSE_MPI -DUSE_FJMPI
+else ifeq ($(use_mpi),no)
+  SRCCOMMUN = Single
+else
+  $(error use_mpi=$(use_mpi), which must be {yes, no, fjmpi})
+endif
+
+ifeq ($(use_opt_code),yes)
+  SRCOPT  = Imp
+  SRCOPT2 = Imp
+  CPP_DEFS += -DUSE_IMP
+else ifeq ($(use_opt_code),no)
+#  ifeq ($(use_thread),no)
+    SRCOPT  = Org
+    SRCOPT2 = Org
+    CPP_DEFS += -DUSE_ORG
+#  else
+#    $(error Incompatible options: Org version does not support multithreading)
+#  endif
+else
+  $(error use_opt_code=$(use_opt_code), which must be {yes, no})
+endif
+
+ifeq ($(use_gauge_group),su2)
+  CPP_DEFS += -DUSE_GROUP_SU2
+else ifeq ($(use_gauge_group),su3)
+  CPP_DEFS += -DUSE_GROUP_SU3
+else ifeq ($(use_gauge_group),general)
+  CPP_DEFS += -DUSE_GROUP_SU_N
+else
+  $(error use_gauge_group=$(use_gauge_group), which must be {su3, su2, general})
+endif
+
+ifeq ($(use_thread),omp)
+  CPP_DEFS += -DUSE_OPENMP
+  SRCTHREAD = OpenMP
+else ifeq ($(use_thread),no)
+  SRCTHREAD = OpenMP_stub
+else
+  $(error use_thread=$(use_thread), which must be {omp, no})
+endif
+
+ifeq ($(use_complex),std)
+  CPP_DEFS += -DUSE_STD_COMPLEX
+else ifeq ($(use_complex),c99)
+  CPP_DEFS += -DUSE_C99_COMPLEX
+else
+  $(error use_complex=$(use_complex), which must be {std, c99})
+endif
+
+ifeq ($(use_cpp11),yes)
+  CPP_DEFS += -DLIB_CPP11
+else ifeq ($(use_cpp11),no)
+else
+  $(error use_cpp11=$(use_cpp11), which must be {yes, no})
+endif
+
+CPP_DEFS += -DUSE_FACTORY # -DUSE_FACTORY_AUTOREGISTER
+
+ifeq ($(benchmark_with_timer_global),yes)
+  CPP_DEFS += -DUSE_TIMER_GLOBAL
+endif
+
+# for alt-code
+alt_inc_dirs =
+ifeq ($(use_alternative),yes)
+ alt_inc_dirs += -Iinclude/bridge/lib_alt
+ CPP_DEFS += -DUSE_ALT_CODE
+ifeq ($(use_alt_qxs),yes)
+ alt_inc_dirs += -Iinclude/bridge/lib_alt_QXS
+ CPP_DEFS += -DUSE_ALT_QXS
+endif
+ifeq ($(use_alt_accel),yes)
+ alt_inc_dirs += -Iinclude/bridge/lib_alt_Accel
+ CPP_DEFS += -DUSE_ALT_ACCEL
+ ifeq ($(use_accel_impl),openacc)
+  CPP_DEFS += -DUSE_ACCEL_OPENACC
+ endif
+ ifeq ($(use_accel_impl),cuda)
+  CPP_DEFS += -DUSE_ACCEL_CUDA
+ endif
+endif
+ifeq ($(use_alt_simd),yes)
+ alt_inc_dirs += -Iinclude/bridge/lib_alt_SIMD
+ CPP_DEFS += -DUSE_ALT_SIMD -D$(simd_arch)
+endif
+endif
+
+##--
+
+CPPFLAGS =
+CPPFLAGS += $(EXTRA_INCLUDES)
+CPPFLAGS += $(CPP_DEFS)
+
+CPPFLAGS_TEST = $(CPP_DEFS_TEST)
+
+##--
+
+
+build_library_base_dir = $(build_dir)
+build_test_base_dir = $(test_dir)
+
+msg_file = $(build_library_base_dir)/message.txt
+make_inc_file = $(build_library_base_dir)/make.inc
+
+##--
+
+.PHONY: all msg check-extra_libs all-done
+.PHONY: program program-with-lib
+.PHONY: lib make-inc
+.PHONY: make-build_dir make-test_dir
+
+## export variables to subsequent make
+export
+
+## make all
+
+#all: msg check-extra_libs lib program-with-lib all-done
+#all: msg check-extra_libs link-inline lib program-with-lib all-done
+#all: msg lib program-with-lib all-done
+all: msg lib
+
+## build library
+lib: msg version_h check-extra_libs link-inline make-inc build_bridgecuda
+	$(MAKE) -f src/Makefile build_dir=$(build_dir) lib
+
+build_bridgecuda:
+ifeq ($(use_alt_accel),yes)
+ifeq ($(use_accel_impl), cuda)
+	@echo "Starting build_bridgecuda..."
+	$(MAKE) -C src/lib_alt_Accel/BridgeCUDA ARCH="$(CUDA_ARCH)" all
+	@if [ ! -e $(build_dir)/libbridgecuda.a ]; then \
+	  echo "Creating symbolic link for libbridgecuda.a..."; \
+	  ln -s ../src/lib_alt_Accel/BridgeCUDA/libbridgecuda.a $(build_dir)/libbridgecuda.a; \
+	fi
+	@echo "Finished building BridgeCUDA"
+endif
+endif
+
+#libbridgecuda: $(build_dir)/libbridgecuda.a
+
+$(build_dir)/libbridgecuda.a:
+	@echo "Starting build_bridgecuda..."
+	$(MAKE) -C src/lib_alt_Accel/BridgeCUDA clean
+	$(MAKE) -C src/lib_alt_Accel/BridgeCUDA ARCH="$(CUDA_ARCH)" all
+	@echo "Creating symbolic link for libbridgecuda.a..."
+	ln -s ../src/lib_alt_Accel/BridgeCUDA/libbridgecuda.a $(build_dir)/libbridgecuda.a
+	@echo "Finished building BridgeCUDA"
+
+
+## derive version.h from VERSION at the top directory
+version_h: src/version.h VERSION
+
+src/version.h: VERSION
+	@echo "#define BRIDGE_VERSION \""`cat VERSION`"\"" > src/version.h
+
+## make work directories
+make-build_dir:
+	@if [ ! -d $(build_dir) ]; then \
+		mkdir -p $(build_dir); \
+		echo "create directory: $(build_dir)"; \
+	fi
+
+make-test_dir:
+	@if [ ! -d $(test_dir) ]; then \
+		mkdir -p $(test_dir); \
+		echo "create directory: $(test_dir)"; \
+	fi
+
+## show summary of build options
+msg: make-build_dir
+	@( \
+	echo "----------------------------------------------------------------"; \
+	echo "Compilation Environment Summary" ; \
+	echo ; \
+	echo "Options:" ; \
+	echo "  target              =" $(target) "(" $(TARGET_MACHINE) ")" ; \
+	echo "  use_mpi             =" $(use_mpi) ; \
+	echo "  use_thread          =" $(use_thread) ; \
+	echo "  use_opt_code        =" $(use_opt_code) ; \
+	echo "  use_opt_level       =" $(use_opt_level) ; \
+	echo "  use_static          =" $(use_static) ; \
+	echo "  use_debug           =" $(use_debug) ; \
+	echo "  use_gauge_group     =" $(use_gauge_group) ; \
+	echo "  use_complex         =" $(use_complex) ; \
+	echo "  use_cpp11           =" $(use_cpp11) ; \
+	echo ; \
+	echo "Compiler and options:" ; \
+	echo "  CXX         =" $(CXX) ; \
+	echo "  CXXFLAGS    =" $(CXXFLAGS) ; \
+	echo "  LD          =" $(LD) ; \
+	echo "  LDFLAGS     =" $(LDFLAGS) ; \
+	echo "  LDLIBS      =" $(LDLIBS) ; \
+	echo "  CXXDEP      =" $(CXXDEP) ; \
+	echo "  CXXDEPFLAGS =" $(CXXDEPFLAGS) ; \
+	echo "  CPPFLAGS    =" $(CPPFLAGS) ; \
+	echo "----------------------------------------------------------------" ; \
+	) | tee $(msg_file)
+
+
+make-inc: make-build_dir
+	@echo generating make.inc file ...
+	@( \
+	echo "# make.inc" ; \
+	echo "# See $(msg_file) for Compilation Environment Summary." ; \
+	echo "# This file is automatically created. Do not edit this file manually."; \
+	echo ; \
+	echo "BRIDGE_ROOT =" `cd $(build_library_base_dir) && pwd` ; \
+	echo "BRIDGE_EXTRA_PATH =" `cd $(extra_root_dir) && pwd` ; \
+	echo ; \
+	echo "CXX         =" $(CXX) ; \
+	echo "CXXFLAGS    =" $(CXXFLAGS) ; \
+	echo "LD          =" $(LD) ; \
+	echo "LDFLAGS     =" $(LDFLAGS) ; \
+	echo "LDLIBS      =" $(LDLIBS) ; \
+	echo "CXXDEP      =" $(CXXDEP) ; \
+	echo "CXXDEPFLAGS =" $(CXXDEPFLAGS) ; \
+	echo ; \
+	echo "CPPFLAGS    =" $(CPP_DEFS) ; \
+	echo "CPPFLAGS_TEST  =" $(CPP_DEFS_TEST) ; \
+	echo ; \
+	echo 'BRIDGE_INCLUDE = -I$$(BRIDGE_ROOT)/include/bridge -I$$(BRIDGE_ROOT)/include/bridge/lib' ; \
+        echo "BRIDGE_ALT_INCLUDE =" `echo $(alt_inc_dirs) | sed -e 's,I,I$$(BRIDGE_ROOT)/,g'` ; \
+	echo 'BRIDGE_LIB     = -L$$(BRIDGE_ROOT) -lbridge' ; \
+	echo "EXTRA_LIBS     =" `echo $(EXTRA_LIBS) | sed -e 's,$(extra_root_dir),$$(BRIDGE_EXTRA_PATH),g'` ; \
+	echo ; \
+	echo ; \
+	echo 'CXXFLAGS   += $$(CPPFLAGS) $$(BRIDGE_INCLUDE) $$(BRIDGE_ALT_INCLUDE) $$(EXTRA_INCLUDES)' ; \
+	echo 'LDLIBS     += $$(BRIDGE_LIB) $$(EXTRA_LIBS)' ; \
+	) > $(make_inc_file)
+
+
+
+## final messages
+
+all-done: lib program-with-lib
+	@echo ""
+	@echo "Bridge code compilation is successful"
+	@echo ""
+
+
+# symbolic link of inline directory
+.PHONY: link-inline
+link-inline:
+ifeq ($(use_alt_qxs),yes)
+#ifeq ($(use_qws_library),yes)
+#	- cp --no-clobber ./extra/qws-master/qws.h ./src/lib_alt_QXS/extra/
+#	- cp --no-clobber ./extra/qws-master/qws_xbound.h ./src/lib_alt_QXS/extra/
+#else
+#	- cd ./src/lib_alt_QXS/extra ; ln -s qws_dummy.h qws.h ; cd ../../../
+#endif
+ifeq ($(use_qxs_arch),acle)
+	cd ./src/lib_alt_QXS/; ln -s inline_ACLE inline ; cd ../../
+endif
+ifeq ($(use_qxs_arch),general)
+	cd ./src/lib_alt_QXS/; ln -s inline_General inline ; cd ../../
+endif
+endif
+ifeq ($(use_alt_accel),yes)
+ifeq ($(use_accel_impl),openacc)
+	cd ./src/lib_alt_Accel/; ln -s BridgeOpenACC BridgeACC ; cd ../../
+endif
+ifeq ($(use_accel_impl),cuda)
+	cd ./src/lib_alt_Accel/; ln -s BridgeCUDA BridgeACC ; cd ../../
+endif
+endif
+
+# symbolic link of inline directory
+.PHONY: delete_links
+delete_links:
+ifeq ($(use_alt_qxs),yes)
+	if [ -e ./src/lib_alt_QXS/inline ]; then rm ./src/lib_alt_QXS/inline; fi
+endif
+ifeq ($(use_alt_accel),yes)
+	if [ -e ./src/lib_alt_Accel/BridgeACC ]; then rm ./src/lib_alt_Accel/BridgeACC; fi
+endif
+
+## generate doxygen html files to ./docs/html
+.PHONY: doxygen
+doxygen:
+	@if [ -e ./docs/doxygen.conf ]; then \
+	  echo "generating doxygen documents ..."; \
+	  ( \
+	    cd ./docs; \
+	    doxygen doxygen.conf \
+	  ) \
+	fi
+
+## make package
+VERSION=$(shell cat VERSION)
+NAME=bridge
+PACK_DIR=$(NAME)-$(VERSION)
+
+package_contents=\
+  ChangeLog.txt \
+  INSTALL.txt \
+  LICENSE.txt \
+  Makefile \
+  Makefile.in \
+  Makefile_target.inc \
+  README.txt \
+  VERSION \
+  docs \
+  src \
+  tests
+#  python \
+
+.PHONY: package
+package:
+	cd .. && mkdir $(PACK_DIR)
+	cp -rf $(package_contents) ../$(PACK_DIR)
+	find ../$(PACK_DIR) -name ".svn" | xargs rm -rf
+	cd .. && tar -zcvf $(addsuffix .tar.gz, $(PACK_DIR)) $(PACK_DIR) && rm -rf $(PACK_DIR)
+
+## file clean up
+.PHONY: clean
+
+clean:
+	$(MAKE) -f src/Makefile clean
+	$(MAKE) -f src/Makefile real-clean
+	$(MAKE) delete_links
+ifeq ($(use_alt_accel),yes)
+ifeq ($(use_accel_impl),cuda)
+	$(MAKE) -C src/lib_alt_Accel/BridgeCUDA clean
+	rm -f $(build_dir)/libbridgecuda.a
+endif
+endif
+#	
+#	
+
+################################################################################
+#        @author  Shinji Motoki (smotoki) 
+#                 $LastChangedBy: kanamori $
+#        @date    $LastChangedDate:: 2026-05-12 13:50:58 #$
+#        @version $LastChangedRevision: 2712 $
+################################################################################

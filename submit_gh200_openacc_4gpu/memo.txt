@@ -1,0 +1,2 @@
+slurm-33406.out: number_of_thread=1
+slurm-33476.out: number_of_thread=2

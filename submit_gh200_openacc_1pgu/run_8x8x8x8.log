@@ -1,0 +1,767 @@
+Fri Nov 29 18:11:14 JST 2024
+--------------- this script ----------------
+date
+echo "--------------- this script ----------------"
+cat $0
+echo "--------------- this script, done ----------"
+echo
+module list
+
+export OMP_NUM_THREADS=2
+echo OMP_NUM_THREAD: $OMP_NUM_THREADS
+export OMP_PROC_BIND=spread
+env
+
+echo "--------------- main.yaml ------------------"
+cat main.yaml
+echo "--------------- main.yaml, done-------------"
+echo
+INPUT=test_alt_Spectrum_Domainwall_5din_Hadron2ptFunction.yaml
+echo $INPUT
+echo "--------------- INPUT ----------------------"
+cat $INPUT
+echo "--------------- INPUT, done ----------------"
+echo
+BIN=../benchmark/domainwall/bridge.elf
+ls -l $BIN
+date
+mpirun -bind-to none $BIN alt_accel
+date
+echo done
+
+
+--------------- this script, done ----------
+
+Currently Loaded Modulefiles:
+ 1) system/qc-gh200   2) nvhpc-hpcx/24.9  
+OMP_NUM_THREAD: 2
+SHELL=/bin/bash
+SLURM_JOB_USER=kanamori-i
+SLURM_TASKS_PER_NODE=1
+SLURM_JOB_UID=1013
+HISTCONTROL=ignoredups
+SLURM_TASK_PID=1077141
+__MODULES_LMALTNAME=nvhpc-hpcx/24.9&as|nvhpc-hpcx/default&as|nvhpc-hpcx/latest
+SLURM_LOCALID=0
+SLURM_SUBMIT_DIR=/hs/work0/home/users/kanamori-i/work/bridge/fs_dw_solver/work_202411/submit_gh200_openacc_1pgu
+HISTSIZE=1000
+HOSTNAME=qc-gh200-02
+SLURMD_NODENAME=qc-gh200-02
+SLURM_JOB_START_TIME=1732871473
+HYDRA_LAUNCHER_EXTRA_ARGS=--external-launcher
+SSH_AUTH_SOCK=/tmp/ssh-XXXXe8gbKz/agent.230783
+CPP=cpp
+SLURM_CLUSTER_NAME=rccs-cloud
+SLURM_JOB_END_TIME=1732875073
+SLURM_CPUS_ON_NODE=72
+SLURM_JOB_CPUS_PER_NODE=72
+PWD=/home/users/kanamori-i/work/bridge/fs_dw_solver/work_202411/submit_gh200_openacc_1pgu
+PRTE_MCA_plm_slurm_args=--external-launcher
+SLURM_GTIDS=0
+LOGNAME=kanamori-i
+XDG_SESSION_TYPE=tty
+SLURM_JOB_PARTITION=qc-gh200
+MODULESHOME=/usr/share/Modules
+MANPATH=/usr/share/man:
+SLURM_JOB_NUM_NODES=1
+CXX=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/bin/nvc++
+SLURM_JOBID=33707
+I_MPI_HYDRA_BOOTSTRAP_EXEC_EXTRA_ARGS=--external-launcher
+SLURM_JOB_QOS=normal
+MOTD_SHOWN=pam
+__MODULES_SHARE_MANPATH=:1
+HOME=/home/users/kanamori-i
+LANG=ja_JP.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:
+SLURM_PROCID=0
+__MODULES_LMCONFLICT=system/qc-gh200&system:nvhpc-hpcx/24.9&nvhpc&nvhpc-nompi&nvhpc-byo-compiler&nvhpc-hpcx&nvhpc-openmpi3
+TMPDIR=/tmp
+NVHPC_ROOT=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9
+SLURM_NTASKS=1
+SLURM_TOPOLOGY_ADDR=qc-gh200-02
+SSH_CONNECTION=134.160.184.6 42324 10.129.0.30 22
+OMP_PROC_BIND=spread
+HYDRA_BOOTSTRAP=slurm
+SLURM_TOPOLOGY_ADDR_PATTERN=node
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+CPLUS_INCLUDE_PATH=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/extras/qd/include/qd:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nvshmem/include:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nccl/include:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/math_libs/include
+F77=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/bin/nvfortran
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+USER=kanamori-i
+SLURM_NODELIST=qc-gh200-02
+ENVIRONMENT=BATCH
+MODULES_RUN_QUARANTINE=LD_LIBRARY_PATH LD_PRELOAD
+LOADEDMODULES=system/qc-gh200:nvhpc-hpcx/24.9
+SLURM_JOB_ACCOUNT=nvidia-seminar
+F90=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/bin/nvfortran
+SLURM_PRIO_PROCESS=0
+SLURM_NPROCS=1
+SHLVL=3
+SLURM_NNODES=1
+XDG_SESSION_ID=264901
+SLURM_SUBMIT_HOST=login0.cloud.r-ccs.riken.jp
+LD_LIBRARY_PATH=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nvshmem/lib:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nccl/lib:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/math_libs/lib64:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/lib:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/extras/qd/lib:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/cuda/lib64
+XDG_RUNTIME_DIR=/run/user/1013
+SLURM_JOB_ID=33707
+SLURM_NODEID=0
+SSH_CLIENT=134.160.184.6 42324 22
+__MODULES_LMINIT=module use --append /usr/share/Modules/modulefiles:module use --append /etc/modulefiles:module use --append /usr/share/modulefiles:module use --append /cloud_opt/misc/modulefiles
+OMP_NUM_THREADS=2
+FC=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/bin/nvfortran
+which_declare=declare -f
+XDG_DATA_DIRS=/home/users/kanamori-i/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+SLURM_CONF=/etc/slurm/slurm.conf
+PATH=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/hpcx/bin:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/extras/qd/bin:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/bin:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/cuda/bin:/home/users/kanamori-i/.local/bin:/home/users/kanamori-i/bin:/usr/share/Modules/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+SLURM_JOB_NAME=domainwall
+NVHPC=/opt/nvidia/hpc_sdk
+MODULEPATH=/opt/nvidia/hpc_sdk/modulefiles:/cloud_opt/modulefiles/qc-gh200:/usr/share/Modules/modulefiles:/etc/modulefiles:/usr/share/modulefiles:/cloud_opt/misc/modulefiles
+CC=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/bin/nvc
+_LMFILES_=/cloud_opt/misc/modulefiles/system/qc-gh200:/opt/nvidia/hpc_sdk/modulefiles/nvhpc-hpcx/24.9
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1013/bus
+C_INCLUDE_PATH=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/extras/qd/include/qd:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nvshmem/include:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nccl/include:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/math_libs/include
+MAIL=/var/spool/mail/kanamori-i
+SSH_TTY=/dev/pts/4
+OMPI_MCA_plm_slurm_args=--external-launcher
+SLURM_JOB_GID=1013
+CPATH=/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/compilers/extras/qd/include/qd:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nvshmem/include:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/comm_libs/nccl/include:/opt/nvidia/hpc_sdk/Linux_aarch64/24.9/math_libs/include
+OLDPWD=/home/users/kanamori-i/work/bridge/fs_dw_solver/work_202411
+SLURM_JOB_NODELIST=qc-gh200-02
+MODULES_CMD=/usr/share/Modules/libexec/modulecmd.tcl
+I_MPI_HYDRA_BOOTSTRAP=slurm
+BASH_FUNC_ml%%=() {  module ml "$@"
+}
+BASH_FUNC_which%%=() {  ( alias;
+ eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
+}
+BASH_FUNC_module%%=() {  local _mlredir=1;
+ if [ -n "${MODULES_REDIRECT_OUTPUT+x}" ]; then
+ if [ "$MODULES_REDIRECT_OUTPUT" = '0' ]; then
+ _mlredir=0;
+ else
+ if [ "$MODULES_REDIRECT_OUTPUT" = '1' ]; then
+ _mlredir=1;
+ fi;
+ fi;
+ fi;
+ case " $@ " in 
+ *' --no-redirect '*)
+ _mlredir=0
+ ;;
+ *' --redirect '*)
+ _mlredir=1
+ ;;
+ esac;
+ if [ $_mlredir -eq 0 ]; then
+ _module_raw "$@";
+ else
+ _module_raw "$@" 2>&1;
+ fi
+}
+BASH_FUNC__module_raw%%=() {  eval "$(/usr/bin/tclsh '/usr/share/Modules/libexec/modulecmd.tcl' bash "$@")";
+ _mlstatus=$?;
+ return $_mlstatus
+}
+_=/usr/bin/env
+--------------- main.yaml ------------------
+# this is a sample parameter file
+
+Main:
+  ## lattice_size = [Lx, Ly, Lz, Lt]
+  lattice_size             : [8,8,8,8]
+  grid_size                : [1,1,1,1]
+  number_of_thread         : 2
+  device_number_offset     : 0
+  number_of_color          : 3
+  ## log_filename = {stdout, or "filename"}
+  log_filename             : stdout
+  ildg_log_filename        : stdout
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level            : General
+--------------- main.yaml, done-------------
+
+test_alt_Spectrum_Domainwall_5din_Hadron2ptFunction.yaml
+--------------- INPUT ----------------------
+# this is a sample parameter file
+
+Test_Spectrum:
+  ## gauge_config_status = {Continue,Cold_start,Hot_start}
+  gauge_config_status      : Continue
+  ## gauge_config_type = {Text,Binary,Binary_Parallel,Fortran_JLQCD,Fortran_ILDG,ILDG,ILDG_Parallel}
+  gauge_config_type_input  : Text_4x4x4x8
+  config_filename_input    : ../conf_04040408.txt
+  ## random_number_type = {Mseries,MT19937,SFMT} NB. SFMT is an extra library
+  random_number_type       : Mseries
+  seed_for_random_number   : 1234567UL
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level            : General
+#  expected_result          : 4.27368602405324e-01 # 16x4x4x8 ok
+#  expected_result          : 4.35052428395750e-01 # 4x4x4x8 ok
+#  expected_result          : 4.24209447645414e-01 # 16x8x8x16 ok
+#  expected_result          : 4.22357801893693e-01 # 32x8x8x8 ok
+  expected_result          : 4.58304049059966e-01 # 32x8x8x12 ok
+#  expected_result          : 4.57842392303043e-01 # 8x8x8x12 ok
+#  expected_result          : 4.24278539207859e-01 # 32x8x8x16 ok
+#  expected_result          : 4.23618364401005e-01  # 32x16x16x16 ok
+
+Corr2pt_4spinor:
+  ## filename_output = {stdout, or "filename"}
+  filename_output : stdout
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level   : General
+
+Fopr_ref:
+  fermion_type            : Domainwall
+  kernel_type             : Wilson
+  ## gamma_matrix_type = {Chiral,Dirac}
+  gamma_matrix_type       : Dirac
+  quark_mass              : 0.1
+  quark_mass_PauliVillars : 1.0
+  domain_wall_height      : 1.6
+  extent_of_5th_dimension : 8
+  boundary_condition      : [1,1,1,-1]
+  coefficient_b           : 1.5
+  coefficient_c           : 0.5
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level      : General
+
+Fopr:
+  fermion_type            : Domainwall_5din
+  kernel_type             : Wilson
+  code_implementation     : 5d
+  ## gamma_matrix_type = {Chiral,Dirac}
+  gamma_matrix_type       : Dirac
+  quark_mass              : 0.1
+  quark_mass_PauliVillars : 1.0
+  domain_wall_height      : 1.6
+  extent_of_5th_dimension : 8
+  boundary_condition      : [1,1,1,-1]
+  block_size              : [4,4,4,4]
+  coefficient_b           : 1.5
+  coefficient_c           : 0.5
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level      : General
+
+Source:
+  ## source_type = {Local,Exponential,MomentumWall,Wall}
+  source_type     : Local
+  ## source_position = [x,y,z,t], x = {0,...,Lx-1}
+  source_position : [0,0,0,0]
+  ## additional parameters for Exponential, exp(- slope * r^(power))
+  slope           : 0.25
+  power           : 2.0
+  ## additional parameters for MomentumWall, source_momentum = [nx,ny,nz,nt], p = (2 \pi / L) n
+  source_momentum : [1,1,1, 0]
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level   : General
+
+GaugeFixing:
+  ## gauge_fixing_type = {Coulomb,Landau,None}
+#  gauge_fixing_type             : Coulomb
+  gauge_fixing_type             : None
+  maximum_number_of_iteration   : 5000
+  number_of_naive_iteration     : 50
+  interval_of_measurement       : 10
+  iteration_to_reset            : 1000
+  convergence_criterion_squared : 1.0e-24
+  overrelaxation_parameter      : 1.6
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level                 : General
+
+Solver:
+  ## solver_type = {CGNE,CGNR,BiCGStab_Cmplx,BiCGStab_L_Cmplx,BiCGStab_DS_L_Cmplx,BiCGStab_IDS_L_Cmplx,GMRES_m_Cmplx}
+  solver_type                         : CGNR
+  maximum_number_of_iteration         : 100
+  maximum_number_of_restart           : 40
+#  convergence_criterion_squared       : 1.0e-32
+  convergence_criterion_squared       : 1.0e-28
+  # convergence_criterion_squared       : 1.0e-14
+  ## additional parameters for each solver
+  number_of_orthonormal_vectors       : 2
+  tolerance_for_DynamicSelection_of_L : 0.1
+  ## verbose_level = {Crucial,General,Detailed,Paranoiac}
+  verbose_level                       : General
+#  verbose_level                       : Detailed
+--------------- INPUT, done ----------------
+
+-rwxr-xr-x. 1 kanamori-i kanamori-i 13730320 Nov 27 18:24 ../benchmark/domainwall/bridge.elf
+Fri Nov 29 18:11:14 JST 2024
+Bridge++ 2.0.0
+
+target: alt_accel
+file = main.yaml
+
+Lattice parameters:
+  Lx = 8,  Ly = 8,  Lz = 8,  Lt = 8,
+  Nx = 8,  Ny = 8,  Nz = 8,  Nt = 8,
+  NPEx = 1,  NPEy  = 1,  NPEz  = 1,  NPEt  = 1,
+  Lvol = 4096,  Nvol = 4096,  NPE = 1,
+  Ndim = 4
+  Nc   = 3
+  Nd   = 4
+
+ThreadManager: initialization
+  Number of threads = 2
+Main: input parameters
+  lattice_size     = [8, 8, 8, 8]
+  grid_size        = [1, 1, 1, 1]
+  number of thread = 2
+  number of color  = 3
+  logfile          = stdout
+  ildg_logfile     = stdout
+  vlevel           = General
+
+Alt_Accel code is being setup.
+DeviceManager_OpenACC: being initialized.
+  process_id = 0
+  NVIDIA environment is used.
+  number of devices = 1
+  device_id = 0  is used on process = 0
+------------------------------------------------
+Alt_Accel: Factory entries
+------------------------------------------------
+AFopr<double, ACCEL> >(void):
+AFopr<double, ACCEL>(Parameters&):
+	Domainwall
+	Domainwall_5din
+	Domainwall_5din_eo
+	Domainwall_eo
+	Wilson
+	Wilson_eo
+AFopr<double, ACCEL>(Fopr*):
+	Domainwall
+AFopr<float, ACCEL> >(void):
+AFopr<float, ACCEL>(Parameters&):
+	Domainwall
+	Domainwall_5din
+	Domainwall_5din_eo
+	Domainwall_eo
+	Wilson
+	Wilson_eo
+AFopr<float, ACCEL>(Fopr*):
+	Domainwall
+------------------------------------------------
+Timer: timestamp: 2024/11/29 18:11:20 +0900
+target: alt_accel
+
+--------------------------------------------------------------------
+test name: Spectrum_Domainwall_alt.hadron_2ptFunction
+test file: test_alt_Spectrum_Domainwall_5din_Hadron2ptFunction.yaml
+test mode: richardson_eo
+file = test_alt_Spectrum_Domainwall_5din_Hadron2ptFunction.yaml
+  vlevel       = General
+  source_type  = Local
+ Random number init: ndelay =   1234567
+
+Configuration setup:
+  gconf_status = Continue
+  gconf_read   = Text_4x4x4x8
+  readfile     = ../conf_04040408.txt
+  gmset_type   = Dirac
+Gamma matrix: dirac representation.
+AFopr_Domainwall_5din<AField<double,ACCEL> >: construction
+  do_comm[0] = 1
+  do_comm[1] = 1
+  do_comm[2] = 1
+  do_comm[3] = 1
+  AFopr_Domainwall_5din<AField<double,ACCEL> >: input parameters
+    mq   =   0.1000
+    M0   =   1.6000
+    Ns   =    8
+    boundary[0] =  1
+    boundary[1] =  1
+    boundary[2] =  1
+    boundary[3] = -1
+    coefficients:
+      b[ 0] =     1.5000000000  c[ 0] =     0.5000000000
+      b[ 1] =     1.5000000000  c[ 1] =     0.5000000000
+      b[ 2] =     1.5000000000  c[ 2] =     0.5000000000
+      b[ 3] =     1.5000000000  c[ 3] =     0.5000000000
+      b[ 4] =     1.5000000000  c[ 4] =     0.5000000000
+      b[ 5] =     1.5000000000  c[ 5] =     0.5000000000
+      b[ 6] =     1.5000000000  c[ 6] =     0.5000000000
+      b[ 7] =     1.5000000000  c[ 7] =     0.5000000000
+AFopr_Domainwall_5din<AField<double,ACCEL> >: construction finished.
+Source for spinor field - local:
+  source_position[0] = 0
+  source_position[1] = 0
+  source_position[2] = 0
+  source_position[3] = 0
+  check finished
+
+
+Fprop_alt_Standard_eo_Richardson<AField<double,ACCEL>, AField<float,ACCEL> >: being setup.
+AFopr_Domainwall_5din_eo<AField<double,ACCEL> >: construction
+  do_comm[0] = 0
+  do_comm[1] = 0
+  do_comm[2] = 0
+  do_comm[3] = 0
+  AFopr_Domainwall_5din_eo<AField<double,ACCEL> >: input parameters
+    gamma matrix repr.:  Dirac
+    code implementation: 5d
+    mq   =   0.1000
+    M0   =   1.6000
+    Ns   =    8
+    boundary[0] =  1
+    boundary[1] =  1
+    boundary[2] =  1
+    boundary[3] = -1
+    coefficients:
+      b[ 0] =     1.5000000000  c[ 0] =     0.5000000000
+      b[ 1] =     1.5000000000  c[ 1] =     0.5000000000
+      b[ 2] =     1.5000000000  c[ 2] =     0.5000000000
+      b[ 3] =     1.5000000000  c[ 3] =     0.5000000000
+      b[ 4] =     1.5000000000  c[ 4] =     0.5000000000
+      b[ 5] =     1.5000000000  c[ 5] =     0.5000000000
+      b[ 6] =     1.5000000000  c[ 6] =     0.5000000000
+      b[ 7] =     1.5000000000  c[ 7] =     0.5000000000
+AFopr_Domainwall_5din_eo<AField<float,ACCEL> >: construction
+  do_comm[0] = 0
+  do_comm[1] = 0
+  do_comm[2] = 0
+  do_comm[3] = 0
+  AFopr_Domainwall_5din_eo<AField<float,ACCEL> >: input parameters
+    gamma matrix repr.:  Dirac
+    code implementation: 5d
+    mq   =   0.1000
+    M0   =   1.6000
+    Ns   =    8
+    boundary[0] =  1
+    boundary[1] =  1
+    boundary[2] =  1
+    boundary[3] = -1
+    coefficients:
+      b[ 0] =     1.5000000000  c[ 0] =     0.5000000000
+      b[ 1] =     1.5000000000  c[ 1] =     0.5000000000
+      b[ 2] =     1.5000000000  c[ 2] =     0.5000000000
+      b[ 3] =     1.5000000000  c[ 3] =     0.5000000000
+      b[ 4] =     1.5000000000  c[ 4] =     0.5000000000
+      b[ 5] =     1.5000000000  c[ 5] =     0.5000000000
+      b[ 6] =     1.5000000000  c[ 6] =     0.5000000000
+      b[ 7] =     1.5000000000  c[ 7] =     0.5000000000
+Parameters: fetch_int: key 'maximum_number_of_iteration_single' not found.
+maximum_number_of_iteration_single is not given, setting it 4000 from the parameters for the outer.
+Parameters: fetch_double: key 'convergence_criterion_squared_single' not found.
+convergence_criterion_squared_single is not given, setting it 1.000000e-08.
+ASolver_CGNR<Afield<float,ACCEL> >:
+ASolver_CG<Afield<float,ACCEL> >:
+  Precision: float
+  Niter     = 4000
+  Stop_cond =   9.99999994e-09
+  init_guess_mode: 2
+ASolver_Richardson:
+  Precision: double
+  Niter     = 4000
+  Stop_cond =   1.00000000e-28
+  InitialGuess = 2
+Fprop_alt_Standard_eo_Richardson<AField<double,ACCEL>, AField<float,ACCEL> >: setup finished.
+
+Fprop_alt_Standard_eo_Richardson<AField<double,ACCEL>, AField<float,ACCEL> >: mult performance:
+  mult mode = DdagD
+  Double precision:
+   Elapsed time =       0.145696 sec
+   Flop(Fopr)   =          114032640
+   Flop(total)  =        22806528000
+   Performance  =     156.535 GFlops
+  Single precision:
+   Elapsed time =       0.142316 sec
+   Flop(Fopr)   =          114032640
+   Flop(total)  =        22806528000
+   Performance  =     160.253 GFlops
+
+Fprop_alt_Standard_eo_Richardson<AField<double,ACCEL>, AField<float,ACCEL> >: mult performance:
+  mult mode = D
+  Double precision:
+   Elapsed time =       0.071583 sec
+   Flop(Fopr)   =           57016320
+   Flop(total)  =        11403264000
+   Performance  =     159.302 GFlops
+  Single precision:
+   Elapsed time =       0.070310 sec
+   Flop(Fopr)   =           57016320
+   Flop(total)  =        11403264000
+   Performance  =     162.186 GFlops
+AFopr_Wilson<AField<double,ACCEL> >: construction
+  do_comm[0] = 0
+  do_comm[1] = 0
+  do_comm[2] = 0
+  do_comm[3] = 0
+Parameters of AFopr_Wilson<AField<double,ACCEL> >:
+  gamma-matrix type = Dirac
+  kappa =   0.2083
+  boundary[0] =  1
+  boundary[1] =  1
+  boundary[2] =  1
+  boundary[3] = -1
+AFopr_Wilson<AField<double,ACCEL> >: construction finished.
+
+Solving quark propagator:
+  color spin   Nconv      diff           diff2
+APrecond_Mixedprec: nconv = 79  diff = 8.730787e-09
+APrecond_Mixedprec: nconv = 109  diff = 9.479415e-09
+APrecond_Mixedprec: nconv = 113  diff = 7.784736e-09
+APrecond_Mixedprec: nconv = 100  diff = 8.985715e-09
+Richardson  nconv = 4, diff2 =  1.128512475447065e-31
+    0    0        4     3.3593e-16     1.7667e-29
+APrecond_Mixedprec: nconv = 70  diff = 9.885035e-09
+APrecond_Mixedprec: nconv = 110  diff = 8.255626e-09
+APrecond_Mixedprec: nconv = 99  diff = 8.900053e-09
+APrecond_Mixedprec: nconv = 113  diff = 7.956523e-09
+Richardson  nconv = 4, diff2 =  9.916661242385673e-32
+    1    0        4     3.1491e-16     1.5194e-29
+APrecond_Mixedprec: nconv = 77  diff = 9.127140e-09
+APrecond_Mixedprec: nconv = 110  diff = 9.095166e-09
+APrecond_Mixedprec: nconv = 113  diff = 7.524192e-09
+APrecond_Mixedprec: nconv = 110  diff = 9.750829e-09
+Richardson  nconv = 4, diff2 =  1.019355884066382e-31
+    2    0        4     3.1927e-16     1.6885e-29
+APrecond_Mixedprec: nconv = 76  diff = 9.360339e-09
+APrecond_Mixedprec: nconv = 110  diff = 9.184601e-09
+APrecond_Mixedprec: nconv = 113  diff = 7.610648e-09
+APrecond_Mixedprec: nconv = 108  diff = 8.323212e-09
+Richardson  nconv = 4, diff2 =  1.004217911782715e-31
+    0    1        4     3.1689e-16     1.5241e-29
+APrecond_Mixedprec: nconv = 79  diff = 9.021639e-09
+APrecond_Mixedprec: nconv = 111  diff = 9.111713e-09
+APrecond_Mixedprec: nconv = 113  diff = 9.709241e-09
+APrecond_Mixedprec: nconv = 110  diff = 7.948326e-09
+Richardson  nconv = 4, diff2 =  1.110837446468255e-31
+    1    1        4     3.3329e-16     1.7343e-29
+APrecond_Mixedprec: nconv = 78  diff = 7.658508e-09
+APrecond_Mixedprec: nconv = 102  diff = 9.132272e-09
+APrecond_Mixedprec: nconv = 109  diff = 8.052776e-09
+APrecond_Mixedprec: nconv = 99  diff = 8.858202e-09
+Richardson  nconv = 4, diff2 =  9.601920851108653e-32
+    2    1        4     3.0987e-16     1.8079e-29
+APrecond_Mixedprec: nconv = 79  diff = 8.879667e-09
+APrecond_Mixedprec: nconv = 110  diff = 8.785049e-09
+APrecond_Mixedprec: nconv = 113  diff = 7.797247e-09
+APrecond_Mixedprec: nconv = 102  diff = 9.761068e-09
+Richardson  nconv = 4, diff2 =  9.794758773035225e-32
+    0    2        4     3.1297e-16     1.7761e-29
+APrecond_Mixedprec: nconv = 71  diff = 9.684126e-09
+APrecond_Mixedprec: nconv = 111  diff = 8.753412e-09
+APrecond_Mixedprec: nconv = 102  diff = 9.997062e-09
+APrecond_Mixedprec: nconv = 109  diff = 8.209414e-09
+Richardson  nconv = 4, diff2 =  1.016549386769963e-31
+    1    2        4     3.1883e-16     1.5228e-29
+APrecond_Mixedprec: nconv = 77  diff = 8.831099e-09
+APrecond_Mixedprec: nconv = 110  diff = 8.942546e-09
+APrecond_Mixedprec: nconv = 113  diff = 7.212635e-09
+APrecond_Mixedprec: nconv = 111  diff = 8.391988e-09
+Richardson  nconv = 4, diff2 =  9.790362515812251e-32
+    2    2        4     3.1290e-16     1.6760e-29
+APrecond_Mixedprec: nconv = 76  diff = 9.484673e-09
+APrecond_Mixedprec: nconv = 110  diff = 9.542377e-09
+APrecond_Mixedprec: nconv = 113  diff = 7.716956e-09
+APrecond_Mixedprec: nconv = 108  diff = 9.562062e-09
+Richardson  nconv = 4, diff2 =  9.920437933357475e-32
+    0    3        4     3.1497e-16     1.5276e-29
+APrecond_Mixedprec: nconv = 79  diff = 9.188261e-09
+APrecond_Mixedprec: nconv = 111  diff = 8.076992e-09
+APrecond_Mixedprec: nconv = 113  diff = 9.576135e-09
+APrecond_Mixedprec: nconv = 110  diff = 8.448251e-09
+Richardson  nconv = 4, diff2 =  1.000968897065366e-31
+    1    3        4     3.1638e-16     1.7200e-29
+APrecond_Mixedprec: nconv = 77  diff = 9.768382e-09
+APrecond_Mixedprec: nconv = 100  diff = 9.868870e-09
+APrecond_Mixedprec: nconv = 108  diff = 8.344718e-09
+APrecond_Mixedprec: nconv = 100  diff = 9.381571e-09
+Richardson  nconv = 4, diff2 =  1.108503944452434e-31
+    2    3        4     3.3294e-16     1.7952e-29
+
+Fprop_alt_Standard_eo_Richardson<AField<double,ACCEL>, AField<float,ACCEL> >: solver performance:
+  Elapsed time =       4.539931 sec
+  Flop(total)  =       587686477824
+  Performance  =     129.448 GFlops
+Elapsed time: calculating porpagator: total        4.812 sec, count    1, average   4.8121e+00 sec
+
+2-point correlator:
+PS <-- PS correlator:
+     0    4.227835945907e-01   -2.886338926419e-19
+     1    1.420849832498e-01   -1.570979493460e-20
+     2    3.042582568157e-02    3.640415923447e-21
+     3    1.021364329932e-02    4.640085233533e-21
+     4    6.871465084213e-03    5.277481833233e-22
+     5    1.123197307162e-02   -3.356784721796e-21
+     6    2.983461676583e-02    9.782863085815e-21
+     7    1.489774247231e-01   -2.458335107646e-20
+V1 <-- V1 correlator:
+     0    1.341642980497e-01   -1.626303258728e-19
+     1    9.162096726070e-02    6.776263578034e-21
+     2    1.681390801287e-02    2.032879073410e-20
+     3    4.413282859530e-03    1.609362599783e-20
+     4    2.552150908053e-03    1.355252715607e-20
+     5    4.618522890460e-03    5.082197683526e-20
+     6    1.591756155017e-02   -1.355252715607e-20
+     7    9.433870630881e-02    1.084202172486e-19
+V2 <-- V2 correlator:
+     0    1.359633931410e-01   -3.794707603699e-19
+     1    9.149377844231e-02    1.998997755520e-19
+     2    1.661357213228e-02    2.032879073410e-20
+     3    4.912580631362e-03   -3.388131789017e-21
+     4    2.807539432505e-03    0.000000000000e+00
+     5    4.373457578093e-03   -1.355252715607e-20
+     6    1.485763469278e-02    6.776263578034e-21
+     7    9.225350495057e-02    1.897353801850e-19
+V3 <-- V3 correlator:
+     0    1.447051534539e-01   -4.228033209624e-19
+     1    9.124758917621e-02   -4.033146626367e-20
+     2    1.584329546416e-02    1.339841127924e-21
+     3    4.003680666114e-03    4.831377094296e-21
+     4    1.900533492727e-03    6.693761585939e-22
+     5    3.813620524392e-03   -4.686946936635e-21
+     6    1.506569973931e-02    5.627063970454e-21
+     7    9.450087681675e-02   -7.657021968908e-21
+A4 <-- PS correlator:
+     0   -9.879873875965e-04   -3.383994823112e-19
+     1   -2.144389057591e-02   -4.031120959799e-20
+     2   -5.839598066931e-03    7.381145219834e-21
+     3   -1.951398238575e-03   -5.294965054908e-22
+     4   -5.267491715183e-05   -3.819383071092e-22
+     5    1.983766590244e-03   -2.795587826274e-21
+     6    5.948577865322e-03    1.485769331973e-20
+     7    2.264799871612e-02   -1.476599461413e-19
+PS <-- A4 correlator:
+     0   -2.684432434961e-04    3.253157868226e-19
+     1   -2.132548771796e-02   -1.647543507383e-20
+     2   -5.833120665550e-03    9.936739703690e-21
+     3   -2.067244597663e-03    2.792164117683e-21
+     4   -1.417873968571e-04    1.878264078738e-22
+     5    1.983049930143e-03   -3.651277878011e-21
+     6    5.726053163093e-03    2.870010886012e-20
+     7    2.192831555892e-02   -8.051147837639e-20
+S <-- S correlator:
+     0   -4.101262318366e-01   -2.168404344971e-19
+     1   -1.343714658513e-01    2.168404344971e-19
+     2   -2.624513716882e-02    2.710505431214e-20
+     3   -7.119653076218e-03    2.710505431214e-20
+     4   -3.672469552545e-03    1.355252715607e-20
+     5   -6.600047979021e-03   -1.355252715607e-20
+     6   -2.408592964170e-02    0.000000000000e+00
+     7   -1.397146346420e-01    2.710505431214e-19
+GAMMA51 <-- GAMMA51 correlator:
+     0    1.253326153257e-01   -3.252606517457e-19
+     1    8.721155050305e-02   -1.694065894509e-20
+     2    1.513969276590e-02    0.000000000000e+00
+     3    3.495389085523e-03    4.065758146821e-20
+     4    1.789288217500e-03   -1.355252715607e-20
+     5    3.483356428809e-03   -5.421010862428e-20
+     6    1.388589207770e-02    6.776263578034e-21
+     7    8.926001675640e-02    1.626303258728e-19
+GAMMA52 <-- GAMMA52 correlator:
+     0    1.270634091883e-01    2.710505431214e-20
+     1    8.676208094201e-02    1.126553819848e-19
+     2    1.461858100444e-02   -4.065758146821e-20
+     3    3.704322193575e-03    0.000000000000e+00
+     4    1.939848005768e-03    5.421010862428e-20
+     5    3.449082233413e-03   -5.421010862428e-20
+     6    1.323654987585e-02    0.000000000000e+00
+     7    8.744459419905e-02    1.084202172486e-19
+GAMMA53 <-- GAMMA53 correlator:
+     0    1.362723866550e-01   -2.303929616532e-19
+     1    8.707569365768e-02   -1.694065894509e-19
+     2    1.461003057347e-02    2.371692252312e-20
+     3    3.657888088919e-03   -1.355252715607e-20
+     4    1.648421650105e-03    9.147955830346e-20
+     5    2.913152036259e-03    6.776263578034e-21
+     6    1.304798008756e-02    3.388131789017e-20
+     7    8.936508320762e-02   -2.100641709191e-19
+SIGMA12 <-- SIGMA12 correlator:
+     0    1.413961687553e-01   -1.897353801850e-19
+     1   -5.054491265761e-02    2.981555974335e-19
+     2   -7.737354493484e-03    1.355252715607e-20
+     3   -1.996430165948e-03    2.710505431214e-20
+     4   -1.315357035702e-03   -6.776263578034e-21
+     5   -2.262565356160e-03   -4.065758146821e-20
+     6   -7.523515651241e-03   -6.776263578034e-21
+     7   -4.960362185172e-02    2.608861477543e-19
+SIGMA23 <-- SIGMA23 correlator:
+     0    1.294951120906e-01   -3.794707603699e-19
+     1   -5.103782782376e-02   -6.776263578034e-20
+     2   -7.990830565943e-03   -4.065758146821e-20
+     3   -2.410788731651e-03   -6.776263578034e-21
+     4   -1.436043770525e-03    0.000000000000e+00
+     5   -2.204560161481e-03   -6.098637220231e-20
+     6   -7.498592300308e-03    3.388131789017e-21
+     7   -5.232440138466e-02    0.000000000000e+00
+SIGMA31 <-- SIGMA31 correlator:
+     0    1.309546448273e-01    8.131516293641e-20
+     1   -5.133346314024e-02   -9.486769009248e-20
+     2   -7.815118387650e-03   -1.355252715607e-20
+     3   -2.129410577548e-03   -2.710505431214e-20
+     4   -1.319989461122e-03   -1.355252715607e-20
+     5   -2.098232115225e-03    6.776263578034e-21
+     6   -7.451594966321e-03    4.065758146821e-20
+     7   -5.183830492910e-02   -2.168404344971e-19
+Elapsed time: Spectrum_Domainwall_alt.hadron_2ptFunction: total        4.819 sec, count    1, average   4.8195e+00 sec
+ alt code.
+
+check test data
+check precision = 1.0e-11
+result: 4.22783594590665e-01  expected: 4.58304049059966e-01
+test result: incorrect! (T_T)
+diff: expected - result = -7.75041253555521e-02
+
+Elapsed time: afopr_Domainwall_5din_eo: Deo & dagger   : total        2.032 sec, count 20688, average   9.8222e-05 sec
+Elapsed time: afopr_Domainwall_5din_eo: Dee_inv & dag  : total        0.934 sec, count 20704, average   4.5125e-05 sec
+Elapsed time: afopr_Domainwall_5din_eo: clear          : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: pack           : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: bulk           : total        1.203 sec, count 20688, average   5.8127e-05 sec
+Elapsed time: afopr_Domainwall_5din_eo: boundary       : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm           : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_recv_wait : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_send_wait : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_recv_start: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_send_start: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_test_all  : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: Deo & dagger   : total        0.150 sec, count 1488, average   1.0049e-04 sec
+Elapsed time: afopr_Domainwall_5din_eo: Dee_inv & dag  : total        0.071 sec, count 1516, average   4.6745e-05 sec
+Elapsed time: afopr_Domainwall_5din_eo: clear          : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: pack           : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: bulk           : total        0.088 sec, count 1488, average   5.9236e-05 sec
+Elapsed time: afopr_Domainwall_5din_eo: boundary       : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm           : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_recv_wait : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_send_wait : total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_recv_start: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_send_start: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: afopr_Domainwall_5din_eo: comm_test_all  : total        0.000 sec, count    0, average   0.0000e+00 sec
+Test result for Accel = 1
+
+----------- timer -------------
+Elapsed time: comm: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: comm_send_wait: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: linear algebra: total        0.046 sec, count 1152, average   3.9688e-05 sec
+Elapsed time: mult1: total        0.039 sec, count  944, average   4.0870e-05 sec
+Elapsed time: multb: total        0.088 sec, count 1488, average   5.9181e-05 sec
+Elapsed time: mult2: total        0.020 sec, count  544, average   3.7114e-05 sec
+Elapsed time: mult_diag: total        0.070 sec, count 1516, average   4.5985e-05 sec
+Elapsed time: copy: total        0.022 sec, count  756, average   2.9053e-05 sec
+Elapsed time: global reduction: total        0.001 sec, count   96, average   5.4861e-06 sec
+   copy contains conversion from float to double
+
+----------- timer [float] -------------
+Elapsed time: comm [float]: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: comm send wait[float]: total        0.000 sec, count    0, average   0.0000e+00 sec
+Elapsed time: linear algebra [float]: total        1.233 sec, count 34656, average   3.5576e-05 sec
+Elapsed time: mult1 [float]: total        0.416 sec, count 10544, average   3.9410e-05 sec
+Elapsed time: multb [float]: total        1.201 sec, count 20688, average   5.8063e-05 sec
+Elapsed time: mult2 [float]: total        0.377 sec, count 10144, average   3.7142e-05 sec
+Elapsed time: mult_diag [float]: total        0.922 sec, count 20704, average   4.4526e-05 sec
+Elapsed time: copy [float]: total        0.301 sec, count 10536, average   2.8524e-05 sec
+Elapsed time: global reduction [float]: total        0.034 sec, count 9792, average   3.5126e-06 sec
+   copy [float] contains conversion from double to float
+
+------------------------
+[float] arithmetics in mult (mult1+mult2+mult_diag) :  1.714 sec
+[float] overlap: arithmetics in mult (multb) :         1.201 sec
+[float] overlap: communcation in mult (comm) :         0.000 sec
+------------------------
+Elapsed time: Main: total        5.276 sec, count    1, average   5.2761e+00 sec
+Timer: timestamp: 2024/11/29 18:11:26 +0900
+calling bridge_alt_fin()
+calling ThreadManager_OpenMP::finalize()
+calling ThreadManager_OpenMP::finalize(), done
+Fri Nov 29 18:11:28 JST 2024
+done
